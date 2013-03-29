@@ -1,0 +1,448 @@
+#+TITLE: invención para cuarteto de cuerda
+#+AUTHOR: juan carlos paz
+
+* score
+
+There is no printed score for this string quartet. I am writing it
+from individual parts and a piano reduction, both manuscript.
+
+** Version                                                         :noexport:
+#+name: version
+#+begin_src org
+\version "2.16.1"
+#+end_src
+
+** Number of bars to compile (showLastLength)                      :noexport:
+#+name: bars-to-compile
+#+begin_src org
+showLastLength = R4*21
+#+end_src
+
+** Main
+#+begin_src lilypond :file invencion.eps :noweb yes
+  <<version>>
+  <<bars-to-compile>>
+  <<paper>>
+  <<header>>
+  global= {
+    \tempo 4 = 100
+    \time 3/4
+    \key c \major
+    \set Score.markFormatter = #format-mark-circle-numbers
+    #(set-accidental-style 'forget)
+    % {q s4*45 \startTextSpan s2. \stopTextSpan }
+  }
+  
+  Violinone = \new Voice { \relative c''{
+    \set Staff.instrumentName = #"Violin 1 "
+  
+    % sistema 1 compás 1
+    e8\f\downbow r8 r4 bes8^"pizz." r8 |
+    gis''2.:32^"sul pont."\fp |
+    r8 cis,^"pizz."\f r4 r16^"arco" <fis,, a>-.\downbow <fis a>-.\upbow r |
+    r8. b'16-.\downbow r4 <g, bes>4:32\fp |
+    %% beams accross rests
+    <g bes>:32\fp a'8[-.\downbow\f r16 a]-.\downbow \times 2/3 { b,4\p ais,8[( |
+  
+    %% sistema 2 compás 6
+    a8]) cis''4 } r2 |
+  
+    %dos voces? si sí, por qué no hay r4 en voz sup? lo más probables es
+    %que sea un acorde de negra con punto coincidente con la nota de vl2
+  
+    r8 es^"pizz."\f <cis,, ais'\downbow>4.^"arco" r8 | %,,ais. borrado en acorde
+    e''\downbow\f r8 \times 2/3 { f,,4.--\upbow\p fis''8-- gis,,4-- } |
+    \set harmonicDots = ##t
+    <d g\harmonic>4. r8 r4 |
+    <fes a\downbow>16-. <fes a\upbow>-. r8 r4 r8. <ees aes\harmonic>16 |
+  
+    %% sistema 3 compás 11
+    r4 \times 2/3 { g,4.-^ f'''8-^ e,4-^ } |
+    
+    r16 cis'8.~\downbow\sf
+    \override TextSpanner #'(bound-details left text) = "rit."
+    \override TextSpanner #'(bound-details right text) = "a tempo"
+    %%\once \override TextSpanner #'to-barline = ##t
+    cis2\startTextSpan)\upbow \breathe |
+      
+    %% \override BreathingSign #'text = \markup {
+    %%   \line {
+    %%     \musicglyph #"scripts.caesura.curved"
+    %%     \translate #'(-1.75 . 1.6) 
+    %%     "a tempo" }
+    %%  }
+  
+    %%\override BreathingSign #'text = \markup {
+    %%  \musicglyph #"scripts.rcomma"
+    %%  \translate #'(-1.75 . 1.6)
+    %%    "a tempo"
+    %%}
+      
+    e8\stopTextSpan\f r8 r4 cis,8-.^"accelerando"\mf r8 |
+    <bes ees\harmonic>2.\p^"sul pont." |
+    fis'16(^"nat."\ff d,) r8 r2 |
+    r2-"a tempo" r8
+    \once \set doubleSlurs = ##t
+    <bes' a'>(\mf |
+    
+    %% sistema 4 compás 17
+    %% a donde van las ligaduras?
+    c)\p c-- r2 |
+    \override Staff.NoteColumn #'ignore-collision = ##t
+    %% \override NoteHead #'style = #'harmonic-mixed
+  
+    <<
+      {
+        \oneVoice
+        \override TextSpanner #'(bound-details left text) = "rit."
+        \override TextSpanner #'(bound-details right text) = "a tempo"
+        %%\once \override TextSpanner #'to-barline = ##t
+        \tupletDown\times 2/3 { <g, d'\harmonic>4--\p <g e'\harmonic>4--\startTextSpan <a' d\harmonic>4-- } r4
+        \bar "||"
+        fis'8-.\stopTextSpan\downbow\mf
+      }
+      \\
+      {
+        \oneVoice
+        \tiny
+        \override Stem #'stencil = ##f
+        \override ParenthesesItem #'font-size = #0
+        <\parenthesize d>4*2/3 <\parenthesize d'>4*2/3 s4*2/3 s4 |
+        s8
+      }
+    >>
+    \oneVoice
+    r8 r4 r8 b\downbow\sf |
+    r2 r8 b16(\p <c, f\harmonic>) |
+    r4 r8. g16(\upbow aes') r8. |
+    a8^"pizz." r8 e16(^"arco"\upbow f') r8 r gis,16(\upbow a') |
+  
+    %% sistema 5 compás 23
+    r4 r8 e-. r8. <bes, ees\harmonic>16\f |
+    \time 1/4 R4 |
+    \time 3/4 <c f\harmonic>8\p r8 r4 fis8^"pizz."\f r8 |
+    cis'2.:32^"sul pont."^"arco"\fp |
+    \times 3/5 { gis4--^"nat."\mf a'-- fis,-- c-- d'-- } |
+    dis,-- r16 gis-.\p b'-. r16 r4 |
+  
+    %sistema 6 compás 29
+    \ottava #1 ais,16-. b'-. \ottava #0 r8 r2 |
+    r4 \ottava #1 a16-. a-. a8-. r a-. \ottava #0 |
+    \times 4/5 { c,,:32^"sul pont."\p d':32 ees,:32 b,:32 ais':32 } r4 |
+    r4 \times 4/5 { c8:32 b':32 d,:32 gis,:32 fis'':32 } |
+    r4 <ais,, cis>2:32\fp |
+    \time 2/4 d:32 |
+   
+    %sistema 7 compás 35
+    \time 3/4 c'16(^"nat."\f <fis, gis,>) r8 r bes16\downbow\f bes\upbow\p r4 |
+    \mark #2 \time 2/4 R2 |
+    \time 3/4 r8 dis16\downbow dis\upbow r8 dis16\downbow a\upbow r4 |
+    fis'16( dis,) r8 r <bes a'>16( cis) r4 |
+    e'16\downbow e\upbow r8 a,,4\downbow\fp r8 <gis fis'>16( f) |
+  
+    %sistema 7 compás 40
+    d''\downbow\f d r8 r2 |
+    r4 r16 e(\p d,) r16 <a c'>8.-- <a c'>16-- |
+    r e''(\upbow cis, bes') r fis'\downbow d,\upbow r c,!4:32 |
+    \times 2/3 { e''-- cis,,-- bes''-- } r16 fis\downbow d'\upbow r |
+    r8 b\upbow r8 %% **chequear con josé puede ser r16
+    e16\downbow fis\upbow bes,,\downbow a'8.\upbow |
+  
+    %sistema 8 compás 45
+    g,?16(\upbow e' cis) r r g(\upbow e'' cis,) a'' d,,8.( |
+    \time 1/4 d8) d16\downbow\f r |
+    %% corregir ligaduras: más pronunciadas y largas
+    \mark \default \time 3/4 r8 bes16(\upbow c' e,) r8 fis16( d[ c!) r e]( | % empieza a agrupar saltando silencios
+    cis'[ bes,) r bes]( cis' e,) c( d' fis,)[ r8 a16]( |
+    fis' dis,) r8 r16 a''( c,,) r r4 |
+  
+    %sistema 9 compás 50
+    r4 \times 2/3 { fis'4--\mf gis,,-- bes-- } |
+    \time 2/4 \times 2/3 { e'4--\f a-- r } |
+    \time 3/4 R4*3 |
+    r4 g16(\upbow\p cis,,) r8 r8. e16(\upbow |
+    bes') r8 b,!16(\upbow c') fis,-. g'-. r16 r8. a16(\upbow |
+  
+    %sistema 10 compás 55
+    gis,)[ r a'(\upbow gis,)] r4 r8. gis,16( |
+    a') b,( c') r r cis,(\upbow d') r r8 cis,16(\upbow d') |
+    \mark \default r8. b,?16(\upbow cis' f,) r[ a,](\upbow c dis gis8) |
+    d16( ees b' c,) r d( ees b c8) gis16( f'! |
+  
+    % página 2 sistema 11 compás 59
+    c'[ d,) r a]( c d' e,) r fis( d c' b,) |
+    \time 2/4 r a( f' c' gis8) e16( dis') |
+    \times 2/5 { e,,4--\f dis'-- cis,-- g'-- bes'-- } | % error: no deberían ser corcheas y 5:4?
+    \time 3/4 a,8-- r r4 r8 gis'16\upbow( d' |
+    a)[ r b,]( c') r e,(\upbow d' a,)
+  
+    % página 2
+    % sistema 12
+    % compás 63 continuación
+    r8 c16(\upbow ees, |
+    %% chequear pizz. es c16 o c8? o el grupo tremolo es quintillo
+    f')[ r a(\upbow d] g,)[ r c8]^"pizz." \times 4/5 { gis,:32[^"arco"^"sul pont." a':32 fis16:32 |
+    %% no pone ligadura
+    fis:32 c'8:32 d,,:32] } r4 r8 d''16^"nat."\upbow cis,\downbow |
+    r4 r8 a'16\downbow\f gis,\upbow r c'8.\sf |
+    \mark \default r16 fis( c d, gis)[ r8 fis'16]( ais,,[) r8 cis'16(] |
+  
+    % Sistema 13
+    % compás 68
+    e,[) r a8(]\downbow c,16) fis( f, b) c,8 r | % error: es c,8 r y no c,8. r16
+    r  bes''16[-. a,]-. r2 |
+    fis''16-. f,!-. r8 r16 c'8.-^\sf r16 aes'-. g,-. r16 |
+  
+    % compás 71
+    d-. ees'-. r8 r16 d,(\upbow ees) r r4 |
+    r4 r16 a-. bes'-. r r4 |
+  
+    % sistema 14
+    % compás 73
+    r16 e,\downbow\f r8 r4 c16 r8. |
+    c16(-^ d,) r8 r16 fis\upbow ais,\downbow r cis'\downbow e\upbow r8 |
+    f,16( fis') r8 r16 e-. dis,-. d'-. r16 e,( f) r |
+    d,( ees') r8 r4 r16 d,-. e'-. r |
+    r2 c8\f r |
+  
+    % sistema 15
+    % compás 78
+    r4 fis8-. r <bes, ees\harmonic>4:32\fp |
+    <bes es\harmonic>2:32 r8 g''-.\f |
+    r4 r16 <g,, bes>\downbow\f <g bes>\upbow r r8. e''16 |
+    r4 <c,, es>2:32\fp^"sul pont." |
+    <g' f'>8[\f\downbow^"nat." r16 <g f'>]\downbow \times 2/3 { c'4--\p d,,-- ees''-- } |
+    \time 2/4 R2 |
+  
+    % sistema 16
+    % compás 84
+    \time 3/4 r8 fis^"pizz." <c,, ees>4~\downbow^"arco" <c ees>8 r |
+    f'-.\f^"pizz." r \times 2/3 {g,,4.--\p\upbow bes''8 a,4-- } |
+    <f es\harmonic>~\mf <f es>8 r r4 |
+    <c' fis>16\downbow\f <c fis>\upbow r8 r4 r8. <c fis>16-.\downbow |
+    r4 \times 2/3 {c,,4.-^\f dis''8-^ e,,4-^} |
+  
+    % sistema 17
+    % compás 89
+    % marca 6
+    \mark \default r16 gis''8.~\sf gis2\p\startTextSpan \breathe |
+    g,8\downbow\stopTextSpan r r4
+    \override TextSpanner #'(bound-details left text) = "accelerando"
+    f'8-.\upbow\startTextSpan r |
+    <dis, gis>2.:32^"sul pont." |
+    <dis gis\harmonic>16( c) r8 r2 |
+    r\stopTextSpan r8 <cis b'>\sf( |
+      
+  }}
+  
+  Violintwo = \new Voice { \relative c'{
+    \set Staff.instrumentName = #"Violin 2 "
+    dis8\f r8 r4 a8^"pizz." r8 |
+    d'2.:32^"arco"^"sul pont."\fp |
+    r8 <b ais'>^"pizz."\f r4 r16 gis^"arco"\downbow gis\upbow r |
+    r8. <c bes'>16-.\downbow r4 <a a>:32\fp |
+    <a a>:32\fp <gis fis'>8[-.\downbow r16 <gis fis'>]-.\downbow r4 |
+    R2. |
+    %s2 c7
+    r8 <d' c'>^"pizz."\f b,4.^"arco" r8 |
+    <dis' cis'>\downbow\f r8 r2 |
+    R2. |
+    <fis, gis,>16\downbow\f <fis gis,>\upbow r8 r2 |
+    R2. |
+    \override TextSpanner #'(bound-details left text) = "rit."
+    \override TextSpanner #'(bound-details right text) = "a tempo"
+    r16 dis'8.~\downbow\f dis2\upbow\startTextSpan \breathe |
+    dis8\stopTextSpan r r4
+    \override TextSpanner #'(bound-details left text) = "accelerando"  
+    g,,8\mf
+    ^"accelerando"
+    %\startTextSpan
+    r |
+    a''2.:32\flageolet^"sul pont."\p |
+    %s3 c15
+    f,16(^"nat."\ff gis,) r8 r2 |
+    r2
+    %\stopTextSpan
+    ^"a tempo"
+    r8 g'(\mf |
+    <b d>)\p <b d>-- r <gis fis'>4.~\fp |
+    <gis fis'>2.^"rit." \bar "||"
+    f?8\downbow\mf r r4 r8 ais\downbow\sf |
+    r4 a16^"pizz."\p bes' r8 r16 f, fis' r |
+    ees^"arco"-. d,-. r8 r4 r16 bes' a, r |
+    
+    %s4
+    gis'8^"pizz." r r4 r8 f'16(^"arco" e,) |
+    d'( cis,) r8 r dis' r8. <d, a'\harmonic>16-.\f |
+    \time 1/4 R4 |
+    \time 3/4
+    <<
+      {
+        \oneVoice
+        <g, e'\harmonic>8\p
+      }
+      \\
+      {
+        \oneVoice
+        \tiny
+        \override Stem #'stencil = ##f
+        \override ParenthesesItem #'font-size = #0
+        <\parenthesize b''>8
+      }
+    >>
+    \oneVoice
+    r8 r4 f,?8^"pizz." r8 |
+    \mark \default %1
+    g2.:32^"arco"^"sul pont"\fp |
+    dis'8^"nat." r  r4 b8 r |
+  
+    %% s5
+    \times 3/5 { b,4--\f ais'-- cis,-- g'-- f'-- } |
+    e,-- r \times 4/5 { e8:32[^"sul pont."\p f':32 g,16:32 |
+    g16:32 cis8:32 ais,:32] } gis''16-.\f gis-. gis8-. r gis-.\sf |
+    r2 cis,,16(\p d') r8 |
+    %% no esta claro si es r8 o r16
+    r e,16( f') r4 r8 b,16( ais,) |
+    r  cis'( d') r b,2:32\fp |
+  
+    %s6
+    \time 2/4 <c ees>:32\fp |
+    \time 3/4 <b' d>16(^"nat."\downbow\f f,?) r8 r <b g'>16\downbow\f <b g'>\upbow\p r4 |
+    \mark \default
+    \time 2/4 R2 |
+    \time 3/4 r8 <d? c'>16\downbow\f <d c'>\upbow r8 <d c'>16\downbow fis\upbow r4 |
+    gis16( c,) r8 r g16( <ais b,>) r4 |
+    <dis cis'>16\downbow <dis cis'>\upbow r8 <g, bes>4\downbow\fp r8 f?-.\upbow |
+    <c' b'>\downbow\f <c b>\upbow r8 r2 |
+      
+  
+  }}   %*********************************
+  Viola = \new Voice { \relative c {
+    \set Staff.instrumentName = #"Viola "
+    \clef alto
+  
+    \time 3/4 r2 r8 f16-. fis'-. |
+    r2 r8 c-.^"pizz." |
+    %% f,4.^"arco"\f r8. dis'8-.^"pizz" | % error en valores
+    f,4.^"arco"\f r8 r dis'-.^"pizz" |
+  
+    %errores en valores, mi interpretación a partir del cello
+    r4  \times 2/3 { <fis gis,>16(-.^"arco"^"sul pont."\upbow <fis gis,>-. <fis gis,>-. } <fis gis,>16)-. r r4 |
+    r8 <dis cis'>^"nat."\upbow <dis gis>-.[\downbow r16 <dis gis>-.] r4 |
+    r <e g>2:32^"sul pont."\fp |
+  
+    %s2
+    <fis a>:32\fp \clef treble r16 <g f'>^"nat"\downbow\f <g f'> r |
+    r8 a,4\upbow\p r8 r4 |
+    \times 2/3 { r8 c'-\p c-~ } c16 c-. c-. c-. <b d>4:32^"sul pont." |
+    <b d>2.:32\fp |
+    <ais cis>:32 |
+    e'16^"nat."\ff r8. <d, g\harmonic>4(--\p <c' f\harmonic>)-- \breathe |% hay un tresillo pero es error?
+    
+    %s3
+    \clef alto r8 fis,\p r4 r8. dis16 | %dis 16 accel.
+    \times 3/5 { b'4-- cis,-- g'4.-- f'8-. e,4--} |
+    %en fis'16 se confunde la linea adicional con un punto
+    fis'16(\ff d,) r8 r <c f\harmonic>16\p <c f\harmonic> r4 |
+    % a tpo.
+    \times 2/3 { e,4.->\mf dis''8-> cis,4 } r8 fis,~ |
+    fis\p r r f'!4.~\fp |
+    f2. \bar "||" %rit.
+  
+    %s4
+    r4 r16 a,-.\mf bes'-. r r4 |
+    gis,16-.^"pizz."\p a'-. r8 r2 |
+    r r8. fis16 |
+    f,[ r8 a16] bes' r8. r4 |
+    r4 r16 gis,( a') r r4 |
+    \time 1/4 r8 f,16^"pizz."\f fis' |
+  
+    %s5
+    \time 3/4 
+    r d' gis,, r r4 r16 a bes' r |
+    % ensayo 1
+    r2 r8 e,,^"pizz."\f |
+    d'--^"arco"\p r r4 ais8-- r |
+    r16 d-. cis,-. r r8 b'16-. c'!-. r4 |
+    R2. |
+    r4 \clef treble b'->\f r8 b-. |
+  
+    %s6
+    \clef alto R2. |
+    r2 dis,,,16(\p e') r8 |
+    r8 e16( f') r2 |
+    \time 2/4 r8 <fis, a>16(\downbow\f <fis a>~\upbow\p <fis a>8 <a fis'>16)\f r |
+    \time 3/4 \clef treble r8 <d,? c'>16\downbow <d c'>\upbow r4 r16 dis'16-. dis-. dis-. |
+    \mark \default \time 2/4 \times 2/3 { e,4--\p f'-- g,-- } |
+  
+    %s7
+    \time 3/4 <ais cis>->\f <gis fis'>->  c,!-> |
+    % no liga el si16 en la barra
+    f'16( d,) r8 r4 \times 4/5 { cis'8:32[ ais':32 b,16:32 b:32 dis8:32 d,!:32] } r2 |
+    <a fis'>16^"nat."\f <a fis'> r8 \times 2/3 { e'4-- dis'-- cis,-- } |
+    r16 f'(\upbow\p e,) r r4 r16 dis( e') r \bar "||"
+    \clef alto r4 r16 e,(\upbow cis bes') r fis\downbow d\upbow r |
+    c4:32 \times 2/3 { e''-- cis-- bes''-- } |
+  
+  }}   %*********************************
+  Cello = \new Voice { \relative c {
+    \set Staff.instrumentName = #"Cello "
+    \clef bass
+  
+    r16 cis-.\p g-. r r2 |
+    r r8 b,-.^"pizz." |
+    <c' e>4.^"arco"\f r8 <b? c'>^"pizz." r |
+    r4 \times 2/3 { f'?16(-.^"arco"^"sul pont." f-. f-. } f16)-. r r4 |
+  
+  }}   %**********************************
+  
+  music = {
+    <<
+      \tag #'score \tag #'vl1 \new Staff { << \global \Violinone >> }
+      %\tag #'score \tag #'vl2 \new Staff { << \global \Violintwo>> }
+      %\tag #'score \tag #'vla \new Staff { << \global \Viola>> }
+      %\tag #'score \tag #'vc \new Staff { << \global \Cello>> }
+    >>
+  }
+  
+  #(set-global-staff-size 14)
+  \score {
+    \new StaffGroup \keepWithTag #'score \music
+    \layout
+      {\context {
+        \Voice
+        %% Permit line breaks within tuplets
+        \remove "Forbid_line_break_engraver"
+        %% Allow beams to be broken at line breaks
+        \override Beam #'breakable = ##t
+        #(set-accidental-style 'forget)
+      }}
+    % \midi { }
+  }
+#+end_src
+  
+** Paper                                                           :noexport:
+#+name: paper()
+#+begin_src org
+  \paper {
+    %#(define dump-extents #t) 
+    %indent = 0\mm
+    %line-width = 200\mm - 2.0 * 0.4\in
+    %ragged-right = #""
+    %force-assignment = #""
+    %line-width = #(- line-width (* mm  3.000000))
+  }
+#+end_src
+
+** Header                                                          :noexport:
+#+name: header()
+#+begin_src org
+  \header {
+    title = \markup \center-column {"invención"}
+    % subtitle = "subt para cuarteto de cuerda"
+    instrument = "para cuarteto de cuerda"
+    composer =  \markup \center-column { \small "juan carlos paz" }
+    % poet =  \markup \center-column { "ob-lilypond" \small "example 3" }
+    copyright = "Copyright"
+  }
+#+end_src
