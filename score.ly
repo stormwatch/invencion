@@ -1,4 +1,5 @@
 \include "articulation.ily"
+\include "compound.ily"
 
 \header {
   title = \markup \center-column {"invención"}
