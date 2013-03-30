@@ -1,4 +1,4 @@
-pizz = ^\markup { \italic pizz }
+pizz = ^\markup { \italic pizz. }
 arco = ^\markup { \italic arco }
 sulpont = ^\markup { \italic "sul pont." }
 arcosulpont = ^\markup \center-column { \italic "arco"
