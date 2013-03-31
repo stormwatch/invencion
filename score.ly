@@ -15,6 +15,7 @@ global= {
   \time 3/4
   \key c \major
   \set Score.markFormatter = #format-mark-circle-numbers
+  \set baseMoment = #(ly:make-moment 1 4)
   %% #(set-accidental-style 'forget)
   %% {q s4*45 \startTextSpan s2. \stopTextSpan }
 }
