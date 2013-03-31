@@ -110,7 +110,8 @@ violintwo = \new Voice { \relative c'{
 % bar 70
 	\stemUp
 	r16 e? f' r r16 gis,( b) r16
-	\stemDown 
+	\stemDown
+	\set subdivideBeams = ##f 
 	\times 4/5 { gis8:32[ a': fis,16:~
 % bar 71
 		fis!16: c''8: d,,:] } r16 dis'^. r8
@@ -513,6 +514,7 @@ violintwo = \new Voice { \relative c'{
 % bar 176
 	\times 4/5 { r16 g,\arco\( fis' e'\) r16 } r8 cis'8\pizz r4
 % bar 177
+	\set subdivideBeams = ##t
 	<cis, dis,>16\fp\dob <cis dis,>_.\upb_( <cis dis,>_.) r16
 		r16 <cis dis,>_.\upb\( <cis dis,>_. <cis dis,>_.\)
 		\set baseMoment = #(ly:make-moment 1 8)
@@ -636,6 +638,7 @@ violintwo = \new Voice { \relative c'{
 % bar 215
 % mark 14
 	\mark \default
+	\set subdivideBeams = ##f
 	r2 \times 4/5 { f,8:32\sulpont\pp[ fis': gis,16:
 % bar 216
 	\time 2/4
@@ -677,6 +680,401 @@ violintwo = \new Voice { \relative c'{
 		\times 4/5 { gis8:32\pp[ a': fis16:
 % bar 225	
  	fis16:32 d,8: ees'':] } r8 \stemUp <f,,!\harmonic c>\p r4
+% bar 226
+% mark 15
+	\mark \default
+	\stemDown
+	r4 \times 4/5 { e8:32\pp f': g,: cis: ais': }
+% bar 227
+	\stemUp
+	r8 <e,\harmonic g,>\p r2
+% bar 228
+	\stemDown
+	\times 4/5 { ges'8:32\pp f,: aes: des': a,: } 
+		\stemUp r8 <c,\harmonic g>8\p
 
-%%	THIS REACHES REHEARSAL MARK 15  %%
+% system 7
+% bar 229
+	\times 4/5 { fis'8:32\pp a,: gis,: c': d,: } 
+		r8 <aes'\harmonic ees>8\p
+% bar 230
+	\times 4/5 { c8:32\pp b,: d': gis: fis,: } 
+		r8 <bes\harmonic f>8\p
+% bar 231
+	r4 \times 4/5 { b,8:32\pp c': g,: bes'': a,: } 
+% bar 232
+	r8 <g\harmonic d>\p r4
+		\times 4/5 { gis,8:\pp[ a': fis16:	
+% bar 233
+	fis16:32 c8: ees':] } r8 <g,\harmonic d>8\p r4
+
+% system 8
+% bar 234
+% mark 16
+	\mark \default
+	\times 4/5 { f8:\pp g,: b': cis8: ais,: } 
+		\stemDown
+		r8 e''\p
+% bar 235
+	\stemUp
+	\times 4/5 { dis,8:\pp e': cis,: a''8: bes,: } r8
+		<c,\harmonic g>8\p
+% bar 236
+	r4 \times 4/5 { ais8:32\pp b': cis,: g': f': } 
+% bar 237
+	\stemDown
+	r8 <e\harmonic a,>\p r4
+		\times 4/5 { a,8:\pp[ bes': g,16:
+% bar 238
+	g16:32 cis8: dis,:] } r8 e'\p
+		\times 4/5 { ees,8:\pp[ d'!: c,16:
+% bar 239		
+	c16:32 fis8: a':] } 
+		\stemUp
+		r8 <cis,\harmonic gis>8\p r4
+
+% system 8
+% bar 240
+	\stemDown	
+	\times 4/5 { f,8:\pp fis': gis,: c,8: b': } r8
+		\stemUp
+		<g\harmonic d>8\p
+% bar 241
+	\stemDown	
+	\times 4/5 { e8:\pp f': g,: b'8: ais,: } r8
+		\stemUp
+		<fis\harmonic cis>8\p	
+% bar 242
+	\stemDown
+	r2 \times 4/5 { f?8:32\pp[ e': g,16:
+% bar 243
+	\time 2/4
+	g16: cis8: b,:] }
+	\override TupletBracket #'direction = #DOWN
+    \override TupletBracket #'bracket-visibility = ##f
+	\times 2/3 { ais'\p\nat\( dis e'\) }
+
+%%% ------------------ PAGE 5 -------------------------
+
+% page 5
+% system 1
+% bars 244-247
+	\time 3/4
+	R1*3/4*4
+% bar 248
+	<<
+		{ 
+			\override MultiMeasureRest #'staff-position = #-4   
+			R1*3/4 
+		}
+		\new CueVoice 
+		{
+    		r2 \stemDown <bes a, g>4^"Vl 1"
+  		}	
+	>>
+% bar 249
+	\stemNeutral
+	<dis, e,>16\f\dob <dis e,>\upb r8 r4 r8 <dis e,>\dob
+% bar 250
+	\revert MultiMeasureRest #'staff-position 
+	R1*3/4
+% bar 251
+	<<
+		{ 
+			\override MultiMeasureRest #'staff-position = #-4   
+			R1*3/4 
+		}
+		\new CueVoice 
+		{
+    		r2 r16 a16^"Vl 1" b' g,,
+  		}	
+	>>
+% bar 252
+	\override TupletBracket #'direction = #UP
+    \revert TupletBracket #'bracket-visibility
+	\times 2/3 { c''4:32\sulpont\pp b,: d,: } r4
+% bar 253
+	r2 b16\p\upb( c') r8
+
+% system 2
+% bar 254
+	cis8\f\pizz r r2
+% bar 255
+ 	cis'8\f r r4 r8 b,16\p( c'!)
+% bar 256
+% mark 17
+	\mark \default
+%%% - should there be an arco marking somewhere around here? %%% 
+	r2 dis,,16\mf\dob dis\upb r8
+% bar 257
+	r4 b'8\dob r8 r4
+% bar 258
+	r8 a16\f\dob a\upb r2
+% bar 259
+	r8. g16\ff\pizz r2
+
+% system 3
+% bar 260
+	r16 c,_.\p fis_. r r8 dis16_. e'_. r4
+% bar 261
+	dis16\f dis r8 r8 ais16\ff ais r4
+% bar 262
+	cis,16\sulpont( d') r8 r4 r8 <cis\harmonic gis>8\upb_.
+% bar 263
+	r4 r8 <aes\harmonic ees>\p\upb_. r4
+% bar 264
+	gis4.:32\fp a:\fp
+% bar 265
+	dis,8\f_.\nat r8 r4 r8 dis_.
+
+% system 4
+% bar 266
+	r8 dis\dob\ff r2
+% bar 267
+% mark 18
+	\mark \default
+    \override TupletBracket #'bracket-visibility = ##t
+	\times 2/3 { e8^^\f f'^^ g'^^ } r4
+		r8 gis,\f\pizz
+% bar 268
+    \override TupletBracket #'bracket-visibility = ##f
+	\once \override TextScript #'avoid-slur = #'inside
+  	\once \override TextScript #'outside-staff-priority = ##f
+	\once \override TupletNumber #'Y-offset = #5.3
+	\times 2/3 
+		{
+		\stemUp
+		\repeat tremolo 2 a,16\sulpont\p\upb-\staccTwo #2 \(
+		\repeat tremolo 2 gis,16-\staccTwo #2
+		\repeat tremolo 2 fis''16-\staccTwo #2 \)
+		} r2
+% bar 269
+	\stemDown
+	r16 fis,16^.\f g'^. r16 r4 
+	\stemUp
+	r16 e dis, r16
+% bar 270
+	\stemDown
+	r8 dis'16\dob dis\upb 
+		\stemUp
+		r8 gis,,8\pizz\p r4
+% bar 271
+	\time 2/4
+	\revert MultiMeasureRest #'staff-position 
+	R1*2/4
+
+% system 5
+% bar 272
+	\time 3/4
+	\stemDown
+	bes''16\dob\f a, <cis\harmonic gis> r16 r4
+%% is it really a gis in the chord below ?
+		<bes' a, gis>^^\pizz
+% bar 273
+	\stemNeutral
+	r4 r16 bes,16\p g, r16 r4
+% bar 274
+	\times 2/3 
+		{
+		\stemUp
+		\repeat tremolo 2 g16\arcosulpont\p\upb-\staccTwo #2 \(
+		\repeat tremolo 2 fis'16-\staccTwo #2
+		\repeat tremolo 2 a16-\staccTwo #2 \)
+		}
+	gis'8^. r8 
+	\override TupletBracket #'bracket-visibility = ##t
+	\stemDown
+	\times 2/3 { r8 b,^^\ff\nat[ c'^^] }
+% bar 275
+	r4 r16 b,16\p\upb( c') r16 d,8\pizz r
+% bar 276
+	\stemNeutral
+	ees,16\f\arco\dob_. ees_. ees_. r r4 
+		r16 ees\p\dob_. ees_. ees_.
+
+% system 6
+% bar 277
+	ees16\f\dob_. ees_. ees_. r
+	\override TupletBracket #'bracket-visibility = ##f
+	\times 2/3 
+		{
+		\stemUp
+		\repeat tremolo 2 gis,16\p-\staccTwo #2 \(
+		\repeat tremolo 2 fis'16-\staccTwo #2
+		\repeat tremolo 2 a16-\staccTwo #2 \)
+		}
+	\stemDown
+	\override TupletBracket #'bracket-visibility = ##t
+	\times 2/3 { r8 dis^^\ff\nat[ e'^^] }
+% bar 278
+	R1*3/4
+% bar 279
+% mark 19
+	\mark \default
+	\stemNeutral
+	f,,?4.:32\fp\acel a:\fp
+% bar 280
+	<bes g>4.:32\fp <des bes>:\fp
+% bar 281
+	e4.:32\fp
+	r8 \times 2/3 { r8 a\f gis,, }
+% bar 282
+	r4 r16 d'16\upb_. r8 g,16\dob g\upb r8
+
+% system 6
+% bar 283
+	\stemDown
+	r16\atpo g'16\p^. cis^. r16 r4 r16 f,^.\upb fis'^. r16
+% bar 284
+	r4 r8 b,8^.\pizz r4
+% bar 285
+	<g' e>4.\f\arco\dob r8 <c d,>\pizz r8
+% bar 286
+	\stemNeutral
+	\set subdivideBeams = ##t	\set baseMoment = #(ly:make-moment 1 8)	\override TupletBracket #'bracket-visibility = ##f
+	r4 \times 2/3 { f,,?16\upb_.\arco_\( f_. f_. } f16_.\) r16 r4
+% bar 287
+	r8 <cis'' dis,> <ees,, c>8\f\dob[ r16 <ees c>16\dob] r4
+% bar 288
+	R1*3/4
+
+% system 7
+% bar 289
+% mark 20
+	\mark \default
+	\time 4/4
+	\override TupletBracket #'bracket-visibility = ##t
+	r2 \times 2/3 { gis4_-\p a'^- fis,_- }
+% bar 290
+	\time 3/4
+	\set subdivideBeams = ##f
+	r2 \times 4/5 { e'8:32[ f': g,16:
+% bar 291
+	g16:32 cis8: ais,:] } b'4 
+	\override TupletBracket #'bracket-visibility = ##f
+	\times 4/5 { g,,8:32[ a': fis16:
+% bar 292
+	\time 2/4
+	fis16:32 c'8: d':] }  ees,,4
+% bars 293-294
+	\time 3/4
+	R1*3/4*2
+% bar 295
+	g'2.\p
+
+% system 8
+% bar 296
+	r8. ais,16\pizz\f r4 c4:32\arcosulpont\fp
+% bar 297
+	r8 dis\pizz\f r2
+% bar 298
+	R1*3/4
+% bar 299
+	\autoBeamOff
+	r8 ais\f cis, r r4
+% bar 300
+	\autoBeamOn
+	<g'\harmonic d>8\p\arco r r2
+% bar 301
+	r2 <cis\harmonic gis>4:32
+% bar 302
+% mark 21
+	\mark \default
+	R1*3/4
+
+% system 9
+% bar 303
+	\override TupletBracket #'bracket-visibility = ##t
+	\override TupletBracket #'direction = #DOWN
+	r4 \times 2/3 { ais4.^^\f b'8^^ cis,,4^^ }
+% bar 304
+	\override TextSpanner #'(bound-details left text) 
+		= \markup { \bold "rit" }
+    \override TextSpanner #'(bound-details right text) 
+		= \markup { \bold " a tpo." }
+	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
+	\override TupletBracket #'bracket-visibility = ##f
+	\override TupletBracket #'direction = #UP
+	r4 \times 2/3 { cis'2^-\p\startTextSpan( dis4^-) }
+% bar 305
+	r16\stopTextSpan
+	\override TextSpanner #'(bound-details left text) 
+		= \markup { \bold "acelerando" }
+    \override TextSpanner #'(bound-details right text) 
+		= \markup { \bold " a tpo." }
+	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
+	fis,16\p( cis'8) r4 r8 b,16\startTextSpan( cis')
+% bar 306
+	\override TupletBracket #'bracket-visibility = ##t
+	\override TupletBracket #'direction = #UP
+	\times 3/5 { g4_>\f gis'^> a,4. fis''8^. c,4^> }
+% bar 307
+	d16\ff( cis,) r8 r2
+% bar 308
+%%	It is not clear why their should be double phrasing slurs here:
+%%	and I am not sure that I have achieved the manuscript's intention anyway!
+	\set doubleSlurs = ##t
+	r2\stopTextSpan r8 <c' d,>\sf(
+
+% system 10
+% bar 309
+	f,8) f_- r8 fis''4.^>~
+% bar 310
+	\override TextSpanner #'(bound-details left text) 
+		= \markup { \bold "rit" }
+    \override TextSpanner #'(bound-details right text) 
+		= \markup { \bold " a tpo." }
+	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
+	fis2.\startTextSpan \bar "||"
+% bar 311
+	\set doubleSlurs = ##f
+	<<
+	{ 
+		\slurDashed d,,2.\harmonic\stopTextSpan ^( | 
+		c2.\harmonic) \breathe \slurSolid
+	}
+	{ g2.\p~ | g2. } 	
+	>>
+% bar 312
+	r4 \times 4/5 { f'8:32\pp\sulpont fis': gis,: d'': b,: }
+% bar 313
+	c'8 r r2
+% bar 314
+	\times 4/5 { e,8:32 dis,: cis': g,: bes': } r4
+
+% system 11
+% bar 315
+	r8 dis,16\f e' r4 a,16 bes' r8
+% bar 316
+	\times 2/3 { e,4^-\p dis,_- cis'^- } r4
+% bar 317
+%%	This is not quite right here - the stems do not align quite correctly
+%%	but if I can work out how to do it better, I will;
+%%	bars 311-312 worked perfectly!
+	<<
+	{ 
+%		\voiceOne
+		\slurDashed 
+		d,2.\harmonic ^( | 
+		d2.\harmonic) \breathe 
+		\slurSolid
+	} 
+	\\
+	{ 	
+%		\voiceThree
+%		\shiftOff
+		\stemUp
+		g,2.\p_~ | g2. 
+	} 	
+	>>
+% bar 318
+% mark 22
+	\mark \default
+	g'2.:32\fp\spont
+% bar 319
+	<cis e,>16\dob\f\nat <cis e,>\upb r8 r2
+% bar 320
+	r8 dis16\dob dis\upb r2
+
+%%% ------------------ END OF PAGE 5 -------------------------
 }}
