@@ -1,9 +1,14 @@
+\include "articulation.ily"
+%% remove above lines before commit
 viola = \relative c {
   \set Staff.instrumentName = "Viola"
   \clef alto
   \tempo 4 = 100
   \time 3/4
   \textLengthOn
+  
+  \set subdivideBeams = ##t
+  \set baseMoment = #(ly:make-moment 1 8)
   
   %% page 1 sistema 1
   r2 r8 \stemDown f16-.\p fis'-. \stemNeutral |										%1
@@ -37,12 +42,12 @@ viola = \relative c {
   \override TextSpanner #'to-barline = ##t
   \endSpanners f2.\startTextSpan \bar "||" |										%18
   r4^\markup { \italic "a tpo." } r16 a,-. des'-. r r4 |									%19
-  \stemUp gis,,16-.^"pizz." a'-. \stemNeutral r8 r2 |									%20
+  \stemUp gis,,16-.\pizz a'-. \stemNeutral r8 r2 |									%20
   r2 r8.fis16 |														%21
   f,?16 [r8 a16] bes' r8. r4 |												%22
   r r16 gis,\arco (a') r r4 |												%23
   \time 1/4
-  r8 f,16\f^"pizz." fis' |												%24
+  r8 f,16\f\pizz fis' |												%24
   \time 3/4
   r d'\stemUp  gis,, \stemNeutral r r4 r16 a bes' r |									%25
   \mark \default r2 r8 e,,\f\pizz |													%26
@@ -53,8 +58,8 @@ viola = \relative c {
   \clef alto R2.^"1." |													%31
   r2 \slurDown dis,,,16 (e') r8 |												%32
   r8 \slurUp e16 (f') r2 |												%33
-  \time 2/4
-  r8 <fis, a>16\fp\dob <fis a>\upb ~ (<fis a>8 <a fis'>16\f) r16 |							%34
+  \time 2/4  
+  r8 <fis, a>16\fp\dob <fis a>\upb ~ (<fis a>8 <a fis'>16\f) r16 |							%34  
   \time 3/4
   \clef treble r8 <d,! c'>16\dob <d c'>\upb r4 r16 dis' dis dis |							%35
   \time 2/4
@@ -128,5 +133,22 @@ viola = \relative c {
   \times 4/5 { e'8:32\sulpont[ dis,:32 cis'16 cis g,8 bes':32] } r16 \stemNeutral fis'\nat
   r8 \clef alto r8 \autoBeamOn \stemUp fis,16( gis,) |									%71
   R2.^"1." |														%72
-  r16 \stemDown c-. cis'-. r a,4--
+  r16 \stemDown c-. cis'-. r \tupletDown \tuplet 3/2 { a,4-- cis'-- b,-- } |						%73
+  r8. \stemUp f16-. \stemDown b'-. r8.
+  \tupletUp \tuplet 5/4 { f,8:32\sulpont[ fis':32 gis,16:32 gis:32 d'8:32 b':32] } r4 r8 b16-.\nat ais,-. |		%75
+  %% page 2 sistema 4
+  r2 \tuplet 5/4 { ais8:32\sulpont [ b':32 gis16:32 gis:32 d8:32 e':32] } r4 r16 \stemUp d,,16-.\pizz ais'-. r |	%77
+  r4 r8 f16-. ais-. r4 |												%78
+  r4 r8 \stemDown fis'8-. \stemUp <b, d>4\arco\fp ~ |								%79
+  %% page 2 sistema 5
+  <b d>8 r8 <gis fis'>8 r r4 |											%80
+  
+  \tuplet 3/2 { <fis a>16-.( <fis a>-. <fis a>-. } <fis a>-.) r16 r4 r8 \stemNeutral <cis' b'>8\pizz | %% revisit triplet
+  
+  
+  
+  gis8\dob\arco[ r16 gis\dob] r2 |										%82
+  \time 2/4
+  
+  
 }
