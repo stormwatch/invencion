@@ -93,8 +93,6 @@ violintwo = \new Voice { \relative c'{
 %%	mark 5
 	\mark #5
 % bar 66
-	\set Score.currentBarNumber = #66
-
 	r16\p f'?\( b, cis g?16\)[ r8 f'16]( a,?)[ r8 c?16](
 
 % system 2
