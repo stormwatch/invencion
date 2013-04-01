@@ -134,6 +134,7 @@ violinone = \new Voice { \relative c''{
   d16( ees b' c,) r d( ees b c8) gis16( f'! |
   
   %% system 2.1
+  \set Score.skipTypesetting = ##f
   c'[ d,) r a]( c d' e,) r fis( d c' b,) | % bar 59
   \time 2/4 r a( f' c' gis8) e16( dis') |
   \times 2/5 { e,,4--\f dis'-- cis,-- g'-- bes'-- } | % error: no deberían ser corcheas y 5:4?
@@ -180,7 +181,7 @@ violinone = \new Voice { \relative c''{
   f'-.\f\pizz r \times 2/3 {g,,4.--\p\upb bes''8 a,4-- } |
   <f es\harmonic>~\mf <f es>8 r r4 |
   <c' fis>16\dob\f <c fis>\upb r8 r4 r8. <c fis>16-.\dob |
-  r4 \times 2/3 {c,,4.-^\f dis''8-^ e,,4-^} |
+  r4 \times 2/3 {cis,4.-^\f dis''8-^ e,,4-^} |
   
   %% system 2.7
   \mark \default                               % reharsal mark 6
@@ -191,6 +192,22 @@ violinone = \new Voice { \relative c''{
   <dis, gis>2.:32\sulpont |
   <dis gis\harmonic>16( c) r8 r2 |
   r\stopTextSpan r8 <cis b'>\sf( |
+  gis8)\p gis-. r2 |
 
   %% system 2.8
+  \override TextSpanner #'(bound-details left text) = "rit."
+  \tuplet 3/2 { fis''4\sulpont gis,\startTextSpan d, } r \bar "||" % bar 95
+  r4\stopTextSpan r8 <ees aes\harmonic>\f r4 |
+  r4 d2:32\fp\sulpont |
+  d16 r b'8~-^\fp\nat b4. cis8(->\f |
+  fis\p a) r2 |
+  \tuplet 5/4 { gis8:32\fp\sulpont a,:32 fis':32 b:32 ais':32 } cis,,4 |
+
+  %% system 2.9
+  \tuplet 5/4 { e8:32\fp f':32 g,:32 ees':32 d,:32 } c'4 | % bar 101
+  \tuplet 5/4 { a,8:32\fp bes':32 g:32 d:32 b'!:32 } c,4 |
+  \tuplet 5/4 { e'8:32\fp dis,:32 cis':32 f,:32 fis':32 } gis,4 |
+  \tuplet 5/4 { g!8:32\fp bes,:32 a':32 d,:32 b'!:32 } c,4 |
+
+  \tuplet 5/4 { gis'8:32\fp fis':32 f,:32 cis':32 dis,,:32 } e'4 | % bar 107
 }}
