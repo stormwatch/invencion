@@ -9,7 +9,7 @@ nat = ^\markup { \italic nat. }
 accel = ^\markup { \italic "accel." }
 acel = ^\markup { \italic "acelerando" }
 atempo = ^\markup { \italic "a tempo" }
-atpo = ^\markup { \bold "a tpo." } 
+atpo = ^\markup { \italic "a tpo." } 
 piup = _\markup { \italic "più" \dynamic p }
 
 %%% double dot staccato AKA double tongue stacatto
