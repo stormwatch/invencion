@@ -15,6 +15,10 @@ global= {
   \time 3/4
   \key c \major
   \set Score.markFormatter = #format-mark-circle-numbers
+  \set subdivideBeams = ##t
+  \set baseMoment = #(ly:make-moment 1 8)
+  \override TextSpanner.dash-fraction = #0.4
+  \override TextSpanner.dash-period = #1.0
   %% #(set-accidental-style 'forget)
   %% {q s4*45 \startTextSpan s2. \stopTextSpan }
 }

@@ -18,8 +18,6 @@ viola = \relative c {
   <b d>2.:32\fp |													%10
   <ais cis>2.:32 |													%11
   
-  \override TextSpanner.dash-fraction = #0.4
-  \override TextSpanner.dash-period = #1.0
   \override TextSpanner.bound-details.left.text = \markup { "rit." }
   e'16\nat\ff r8. \tuplet 3/3 { <d, g\harmonic>4--\startTextSpan _(<c' f\harmonic>--\stopTextSpan) } \breathe \clef alto |	%12
   r8 fis,\p r4 r8.dis16^\accel |									%13
