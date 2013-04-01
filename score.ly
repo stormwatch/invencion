@@ -18,6 +18,9 @@ global= {
   \set baseMoment = #(ly:make-moment 1 4)
   %% #(set-accidental-style 'forget)
   %% {q s4*45 \startTextSpan s2. \stopTextSpan }
+
+  %% useful when editing
+  \set Score.skipTypesetting = ##t
 }
 
 \include "violin1.ly"
