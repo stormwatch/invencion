@@ -85,13 +85,16 @@ violintwo = \new Voice { \relative c'{
     <dis cis'>16\downbow <dis cis'>\upbow r8 <g, bes>4\downbow\fp r8 f?-.\upbow |
     <c' b'>16\downbow\f <c b>\upbow r8 r2 | % bar 40
 
-    %% placeholder untill I fill these bars
+    %% placeholder untill I fill these bars -- EB
     s4*73
 
 %%	page 2
 %%	system 1
 %%	mark 5
 	\mark #5
+
+%% it looks like Alex got the bar count wrong. +1 to all measures. -- EB
+
 % bar 66
 	r16\p f'?\( b, cis g?16\)[ r8 f'16]( a,?)[ r8 c?16](
 
@@ -327,23 +330,23 @@ violintwo = \new Voice { \relative c'{
 	r16 a( f!8) \times 2/3 { g'!4^- cis,^- e^- }
 % bar 125
 	r16\f bes'^^ a,^^ r16 r8\p gis'16 d, r8 dis'^^~
-% bar 126
+% bar 128 --EB
 	\once \override Staff.TimeSignature #'stencil = ##f 
 	\time 4/4
 	dis16^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } } r8. 
 	\stemDown
 	r8\ff d,!16\dob ees' r8 bes'8\f\( ees,4\p~ \bar "dashed"
-% bar 126 (second half)
-	\once \override Staff.TimeSignature #'stencil = ##f 
+% bar 128 (second half) --EB
+	\once \override Staff.TimeSignature #'stencil = ##f
 	\time 1/8
 	ees16\) r16
 
 %%% ------------------ PAGE 3 -------------------------	
 % page 3
 % system 1
-% bar 127
+% bar 129 --EB
 %%	I presume that this is bar 127, and that bar 126 was in "two pieces"
-	\set Score.currentBarNumber = #127
+	\set Score.currentBarNumber = #129
 	\stemNeutral
 	\time 3/4
 	gis16\fp( cis,8.) r4 gis'16\fp( dis'8.)
