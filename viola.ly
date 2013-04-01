@@ -1,21 +1,6 @@
-<<<<<<< HEAD
 viola = \relative c {
   \set Staff.instrumentName = "Viola"
-=======
-%%\include "articulation.ily"
-%% remove above lines before commit
-viola = \relative c {
-  \set Staff.instrumentName = "Viola"
-  \clef alto
-  \tempo 4 = 100
-  \time 3/4
   \textLengthOn
-  
-  %\override Score.BarNumber #'break-visibility = ##(#t #t #t)
-  
-  \set subdivideBeams = ##t
-  \set baseMoment = #(ly:make-moment 1 8)
->>>>>>> f815a2c... Complete to bar 117, end of page 2.
   
   %%
   %% page 1 sistema 1
@@ -36,12 +21,6 @@ viola = \relative c {
   <b d>2.:32\fp |												%10
   <ais cis>2.:32 |												%11
   
-<<<<<<< HEAD
-=======
-  \override TextSpanner.dash-fraction = #0.4
-  \override TextSpanner.dash-period = #1.0
-  
->>>>>>> f815a2c... Complete to bar 117, end of page 2.
   \override TextSpanner.bound-details.left.text = \markup { "rit." }
   e'16\nat\ff r8. \tuplet 3/3 { <d, g\harmonic>4--\startTextSpan _(<c' f\harmonic>--\stopTextSpan) } \breathe \clef alto |	%12
   r8 fis,\p r4 r8.dis16^\accel |											%13
