@@ -3,9 +3,6 @@ cello = \new Voice { \relative c {
 
   \override TupletBracket #'bracket-visibility = ##f
 
-  \set subdivideBeams = ##t
-  \set baseMoment = #(ly:make-moment 1 8)
-
   \clef bass
 	
   r16\p cis16^. g'^. r r2 |           % bar  1
