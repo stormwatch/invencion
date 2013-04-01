@@ -134,7 +134,6 @@ violinone = \new Voice { \relative c''{
   d16( ees b' c,) r d( ees b c8) gis16( f'! |
   
   %% system 2.1
-  \set Score.skipTypesetting = ##f
   c'[ d,) r a]( c d' e,) r fis( d c' b,) | % bar 59
   \time 2/4 r a( f' c' gis8) e16( dis') |
   \times 2/5 { e,,4--\f dis'-- cis,-- g'-- bes'-- } | % error: no deberían ser corcheas y 5:4?
