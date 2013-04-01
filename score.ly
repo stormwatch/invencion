@@ -2,12 +2,14 @@
 \include "compound.ily"
 
 \header {
+
+
   title = \markup \center-column {"invención"}
   %% subtitle = "subtitle"
   instrument = "para cuarteto de cuerda"
   composer =  \markup \center-column { \small "juan carlos paz" }
   %% poet =  \markup \center-column { "poet-template" \small "poet-template" }
-  copyright = "Copyright by ?"
+  copyright = "Copyright by Tonos International Music Edition"
 }
 
 global= {
@@ -16,11 +18,14 @@ global= {
   \key c \major
   \set Score.markFormatter = #format-mark-circle-numbers
   \set subdivideBeams = ##t
-  \set baseMoment = #(ly:make-moment 1 8)
+  \set baseMoment = #(ly:make-moment 1 4)
   \override TextSpanner.dash-fraction = #0.4
   \override TextSpanner.dash-period = #1.0
   %% #(set-accidental-style 'forget)
   %% {q s4*45 \startTextSpan s2. \stopTextSpan }
+
+  %% useful when editing
+  %% \set Score.skipTypesetting = ##t
 }
 
 \include "violin1.ly"
