@@ -1,14 +1,5 @@
-\include "articulation.ily"
-%% remove above lines before commit
 viola = \relative c {
   \set Staff.instrumentName = "Viola"
-  \clef alto
-  \tempo 4 = 100
-  \time 3/4
-  \textLengthOn
-  
-  \set subdivideBeams = ##t
-  \set baseMoment = #(ly:make-moment 1 8)
   
   %% page 1 sistema 1
   r2 r8 \stemDown f16-.\p fis'-. \stemNeutral |										%1
