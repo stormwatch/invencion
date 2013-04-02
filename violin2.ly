@@ -187,7 +187,8 @@ violintwo = \new Voice { \relative c'{
 	<f? aes,>16\dob\f <f aes,>\upb r8 r4 r8. <f aes,>16_.\dob
 % bar 87
 	R1*3/4
-% bar 88
+% bar 89 --EB
+\mark \default                  % mark 6
 	\override TextSpanner #'(bound-details left text) = "rit."
     \override TextSpanner #'(bound-details right text) = " a tempo"
 	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
@@ -195,7 +196,7 @@ violintwo = \new Voice { \relative c'{
 	\breathe
 
 % system 5
-\mark \default                  % mark 6
+
 % bar 89
 	cis,8\dob\stopTextSpan r r4 e8^.\upb^\accel r8
 % bar 90
