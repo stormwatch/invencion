@@ -195,6 +195,7 @@ violintwo = \new Voice { \relative c'{
 	\breathe
 
 % system 5
+\mark \default                  % mark 6
 % bar 89
 	cis,8\dob\stopTextSpan r r4 e8^.\upb^\accel r8
 % bar 90
@@ -214,9 +215,6 @@ violintwo = \new Voice { \relative c'{
 	<a bes,>2.\startTextSpan
 	\bar "||"
 % bar 95
-% mark 6
-%%%	I have assumed that MARK 6 goes here as it is missing from the part
-	\mark \default
 	r8\stopTextSpan b,,16\pizz c' r4 bes'16^>\arco a,^. r8
 
 % system 6
