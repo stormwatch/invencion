@@ -12,12 +12,14 @@ viola = \relative c {
   r2 r8 c-.\pizz |												%2
   f,4.\arco\f r8 r dis'-.\pizz | %?? rest: mistake in original							%3
   r4 \textLengthOff \stemUp \times 2/3 { <fis gis,>16-.\sulpont\arco <fis gis,>-. <fis gis,>-. } <fis gis,>16-. r r4 |	%4
-  \stemNeutral \textLengthOn
-  
+  \stemNeutral \textLengthOn 
   \autoBeamOff
   r8\nat <dis cis'>8\upb <dis gis>8-.\dob[ r16 <dis gis>16-.\dob] r4 |						%5
   \autoBeamOn
   r4 <e g>2:32\fp\sulpont |											%6
+  %%
+  %% page 1.2
+  %%
   <fis a>:32\fp \clef treble r16\nat <g f'!>\dob <g f'>\upb r16 |							%7
   r8 a,4\upb r8 r4 |												%8
   \tupletUp \times 2/3 { r8 c'--\p c-- ~ } c16 c-. c-. c-. <b d>4:32\sulpont \tupletNeutral |			%9
@@ -26,16 +28,21 @@ viola = \relative c {
   
   \override TextSpanner.bound-details.left.text = \markup { "rit." }
   e'16\nat\ff r8. \tuplet 3/3 { <d, g\harmonic>4--\startTextSpan _(<c' f\harmonic>--\stopTextSpan) } \breathe \clef alto |	%12
+  %%
+  %% page 1.3
+  %%
   r8 fis,\p r4 r8.dis16^\accel |											%13
   \tupletUp \times 3/5 { b'4-- cis,-- g'4.-- f'8-. e,4-- } \tupletNeutral |						%14
-  fis'16\ff (d,) r8 r <c f\harmonic>16\p <c f\harmonic> r4 |							%15
-  
+  fis'16\ff (d,) r8 r <c f\harmonic>16\p <c f\harmonic> r4 |							%15  
   \override TextSpanner.bound-details.left.text = \markup { "a tpo" }
   \tupletDown \times 2/3 { e,4.-> dis''8-> \stemUp cis,4 \stemNeutral } \tupletNeutral r8 fis,8 ~ |			%16
   fis r r f'!4. ~ |												%17
   \override TextSpanner.bound-details.left.text = \markup { "rit." }
   \override TextSpanner #'to-barline = ##t
   \endSpanners f2.\startTextSpan \bar "||" |									%18
+  %%
+  %% page 1.4
+  %%
   r4^\markup { \italic "a tpo." } r16 a,-. des'-. r r4 |								%19
   \stemUp gis,,16-.\pizz a'-. \stemNeutral r8 r2 |									%20
   r2 r8.fis16 |													%21
@@ -44,12 +51,18 @@ viola = \relative c {
   \time 1/4
   r8 f,16\f\pizz fis' |												%24
   \time 3/4
+  %%
+  %% page 1.5
+  %%
   r d'\stemUp  gis,, \stemNeutral r r4 r16 a bes' r |								%25
   \mark \default r2 r8 e,,\f\pizz |													%26
   d'--\arco r8 r4 ais8 r |											%27
   r16 d-. cis,-. r r8 b'16-. c'!-. r4 |										%28
   R2.^"1." |													%29
   r4 \clef treble  b'4->\f r8 b8-. |										%30
+  %%
+  %% page 1.6
+  %%
   \clef alto R2.^"1." |												%31
   r2 \slurDown dis,,,16 (e') r8 |											%32
   r8 \slurUp e16 (f') r2 |											%33
@@ -60,12 +73,18 @@ viola = \relative c {
   \time 2/4
   \mark \default \times 2/3 { e,4-- f'-- g,-- } |									%36
   \time 3/4
+  %%
+  %% page 1.7
+  %%
   <ais cis>4_> <gis fis'>^> c,!_> |										%37
   \override TupletBracket.bracket-visibility = ##t
   \set subdivideBeams = ##f
   \slurDown f'16 (d,) r8 r4 \tupletUp \times 4/5  { cis'8:32\sulpont[ ais':32 b,16:32 b:32 dis8:32 d,!:32] } r2 |	%38 %39
   <a' fis'>16\f\nat <a fis'> r8 \times 2/3 { e4-- dis'-- cis,-- } |						%40
   r16 \slurUp f'\p\upb ( e,) r r4 r16 \slurDown dis( e') r \bar "||" |						%41
+  %%
+  %% page 1.8
+  %%
   \clef alto r4 r16 \slurUp e,\upb( cis bes') r fis\dob d,\upb r |							%42
   c4:32 \times 2/3 { e'-- cis,-- bes''-- } |									%43
   r16 fis, d' r r8 b r16 e\dob fis\upb r |									%44
@@ -73,17 +92,26 @@ viola = \relative c {
   \time 1/4
   r8 \clef treble a''16\dob r |											%46
   \time 3/4
+  %%
+  %% page 1.9
+  %%
   \mark \default \slurDown aes,,16\p( cis' e,) r r fis( d c!) fis(d c) r |						%47
   r  c( d fis) e( cis ais) r r c!( d fis!) |									%48
   aes,8 r16 a'( fis' dis,) r8 r16 \slurUp b'( cis f!)								%49
   r16 cis,-. d'-. r r dis,-. e'-. r r4 |										%50
   \time 2/4
+  %%
+  %% page 1.10
+  %%
   fis4-- r8 c8-> ~ |												%51
   \time 3/4
   c r \slurDown b,16( c') r d,( ees') r8. |									%52
   R2.^"1." |													%53
   \clef alto gis,,16\upb( c) r8 r16 \slurUp cis\upb( f) r f\upb( cis') r8 |						%54
   r4 r8 gis,16\upb( a') dis,( d') r8 |										%55
+  %%
+  %% page 1.11
+  %%
   dis,16\upb( e') r8 r ees16\upb( d,) r4 |									%56
   \mark \default  r16 b!\upb( cis' f,) r a,( c dis) r a( c dis |							%57
   gis8) d16( ees b' c,!) r d e( b! c8) |										%58
@@ -91,6 +119,10 @@ viola = \relative c {
   \time 2/4
   %%
   %% end page one of manuscript
+  %%
+  %%
+  %% page two of manuscript
+  %%
   %%
   %% page 2.1
   %%
@@ -206,7 +238,7 @@ viola = \relative c {
    r2 \stemDown \tuplet 5/4 { f8:32[ fis':32 g,16:32 g:32 cis,8:32 d':32] } r2 |					%115 116
    r2 \stemUp d16\f\pizz cis, r8 |										%117
    %%
-   %% end of page two of manuscript
+   %% end page two of manuscript
    %%
    %%
    %% page three of manuscript
@@ -306,9 +338,49 @@ viola = \relative c {
    <b d>:32 \stemUp <d, c'>:32\fp |										%157
    <ais' cis>2.:32\fp |												%158
    R2.^"1." \clef alto |												%159
-   \mark \default c,8\p c\f r2 |
-   
+   \mark \default c,8\p c\f r2 |											%160
+   r16 \stemDown \slurUp a'16\f( gis,) r r4 r8 c16-.\mf fis-. |							%161
+   R2.^"1." |													%162
+   %%
+   %% page 3.9
+   %%
+   \stemUp <c, a'\harmonic>4 r2 |											%163
+   \slurDown cis16( d') r8 r2 |											%164
+   r4 <c, g'\harmonic>8--\p <c g'\harmonic>8--\f r4 |								%165
+   r2 \stemDown c'8--\p\flageolet c--\f\flageolet |								%166
+   r4 \stemUp <g c\harmonic>8--\p <g c\harmonic>--\f r4 |								%167
+   r4 \stemDown c8--\p\flageolet c--\f\flageolet r4 |								%168
+   r4 r8 cis8\pizz r4 |												%169
+   %%
+   %% page 3.10
+   %%
+   r16 \slurUp b\f\upb( c') r16 r2 |										%170
+   d,8\p\pizz r r2 |												%171
+   \mark \default r4 r8 gis-. r4 |										%172
+   r4 \stemUp <g, c\harmonic>8--\p <g c\harmonic>--\f r4 |								%173
+   \stemDown gis'8\pizz r8 c,8--\p\flageolet\arco c--\f\flageolet r4 |						%174
+   r2 \stemUp <fis, b\harmonic>8-- <fis b\harmonic>-- |								%175
+   r16 \slurDown d\ff( ees') r r2 |										%176
+   %%
+   %% page 3.11
+   %%
+   \stemNeutral b8\pizz r a'--\p\arcosulpont a--\f r4 |								%177
+   r2 c,8--\p\flageolet c8--\f\flageolet |									%178
+   \stemUp <g f'>16\fp\dob <g f'>-.\upb( <g f'>-.) r r <g f'>-.\upb( <g f'>-. <g f'>-.)
+   \stemDown <cis a'>\fp\dob[ <cis a'>\upb r <cis a'>\upb] |							%179
+   r8 <b g'>\f\dob \slurUp \tuplet 5/4 { r16 b'16\pp( d, fis,) r16 } r8
+   \stemUp <f bes\harmonic>16\f <f bes\harmonic>16 |								%180
+   \tuplet 5/4 { r16 b'16\pp( d, fis,) r16 } r \stemDown gis'\mf\nat( fis) r r8. f16\pp\sulpont |			%181
+   %%
+   %% page 3.12
+   %%
+   \tuplet 5/4 { r cis\f( a' b,) r } r2 |										%182
+   R2.^"?unresolved?" \bar "||" |											%183
+   r4 r16 \stemUp d\pizz gis, r r4 |										%184
+   R2.*2 |													%185 186
+   r4 \clef treble \stemNeutral fis''8\marcato\f\pizz r r4 |							%187
+   %%
+   %% end page three of manuscript
+   %%
+
 }
-  
-  
-  
