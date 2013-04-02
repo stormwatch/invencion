@@ -335,7 +335,7 @@ violintwo = \new Voice { \relative c'{
 	\time 4/4
 	dis16^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } } r8. 
 	\stemDown
-	r8\ff d,!16\dob ees' r8 bes'8\f\( ees,4\p~ \bar "dashed"
+	r8\ff d,!16\dob ees' r8 bes'8\f\( ees,4\p~ \bar "!"
 % bar 128 (second half) --EB
 	\once \override Staff.TimeSignature #'stencil = ##f
 	\time 1/8
@@ -403,7 +403,7 @@ violintwo = \new Voice { \relative c'{
 	\once \override Staff.TimeSignature #'stencil = ##f 
 	\time 3/4
 	a8^.)^\markup { \concat { \timesig #3 #4 } { "+" } { \note #"8" #1 } }
-		r8 r4 <d, b>4:32 \bar "dashed"
+		r8 r4 <d, b>4:32 \bar "!"
 % bar 143(b)
 	\once \override Staff.TimeSignature #'stencil = ##f 
 	\time 1/8
