@@ -284,7 +284,7 @@ violintwo = \new Voice { \relative c'{
 % bar 114
 	\stemNeutral
 	e,4 r2
-	\bar "||"
+	\bar "||"               % the other parts lack this double bar line
 % bar 115
 	r16\pizz\p d16 ees' r16 r4 a,,16:32\f\arcosulpont dis: g: cis:
 % bar 116
