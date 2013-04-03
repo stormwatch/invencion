@@ -382,5 +382,71 @@ viola = \relative c {
    %%
    %% end page three of manuscript
    %%
-
+   %% page four of manuscript
+   %%
+   %%
+   %% page 4.1
+   r4 g16->\ff\arcosulpont g-> r8 \clef alto r16 c,,\mf\upb\nat( cis') d,-. |					%188
+   fis,\f\dob fis\upb r8 r2 |											%189
+   dis'16\p( e' cis,) r r2 |											%190
+   r16 b( c') r r c, des' r r8 d16-.\ff d-. |									%191
+   r8 \clef treble bes'8 \breathe \tuplet 3/2 { e,,4-- f'-- g,,-- } \clef alto \bar "||" |				%192
+   %%
+   %% page 4.2
+   %%
+   \mark \default r2^"Poco meno mosso" r8 b\p\pizz |								%193
+   R2.^"1." |													%194
+   r16 a\f\arco( gis') r r2 |											%195
+   \tuplet 5/4 { r16 ges,-.\f\sulpont f'-. a-. r } r2 |								%196
+   \tuplet 5/4 { r16 ges,-. f'-. a-. r } r2 |									%197
+   r16 f\p\nat( g,) r r2 |											%198
+   dis'8\pizz r r2 |												%199
+   %%
+   %% page 4.3
+   %%
+   R2.^"1." |													%200
+   r16 \stemUp ges,\f( f') \stemNeutral r r2 |									%201
+   r4 a8--\p a--\f r4 |												%202
+   < c,, g'\harmonic>4\p r dis'8--\p dis--\f |									%203
+   r2 r8 f,16-.\f e'-. |												%204
+   \mark \default r4 fis,8--\p fis--\f r4 |									%205
+   a4\sulpont r2 \clef treble |											%206
+   %%
+   %% page 4.4
+   %%
+   r16 \slurDown dis\f( e') r r2 \clef alto |									%207
+   \stemUp \tuplet 5/4 { r16 a,,\f\sulpont( bes g') r } r2 |							%208
+   \tuplet 5/4 { r16 a,\f( bes g') r } r8 gis,8\p\pizz r4 |							%209
+   r2  r8 \stemNeutral dis'16\f b' |										%210
+   \slurUp \tupletDown \tuplet 5/4 { r g\sulpont( f e) r } r4 r8 fis,8\mf\pizz |					%211
+   %%
+   %% page 4.5
+   %%
+   \tuplet 5/4 { r16 g'\arcosulpont( f e) r } r8 \stemUp c\p\pizz r4 |						%212
+   \time 2/4
+   \tuplet 5/4 { r16 e\p\arcosulpont( dis, cis') r } \clef treble \stemDown r f-.\nat fis'-. r |			%213
+   \time 3/4
+   r8 \stemUp gis,16\p\dob d\upb r2 |										%214
+   r4 \clef alto \slurDown \tupletUp \tuplet 3/2 { d,\f( c'4. ees8) } |						%215
+   R2.^"1." |													%216
+   %%
+   %% page 4.6
+   %%
+   \mark \default \stemDown \tuplet 5/4 { a,8:32\pp\sulpont[ bes':32 g,:32 c':32 b,!:32] } r4 |			%217
+   \time 2/4
+   R2^\markup { \bold "1." } |											%218
+   \time 3/4
+   r2 \clef treble \stemUp \tuplet 5/4 { b8:32\pp[ c':32 d,16:32 d:32 gis8:32 fis':32] }
+   \clef alto r8 <f,, bes\harmonic>8\p r4 |									%219
+   r4 \clef treble \tuplet 5/4 { ais8:32\pp[ b':32 cis,:32 eis8:32 fis':32] }					%220
+   r8 \clef alto <gis,, cis\harmonic>8 r2 \clef treble |								%221
+   %%
+   %% page 4.7
+   %%
+   \stemDown \tuplet 5/4 { dis'8:32\pp[ e':32 cis:32 gis8:32 a':32] } r \stemUp <dis,, b'\harmonic>\p |		%222
+   \clef alto r4 \stemUp \tuplet 5/4 { e8:32\pp  dis,:32 cis':32 g':32 bes,:32 } |					%223
+   \clef treble r8 <d a'\harmonic>8\p r2 |									%224
+   R2.^\markup { \bold "1." } |											%225
+   \clef alto \stemDown \tuplet 5/4 {  b8:32\pp c':32 d,:32 gis:32 f,:32 } r \stemUp <fis b\harmonic>8\p |		%226
+   \mark \default
 }
