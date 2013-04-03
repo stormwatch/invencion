@@ -443,10 +443,70 @@ viola = \relative c {
    %%
    %% page 4.7
    %%
-   \stemDown \tuplet 5/4 { dis'8:32\pp[ e':32 cis:32 gis8:32 a':32] } r \stemUp <dis,, b'\harmonic>\p |		%222
-   \clef alto r4 \stemUp \tuplet 5/4 { e8:32\pp  dis,:32 cis':32 g':32 bes,:32 } |					%223
+   \stemDown \tuplet 5/4 { dis'8:32\pp[ e':32 cis:32 gis8:32 a':32] } r \stemUp  
+   <<
+     {
+       <dis,, b'\harmonic>\p
+     }
+     \\
+     {
+       \override Stem #'stencil = ##f
+       \override Flag #'stencil = ##f
+       \override ParenthesesItem.padding = #1
+       \tiny
+       \override ParenthesesItem.font-size = #4
+       \parenthesize fis''
+     }
+   >> | 														%222   
+   \clef alto r4 \stemUp \tuplet 5/4 { e,,8:32\pp  dis,:32 cis':32 g':32 bes,:32 } |				%223
    \clef treble r8 <d a'\harmonic>8\p r2 |									%224
    R2.^\markup { \bold "1." } |											%225
    \clef alto \stemDown \tuplet 5/4 {  b8:32\pp c':32 d,:32 gis:32 f,:32 } r \stemUp <fis b\harmonic>8\p |		%226
-   \mark \default
+   \mark \default r2 \stemDown \tuplet 5/4 { gis8:32[ a':32 fis16:32 fis:32 d8:32 ees':32] }
+   %%
+   %% page 4.8
+   %%
+   r8 \stemUp <c,, f\harmonic>\p r4 |										%227 228
+   r4 \stemDown \tuplet 5/4 { e8:32\pp f':32g,:32 cis:32 b':32 } |							%229
+   r \stemUp <bes, ees\harmonic>\p r2 |										%230
+   r4 \stemDown \tuplet 5/4 { ges'8:32\pp f,:32 aes:32 d:32 b':32 } |						%231
+   r8 \stemUp <c,, f\harmonic>8\p r4 \tuplet 5/4 { b''8:32\pp[ c,,:32 d'16:32 d:32 gis,8:32 f':32] }
+   r <fis, b\harmonic>8\p r4 |											%232 233
+   %%
+   %% page 4.9
+   %%
+   \stemDown \tuplet 5/4 { g8:32\pp bes':32 a,:32 f':32 fis,:32 } r \stemUp <gis cis\harmonic>\p |			%234
+   \mark \default r4 \stemDown \tuplet 5/4 { e8:32\pp fis':32 gis,:32 d':32 b':32 } |				%235
+   r8 \stemUp <c,, f\harmonic>8\p \stemDown \tuplet 5/4 { gis'8:32\pp[ a':32 fis:32 c,:32 d':32] } |			%236
+   r8 \stemUp <ees, aes\harmonic>\p r4
+   \tuplet 5/4 { ges'8:32\pp[ f,:32 ges16:32 ges:32 a'!8:32 bes,:32] } r8 <ges c\harmonic>\p r4 |			%237 238
+   %%
+   %% page 4.10
+   %%
+   \tuplet 5/4 {e8:32[ d':32 g,:32 cis:32 ais':32] } r \stemDown <g, e'\harmonic>\p |				%239
+   r4 \clef treble \stemUp \tuplet 5/4 { dis'8:32\pp[ e':32 cis,:32 g:32 bes':32] } |				%240
+   r8 <d, a'\harmonic>\p r4 \clef alto \tuplet 5/4 { gis,8:32\pp[ a':32 fis,16:32 fis:32 d'8:32 c,:32] }
+   r  <cis gis'\harmonic>\p r4 |											%241 242
+   \tuplet 5/4 { e'8:32\pp[ fis,:32 cis':32 g:32 bes':32] } r \stemDown <d, a'\harmonic> |				%243
+   \time 2/4
+   %%
+   %% page 4.11
+   %%
+   R2^\markup { \bold "1." } |											%244
+   \time 3/4
+   cis16-.\f d'-. r8 r2 \clef treble |										%245
+   \stemUp <cis, e>4.:32\fp <g' bes>:32\fp |									%246
+   <f aes>:32\fp \stemDown <b d>:32\fp |										%247
+   \stemNeutral <fis a>:32_"(simile)" <c' ees>:32 |								%248
+   <bes des>:32 <e, g>:32 |											%249
+   <e g>8\dob\f r r4 r8 <e g>\dob |										%250
+   %%
+   %% page 4.12
+   %%
+   r2 \clef alto cis,8-.\p g''-. |										%251
+   R2.*2 |													%253 253
+   %%
+   %% end page four of manuscript
+   %%
+   
 }
