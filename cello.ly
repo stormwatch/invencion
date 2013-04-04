@@ -272,7 +272,7 @@ cello = \new Voice { \relative c {
         \clef bass \time 2/4
         r8 dis,,,16( e'16) r4\fermata \bar "||" 
         \time 3/4
-        R2.^\markup{ Poco meno mosso}_\markup{"IS THIS THE TIMESIG??"}
+        R2. \tempo "Poco meno mosso"
 %%%%% | % bar 152
         <g bes>16\f\dob\sulpont <g bes>16\upb r8 r8. <g bes>16 r4
         r2 r8 <g bes>16\dob <g bes>16\upb
