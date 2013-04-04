@@ -11,6 +11,7 @@ acel = ^\markup { \italic "acelerando" }
 atempo = ^\markup { \italic "a tempo" }
 atpo = ^\markup { \italic "a tpo." } 
 piup = _\markup { \italic "più" \dynamic p }
+piuf = _\markup { \italic "più" \dynamic f }
 
 %%% double dot staccato AKA double tongue stacatto
 %%% ( following http://lsr.dsi.unimi.it/LSR/Snippet?id=772 )
