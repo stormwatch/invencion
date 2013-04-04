@@ -267,7 +267,7 @@ violinone = \new Voice { \relative c''{
   \override Staff.TimeSignature #'stencil = ##f
   \time 4/4 e16^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } }
   cis, g, r r8. dis''16\upb\ff e' r8. r b,,16\pizz\p \bar "!"
-  \time 1/8 c' r \bar "!"       % bar 12
+  \time 1/8 c' r |       % bar 12
   \revert Staff.TimeSignature #'stencil
 
   %% To compensate for the dashed barline incrementing the bar measure

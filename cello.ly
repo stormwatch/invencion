@@ -233,13 +233,13 @@ cello = \new Voice { \relative c {
 %%%%% | % bar 126
         r8 b8\staccato a16( f8.) \clef tenor \times 2/3 {g'4\tenuto cis,8~\tenuto[
         cis8] e4\tenuto} a4\tenuto \clef bass r8 cis,,8\f\pizz
+        \override Staff.TimeSignature #'stencil = ##f
         \time 4/4
-        \grace dis8 r4 c,16\ff\arco\dob des'16 r8 r16 cis,8\marcato r16 r16 gis'16\p\pizz a'16 r16 \bar "!"
-        \once \override Staff.TimeSignature #'stencil = ##f
-        \time 1/8
-        r8
-        \time 3/4
-        c,,16\arco( gis''8.) r4 r8 fis,16\pizz gis'16
+        r4^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } }
+        c,16\ff\arco\dob des'16 r8 r16 cis,8\marcato r16 r16 gis'16\p\pizz a'16 r16 \bar "!"
+        \time 1/8 r8 
+        \revert Staff.TimeSignature #'stencil
+        \time 3/4 c,,16\arco( gis''8.) r4 r8 fis,16\pizz gis'16
 %%%%% | % bar 131
         r4 r16 g,16( aes'16) r16 r4
         r8. d16( cis,8) r8 r8 f16\pizz e,16
