@@ -13,9 +13,6 @@
 }
 
 global= {
-  %% useful when editing
-  \set Score.skipTypesetting = ##t
-
   \tempo 4 = 100
   \time 3/4
   \key c \major
