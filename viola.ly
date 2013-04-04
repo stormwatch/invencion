@@ -202,7 +202,7 @@ viola = \relative c {
   r2\atempo r8. \stemNeutral cis'16 |										%90
   \tuplet 5/3 { b,4-- c'-- fis,4.-- \clef treble a'8-- gis,4-- } |							%91
   r4 r8 <d a'\harmonic>16-.\p ~ <d a'\harmonic>16-. r4 |								%92
-  r2\atempo r8 <c ees>8\sfz ~ |											%93
+  r2\atempo r8 <c ees>8\sf ~ |											%93
   <c ees>8\p r r <g' bes>4. ~ |											%94
   \override TextSpanner #'to-barline = ##t
   \endSpanners
@@ -262,18 +262,19 @@ viola = \relative c {
    %%
    %% compound time signature 4/4 + 1/8
    %% warning: dangerous curves ahead
-   \once \override Staff.TimeSignature #'stencil = ##f
+   \override Staff.TimeSignature #'stencil = ##f
    \time 4/4
    r4^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } }
    \clef alto
    r16
    \stemUp r8 cis,,16\dob\ff[ d'] r r8 \stemDown a'8\f\( dis4\p~ \bar "!"
-   \once \override Staff.TimeSignature #'stencil = ##f
    \time 1/8
    dis16\) r16 |													%128
+   \revert Staff.TimeSignature #'stencil
    %% adjust bar number to correct for this compound bar
-   \set Score.currentBarNumber = #129
    %% end road warning
+
+   \set Score.currentBarNumber = #129
    \time 3/4
    \slurDown cis,,16( a'8.) r16 g'\pizz fis, r r8. g16 |								%129
    aes'r8. r8 \slurUp gis,16\arco( a') r4 |									%130
@@ -508,5 +509,104 @@ viola = \relative c {
    %%
    %% end page four of manuscript
    %%
+   %% page five of manuscript
+   %%
+   %%
+   %% page 5.1
+   %%
+   \compressFullBarRests
+   R2.*2 |													%254 255
+   r4 r16 gis,\pizz a' r r4 |											%256
+   r g,16\f\dob\arco g\p\upb r8 r4 |										%257
+   r16 ais-.\p b'-. r e,,\f\dob e\p\upb r8 r4 |									%258
+   \mark \default r2 fis16\mf\dob fis\upb r8 |											%259
+   r8 \stemUp gis16-.\p a'-. r2 |											%260
+   %%
+   %% page 5.2
+   %%
+   r8 des,,16\f\dob des\upb r2 |											%261
+   r4 \stemNeutral fis8\ff^> r r8. a'16^>\f\pizz |									%262
+   gis,16 r8. r2 \clef treble |											%263
+   \slurUp a''16\f\arco( gis,) r8 \clef alto r8 des,16\ff des r4 |							%264
+   R2.^\markup { \bold "1." } |											%265
+   r2 b'4:32\fp\sulpont |												%266
+   %%
+   %%
+   %% page 5.3
+   %%
+   b4.:32\fp dis:32\fp |												%267
+   dis8\f\nat r r2 \clef treble |											%268
+   r8 \stemDown <d b'\harmonic>8\ff r2 |										%269
+   \mark \default R2.*2 |												% 270 271
+   e16-.\f fes'-. r8 r ces->\pizz r \stemUp des16\arco c,! |							%272
+   r8 ces16\dob\piuf ces\upb r2 |											%273
+   \time 2/4
+   R2^\markup { \bold "1." } |											%274
+   %%
+   %% page 5.4
+   %%
+   \time 3/4
+   \clef alto r4 r8 <c, f\harmonic>8\p r4 |									%275
+   r2 f16\p\dob f\upb r8 |											%276
+   r4 \stemDown \tuplet 3/2 { r8 fis':16 a,:16 } r4 |								%277
+   \stemNeutral \slurDown ees16->\fp( a8. ~ a4) r4 |								%278
+   d,16-.\f\dob d-. d-. r r4 r16 d-.\p d-. d-. |									%279
+   d-.\f d-. d-. r r8 \stemDown b'8:16\p-\staccTwo #2 cis'8:16-\staccTwo #2 r8 |					%280
+   \stemUp <b, d>4.:32\fp <cis e>4.:32\fp \clef treble |								%281
+   \mark \default gis'4.:32\fp gis:32\fp |									%282
+   \stemDown <a bes>4.:32\fp <bes des>:32\fp |									%283
+   ees4.:32\fp r8 \stemUp \tuplet 3/2 { r des\f\nat  c, } |							%284
+   \clef alto r4 des,8^> r8 des16\dob des\upb r8 |									%285
+   \stemNeutral e'\dob r r4 bes8\pizz r |										%286
+   %%
+   %% page 5.6
+   %%
+   gis'2.:32\fp\arcosulpont |											%287
+   r8 <ais, cis>\f r4 r16 gis\dob gis\upb r |									%288
+   r8. \stemUp <b d>16 r4 <g bes>4:32 \fp |									%289
+   <g bes>:32\fp <fis a>8\f\dob[ r16 <fis a>\dob] r4 |								%290
+   R2.^\markup { \bold "1." } |											%291
+   \numericTimeSignature \time 4/4
+   \mark \default \stemDown \tuplet 3/2 { ais4--\p b'-- cis,-- } r2 |						%292
+   \time 3/4
+   %%
+   %% page 5.7
+   %%
+   \tuplet 5/4 { f,8[ fis' gis, d'' b,] } c'4 |									%293
+   \stemUp \tuplet 5/4 { gis,8 a'  fis, c d'} ees,4 |								%294
+   \time 2/4
+   R2^\markup { \bold "1." } |											%295
+   \time 3/4
+   r16 \stemDown f'-.\p g-. r r4 r16 fis-. gis-. r |								%296
+   r2 r8 \stemNeutral a,-.\f |											%297
+   r2 bes16-.\dob\sulpont bes-. bes-. r |										%298
+   %%
+   %% page 5.8
+   %%
+   \set subdivideBeams = ##t 
+   r4 \stemUp \tuplet 3/2 { cis16_>\dob[ cis-. cis-. } cis-.] r r4 |
+   \set subdivideBeams = ##f											%299
+   r4 f,8\f\dob\nat[ r16 f] r4 |											%300
+   r4 \stemNeutral <f' aes>2:32\fp |										%301
+   <g bes>:32\fp r4 |												%302
+   R2.^\markup { \bold "1." } |											%303  
+   \tuplet 3/2 { r8 g--\p g-- ~ }  g16 g-. -. g-. g-. r4 |								%304
+   \mark \default a2.:32\fp\sulpont |										%305
+   %%
+   %% page 5.9
+   %%
+   bes:32\fp |													%306 
+   \override TextSpanner.bound-details.left.text = \markup { "rit." }
+   \override TextSpanner.bound-details.right.text = \markup { "a tpo." } 
+   c16\startTextSpan r8. r2 |											%307
+   a,8\f\dob\stopTextSpan r8 r4 ees'8\pizz r |									%308
+   f,2.:32\fp\arcosulpont |											%309
+   b16\ff( f) r8 r2 |												%310
+   \tupletDown \tuplet 3/2 { gis4.-- a'8-- fis,4-- } r8  <cis b'>8\sf ~ |						%311
+   <cis b'> r \clef treble r gis'''4.->\fp ~ |									%312
+   %%
+   %% page 5.10
+   %%
+   gis2. \breathe \bar "||" |											%313
    
 }
