@@ -264,7 +264,6 @@ violinone = \new Voice { \relative c''{
   r2 r8 e~\f |
 
   %% page 3.2
-  \set Score.skipTypesetting = ##f
   \override Staff.TimeSignature #'stencil = ##f
   \time 4/4 e16^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } }
   cis, g, r r8. dis''16\upb\ff e' r8. r b,,16\pizz\p \bar "!"
@@ -379,6 +378,4 @@ violinone = \new Voice { \relative c''{
   \tuplet 5/4 { r16 e'-. bes-. a,-. r } r2 |
   \tuplet 5/4 { r16 e'-.\nat\ff bes-. a,-. r } r2 |
   \tuplet 5/4 { r16 des,-.\f c'-. bes'-. r } r4 r8 cis\pizz\mf |
-  
-  \set Score.skipTypesetting = ##t
 }}
