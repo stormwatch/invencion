@@ -1,10 +1,6 @@
 cello = \new Voice { \relative c {
   \set Staff.instrumentName = #"Cello "
-
-  \override TupletBracket #'bracket-visibility = ##f
-
   \clef bass
-	
   r16\p cis16^. g'^. r r2 |           % bar  1
   r2 r8\pizz b,_. |                   % bar  2
   <g' e>4.\f\arco r8 <c d,?>\pizz r | % bar  3
@@ -238,7 +234,7 @@ cello = \new Voice { \relative c {
         r8 b8\staccato a16( f8.) \clef tenor \times 2/3 {g'4\tenuto cis,8~\tenuto[
         cis8] e4\tenuto} a4\tenuto \clef bass r8 cis,,8\f\pizz
         \time 4/4
-        \grace dis8 r4 c,16\ff\arco\dob des'16 r8 r16 cis,8\marcato r16 r16 gis'16\p\pizz a'16 r16 \bar "dashed"
+        \grace dis8 r4 c,16\ff\arco\dob des'16 r8 r16 cis,8\marcato r16 r16 gis'16\p\pizz a'16 r16 \bar "!"
         \once \override Staff.TimeSignature #'stencil = ##f
         \time 1/8
         r8
