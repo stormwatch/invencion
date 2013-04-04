@@ -221,7 +221,7 @@ cello = \new Voice { \relative c {
         e2~ e16 r8.
         \times 2/3 {b'4\tenuto ais'4\tenuto cis,4\tenuto} r4
         r16 c'16\staccato b,16\staccato r16 r8 <c fis~>8\accent\fp( <g fis'>8) r8
-        r4 gis16\f( cis16) a16( b8) f16 r8^\markup{UNSURE ABOUT ON EIGHTH REST}
+        r4 gis16\f( cis8) a16( b8) f16 r16
         e16( cis'8) fis,16( gis'8.) a16( dis8) e8
 %%%%% | % bar 121
         f,16[( b16) r16 ais16]( d4~) d8 r8
