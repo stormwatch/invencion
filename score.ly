@@ -13,6 +13,9 @@
 }
 
 global= {
+  %% useful when editing
+  \set Score.skipTypesetting = ##t
+
   \tempo 4 = 100
   \time 3/4
   \key c \major
@@ -23,9 +26,6 @@ global= {
   \override TextSpanner.dash-period = #1.0
   %% #(set-accidental-style 'forget)
   %% {q s4*45 \startTextSpan s2. \stopTextSpan }
-
-  %% useful when editing
-  %% \set Score.skipTypesetting = ##t
 }
 
 \include "violin1.ly"
