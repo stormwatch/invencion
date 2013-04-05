@@ -1,12 +1,13 @@
 cello = \new Voice { \relative c {
   \set Staff.instrumentName = #"Cello "
   \clef bass
+
   r16\p cis16^. g'^. r r2 |           % bar  1
   r2 r8\pizz b,_. |                   % bar  2
   <g' e>4.\f\arco r8 <c d,?>\pizz r | % bar  3
   r4\arcosulpont\p
-  \times 2/3 { f,?16^.\upb\( f^. f^. } f^.\)
-  r16 r4 | % bar  4
+  \times 2/3 { f,?16^.\upb\([ f^. f^. } f^.\)
+  r16] r4 | % bar  4
   r8\nat <a e'\harmonic>8\upb
   <ees c>8^.\dob[ r16 <ees c>^.] r4		| % bar  5
   r4\sulpont \clef tenor
