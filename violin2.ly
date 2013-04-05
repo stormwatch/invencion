@@ -200,10 +200,8 @@ violintwo = \new Voice { \relative c'{
 % bar 89
 	cis,8\dob\stopTextSpan r r4 e8^.\upb^\accel r8
 % bar 90
-	\textLengthOn
 	d'2.:32\sulpont
 % bar 91
-	\textLengthOff
 	d16\nat\f( fis,,) r8 r2
 % bar 92
 	r2\atempo r8 bes\sf(
