@@ -1,5 +1,6 @@
 viola = \relative c {
   \set Staff.instrumentName = "Viola"
+  \clef alto
   \textLengthOn
   
   %%
