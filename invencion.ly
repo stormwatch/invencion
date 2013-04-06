@@ -34,6 +34,12 @@
     \remove "Forbid_line_break_engraver"
     %% Allow beams to be broken at line breaks
     \override Beam #'breakable = ##t
+
+    %% useful for debugging
+    %% \remove "Note_heads_engraver"
+    %% \consists "Completion_heads_engraver"
+    %% \remove "Rest_engraver"
+    %% \consists "Completion_rest_engraver"
   }}
   %% \midi { }
 }
