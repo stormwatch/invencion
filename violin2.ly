@@ -1075,4 +1075,65 @@ violintwo = \new Voice { \relative c'{
 	r8 dis16\dob dis\upb r2
 
 %%% ------------------ END OF PAGE 5 -------------------------
+
+% page 6
+% system 1
+% bar 321
+r16 d,16\p\sulpont( ees') r16 r4 r8
+\once \set doubleSlurs = ##f
+\slurDashed 
+\slurUp
+< a,\harmonic d,~ >8\nat( 
+% bar 322
+< a\harmonic d, >2. )
+\slurSolid
+\slurNeutral
+% bar 323
+r8 b'8\f r4 b16^. b^. r8
+% bar 324
+\stemDown
+r8 <b, f>4:32\fp\sulpont d4.:\fp
+% bar 325
+gis4.:32\fp gis:\fp
+% bar 326
+<gis d!>8\f r 
+\stemNeutral
+a,16^^\nat( gis,) r8 r4
+
+% system 2
+% bar 327
+e''16\ff\dob( dis,) r8 r16 d'!16 gis, r16 r4
+% bar 328
+%% is the articulation a \thumb or an \open here
+gis'8\f r8 r8 g,!\pizz\p_\thumb r4
+% bar 329
+% mark 23
+\mark \default
+\stemDown
+\override TupletBracket #'direction = #DOWN
+\times 4/5 { r16 b16\pp\arcosulpont\( ais' cis\) r16 }
+\times 4/5 { r16 gis,16\( fis' eis\) r16 }
+r4
+% bar 330
+\stemUp
+\override TupletBracket #'direction = #UP
+\times 4/5 { r16 d,16\( cis' dis\) r16 } r4
+\stemDown
+\times 4/5 { r16 g,16\( b! a'\) r16 }
+% bar 331
+\override TupletBracket #'Y-offset = #4.4
+r4 
+\times 4/5 { r16 d,,16\( c' ees\) r16 }
+\times 4/5 { r16 dis,16\( cis' e!\) r16 }
+% bar 332
+\revert TupletBracket #'Y-offset
+r16 ees16\pizz\f d, r16 r4 
+\stemNeutral
+r8 <gis\harmonic dis>8\arco\p_.
+% bar 333
+\override TupletBracket #'direction = #DOWN
+r2 \times 4/5 { r16 fis16\pp\sulpont cis' ais' r16 }
+% bar 334-336
+R1*3/4*3 \bar "|."
+
 }}
