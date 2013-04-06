@@ -27,7 +27,7 @@ violinone = \new Voice { \relative c''{
   \override TextSpanner #'(bound-details left text) = "rit."
   \override TextSpanner #'(bound-details right text) = "a tempo"
   %%\once \override TextSpanner #'to-barline = ##t
-  cis2)\startTextSpan\upb \breathe | % bar 12
+  cis2\startTextSpan\upb \breathe | % bar 12
       
   %% \override BreathingSign #'text = \markup {
   %%   \line {
@@ -196,7 +196,7 @@ violinone = \new Voice { \relative c''{
 
   %% page 2.8
   \override TextSpanner #'(bound-details left text) = "rit."
-  \tuplet 3/2 { fis''4\sulpont gis,\startTextSpan d, } r \bar "||" % bar 95
+  \tuplet 3/2 { fis''4\sulpont gis,\startTextSpan d, } r \bar "||" | % bar 95
   r4\stopTextSpan r8 <ees aes\harmonic>\f r4 |
   r4 d2:32\fp\sulpont |
   d16 r b'8~-^\fp\nat b4. cis8(->\f |
@@ -222,7 +222,7 @@ violinone = \new Voice { \relative c''{
 
   %% page 2.11
   c'-- \tuplet 6/4 { f,-- fis'-- g,,-- | % bar 113
-  cis-- d'-- e,-- } r |
+  cis-- d'4-- e,-- } r |
   c16\pizz\p fis r8 r16 a, dis r bes'\accent a, r8 |
   r4  fis'16 f,! r8 r4 |
   f'16 e, r8 r4 c''(\arco\dob\f |
@@ -238,7 +238,7 @@ violinone = \new Voice { \relative c''{
   <<
     {
       \oneVoice
-      <a c\harmonic>16
+      <a' c\harmonic>16
     }
     \\
     {
@@ -252,7 +252,7 @@ violinone = \new Voice { \relative c''{
     }
   >>
   \revert Staff.NoteColumn #'ignore-collision
-  r8  d,,16-. g'-. c,-. r8. |    % bar 121
+  r8  d,,,16-.\p g'-. c,-. r8. |    % bar 121
   e?16 r8. r2 |                 % "Vta rápida"
 
   %% page 3.1
@@ -266,7 +266,7 @@ violinone = \new Voice { \relative c''{
   %% page 3.2
   \override Staff.TimeSignature #'stencil = ##f
   \time 4/4 e16^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } }
-  cis, g, r r8. dis''16\upb\ff e' r8. r b,,16\pizz\p \bar "!"
+  cis, g, r r8. dis''16\upb\ff e' r8. r b,,16\pizz\p \bar "!" |
   \time 1/8 c' r |       % bar 12
   \revert Staff.TimeSignature #'stencil
 
@@ -274,9 +274,11 @@ violinone = \new Voice { \relative c''{
   %% count. Would be neat or useful to create a special voice to hold
   %% gobal events/commands? For clarity's sake, Maybe It is better
   %% to have one of these in each instrument file.
-  %\set Score.currentBarNumber = #129
 
-  \time 3/4 a''16(\arco\f d,,8.)\p r4 a''16(\f e8.)\p |
+
+  \time 3/4
+  \set Score.currentBarNumber = #128
+  a''16(\arco\f d,,8.)\p r4 a''16(\f e8.)\p |
   r8 e16( dis,) r4 r16 d'\pizz cis, r |
   r e'(\arco dis,) r r8 a-.\dob g''4:32\fp | % metric mistake in part
   
@@ -286,47 +288,52 @@ violinone = \new Voice { \relative c''{
   \time 2/4 r8 <f g>\f~ q16\p q-. q-. q-.
   \mark \default                % reharsal mark 9
   \time 3/4 a' c, r8 r c'16(\p g) r fis'\dob\f a,,\upb r16 |
-  r e''? dis, r r4 r8 dis16\dob\arco\ff e'\upb |
+  r e''? dis, r r4 r8 dis!16\dob\arco\ff e'\upb |
 
   %% page 3.4
-  r a\dob\f gis,\p r r8 e\dob r16 ges\dob\ff f,\dob r | % bar 137
+  r a\dob\f gis,\p r r8 e\dob r16 ges'\dob\ff f,\dob r | % bar 137
   g'!\dob ees,\dob r8 a'16-.\dob e,-. bes-. f'' r8 c,16(\mf des') |
-  r8. e?16-.\f fis8-. d,,16(\p e') r fis(\upb eis) r |
+  r8. e?16-.\f fis8-. d,,16(\p e') r fis'(\upb eis,) r |
   g'8\f r r4 r8 g\upb |
   \ottava #1
   bes16\f bes\p r8 bes16\f bes\p r8 r bes16\f a, |
   \ottava #0
 
   %% page 3.5
-  g'' g r8 r4 a16(\f  gis,) r8 | % bar 142
-  a'( gis,) r8 r4  dis'16\dob dis\upb r8 |
-  r16  <a, c\harmonic>-.\p dis'-. r r q-.\f dis' r r8 <f, bes>-.\p\upb( |
+  g'16 g r8 r4 a16(\f  gis,) r8 | % bar 142
+  a'16( gis,) r8 r4  dis'16\dob dis\upb r8 |
+
+  %% If I use q, the chord repeats but doesn't shape the c notehead
+  %% with a diamond. This seems a bug. Changing to explicit repetition.
+  r16  <a, c\harmonic>-.\p dis'-. r r <a, c\harmonic>-.\f dis'-. r r8 <f,, bes\harmonic>-.\p\upb( |
+
   \override Staff.TimeSignature #'stencil = ##f
   \time 3/4
   <bes ees\harmonic>)-.^\markup { \concat { \timesig #3 #4 } { "+" } { \note #"8" #1 } }
-  r r4 <c d>:32\ff \bar"!"
-  \time 1/8
-  \revert Staff.TimeSignature #'stencil
-  q8 |
+  r r4 <c d>:32\ff \bar"!" |
+  \time 1/8 q8 |
 
   \set Score.currentBarNumber = #146
+  \revert Staff.TimeSignature #'stencil
+
+  \time 3/4
   r
   \ottava #1
-  fis'~\f f\p fis16-. fis~ \tuplet 5/4 { fis\p fis-. fis-. fis-. fis-. } |
+  fis'~\f fis\p fis16-. fis~ \tuplet 5/4 { fis fis-.\f fis-. fis-. fis-. } |
   \ottava #0
 
   %% page 3.6
-  r2 r8 f'\pizz\f |             % bar 147
+  r2 r8 f\pizz\f |             % bar 147
   \time 2/4 r4 r16 fis,\arco\ff( g') r16\fermata \bar "||" |
   \time 3/4                     % missing in part
   \tempo "Poco meno mosso"
-  r8 fis16\p( d,,)\p r2 |
+  r8 fis16\p( d,,) r2 |
   R2. |
   gis'16(\p a') r8 r2 |
 
   r8
   \override Staff.NoteColumn #'ignore-collision = ##t
-  %% \override NoteHead #'style = #'harmonic-mixed
+  %%\override NoteHead #'style = #'harmonic-mixed
   <<
     {
       \oneVoice
@@ -337,31 +344,33 @@ violinone = \new Voice { \relative c''{
       \oneVoice
       \tiny
       \override Stem #'stencil = ##t
+
       \override ParenthesesItem #'font-size = #0
-      <\parenthesize e'>16
+      <\parenthesize e''>16
     }
   >>
-  \revert NoteHead.NoteColumn
+  \revert Staff.NoteColumn #'ignore-collision
+
   r2 |
   fis16\dob\f fis\upb r8 r4 r8 <fis,, ais>\dob-. |
 
   %% page 3.7
-  r16 e'\dob e\upb r  r4 <e b\harmonic>\dob\f q\upb\p | % bar 156
-  r2 b8\pizz\f r |
+  r16 e'\dob e\upb r r4 <e b'\harmonic>16\dob\f q\upb\p r8 | % bar 154
+  r2 b'8\pizz\f r |
   d,16\dob d\upb r8 r4 ees'16\accent\pizz d, r8 |
   r4 <fis, ais>16\dob\ff q\upb r8 r4 |
   r8 g'16( aes') r2 |
-  <a,, e\harmonic>8\f r r2 |
+  <a, e\harmonic>8\f r r2 |
 
   %% page 3.8
   \mark \default                % reharsal mark 10
   r4 r8 <fis, b\harmonic>\f-. r4 | % bar 160
   r <gis cis\harmonic>8--\dob\p q--\upb\f r4 |
-  r <d, g\harmonic>8--\p q--\f r4 |
-  r2 <g, e'>--\p q--\f |
+  r <d g\harmonic>8--\p q--\f r4 |
+  r2 <g, e'>8--\p q--\f |
   r2 r8 c''16-.\p fis,-. |
   r2 r8 gis'\p |
-  <e, b>4 r2 |
+  <e, b'\harmonic>4 r2 |
 
   %% page 3.9
   ges'16( f,) r8 r2 |           % bar 167
@@ -375,7 +384,74 @@ violinone = \new Voice { \relative c''{
   %% page 3.10
   ees''16(\ff d,) r8 r2 |       % bar 173
   \tuplet 5/4 { r16 e'-.\f bes-. a,-. r } r2 |
-  \tuplet 5/4 { r16 e'-. bes-. a,-. r } r2 |
-  \tuplet 5/4 { r16 e'-.\nat\ff bes-. a,-. r } r2 |
+  \tuplet 5/4 { r16 e''-. bes-. a,-. r } r2 |
+  \tuplet 5/4 { r16 e''-.\nat\ff bes-. a,-. r } r2 |
   \tuplet 5/4 { r16 des,-.\f c'-. bes'-. r } r4 r8 cis\pizz\mf |
+  \tuplet 5/4 { r16 des,,\f( c' bes') r16 } r2 |
+
+  %% page 3.11
+  <e, f,>16\dob\f q-.\p( q-.) r r q-.\upb( q-. q-.) <bes a>\dob\f q\upb r q\upb | % bar 179
+  r8 q\upb\f \tuplet 5/4 { r16 fis''( f,! gis,) r } r8 <fis b!\harmonic>16\f\dob <fis b>\upb |
+  \tuplet 5/4 { r fis''\pp( f,! gis,) r } r fis''(\nat\mf f,!) r r8. gis'16\pp |
+
+  \tuplet 5/4 { r a,,(\f bes' g,) r }
+  %% Mistake in part. Removed an extra r16
+  r dis'\p(\startTextSpan e' cis,) r4 |
+
+  %% page 3.12
+  %% Mistake in part. Removed another extra r16
+  r16 gis( fis' f,!) r4 r16 d'( c' b,)\breathe \bar "||" | % bar 183
+  \once \override TextSpanner #'(bound-details right text) = "tpo. 1°"
+  r8\stopTextSpan <a d\harmonic>\f r4 r16 des'\upb(\p c,) r |
+  bes'( a,) r8 r d'16( cis,) r d'( c,) r |
+  r a''( gis,) r r aes,( g,!) r r8 dis''16( f') |
+
+  %% page 4.1
+  r a(\f gis,) r r4 r8 d16(\p ees') | % bar 187
+  r \ottava #1 bes'\ff\dob a,\upb \ottava #0 r % Last r missing in part
+  r8 a,16\dob bes'\dob r4 |
+  r2 r8 <bes a, g>\pizz\f |
+  r2 d16( ees' ges, f,) |
+  r8 c16( des') r8 f\pizz r g16-.\arco\ff g-. | % Double bar line in reduction.
+
+  %% page 4.2
+  r8 \ottava #1 des'16-. c,-. \ottava #0 r2 | % bar 192.
+  \mark \default                            % reharsal mark 12
+  \tempo "Poco meno mosso"
+  R2. |
+  r2 <f,,\harmonic c>4\pizz\p |
+  R2. |
+
+  %% mistake in part, noteheads exchanged.
+  <dis gis\harmonic>8\p r r2 | % bar 196
+  R2. |
+  r4 cis'8-.\sulpont\p cis-.\f r4 |
+
+  %% page 4.3
+  \repeat unfold 3 { \tuplet 5/4 { r16 d-.\f c,-. fis-. r } r2 } | % bars 199 to 201
+  cis'8\p r r4 r8 fis' |
+  R2. |
+  b,16(\f\arco ais,) r8 g'--\p g--\f r4 |
+
+  %% page 4.4
+  \repeat unfold 5 { \tuplet 5/4 { r16 b(\f\sulpont d, gis,) r } r2 } | % bars 205 to 209
+  fis''16(\p c,)\f r8  dis'--\p dis--\f r4 |
+  \repeat unfold 2 { \tuplet 5/4 { r16 cis(\f\arco g f,) r } r2 } | % bars 211 and 212
+
+  %% page 4.5
+  %% f-. and fis-. are not marked stacatto in the reduction
+  %% Double bar line in reduction
+  \mark \default                                                     % reharsal mark 13
+  \time 2/4 \tuplet 5/4 { r16 dis''(\p b ais, ) r } r f-.\nat fis'-. r | % bar 213
+  \time 3/4 r2 c'8\pizz\f r \bar "||" |
+
+  %% g-- and a-- are accented with > in the part instead of tenuto.
+  \tempo "Tempo 1°" r4 \tuplet 3/2 { g--\arco\f bes'4.\accent a,,8-- } % bar 215
+  \tuplet 5/4 { f':32\sulpont fis': gis,: d: b,: } r4 |
+  \mark \default R2. |          % reharsal mark 14
+  \time 2/4 r4 \tuplet 5/4 { b8:32\pp ais,: cis'16: % bar 218
+
+  %% page 4.6
+  \time 3/4 cis: g8: f': } r8 <e\harmonic a,> r4 | % bar 219
+  r \tuplet 5/4 { a8:32 bes': g: cis: dis: } |
 }}
