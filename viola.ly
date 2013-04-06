@@ -268,13 +268,13 @@ viola = \new Voice { \relative c {
    \override Staff.TimeSignature #'stencil = ##f
    \time 4/4 r4^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } }
    \clef alto
-   r16 r8 cis,,16\dob\ff[ d'] r r8  a'8\f\( dis4\p~ \bar "!"
+   r16 cis,,16\dob\ff[ d'] r r8  a'8\f\( dis4\p~ \bar "!" |
    \time 1/8 dis16\) r16 | %128
    \revert Staff.TimeSignature #'stencil
    %% adjust bar number to correct for this compound bar
    %% end road warning
 
-   \set Score.currentBarNumber = #129
+   %%\set Score.currentBarNumber = #129
    \time 3/4
    \slurDown cis,,16( a'8.) r16 g'\pizz fis, r r8. g16 |								%129
    aes'r8. r8 \slurUp gis,16\arco( a') r4 |									%130
@@ -658,7 +658,7 @@ viola = \new Voice { \relative c {
    %%
    %% end of manuscript
    %%
-}
+}}
   
 %{
   
@@ -749,5 +749,3 @@ bar 336 is this a one bar rest after this bar in the ms or not? leaving out for 
 bar 341 added the usual "1." pver the full bar rest.
 
 %}
-
-  
