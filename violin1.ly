@@ -223,7 +223,7 @@ violinone = \new Voice { \relative c''{
   %% page 2.11
   c'-- \tuplet 6/4 { f,-- fis'-- g,,-- | % bar 113
   cis-- d'4-- e,-- } r |
-  c16\pizz\p fis r8 r16 a, dis r bes'\accent a, r8 |
+  c16\pizz\p fis r8 r16 a, dis r bes'-> a, r8 |
   r4  fis'16 f,! r8 r4 |
   f'16 e, r8 r4 c''(\arco\dob\f |
   e,!)\p r r16 c'\pizz b, r |
@@ -259,7 +259,7 @@ violinone = \new Voice { \relative c''{
   a16(\f gis,) r8 r4 e'16(\upb f') r8 | % bar 123
   r8. d16(\dob\fp a)\p r8. r4 |
   \mark \default                % reharsal mark 8
-  r8 d(\accent\f \tuplet 3/2 { ees,8\p bes'8. aes,16 } r8 c'-. |
+  r8 d(->\f \tuplet 3/2 { ees,8\p bes'8. aes,16 } r8 c'-. |
   r16 bes,( fis'8) \tuplet 3/2 { gis'4-- d,-- f'!-- } |
   r2 r8 e~\f |
 
@@ -275,9 +275,8 @@ violinone = \new Voice { \relative c''{
   %% gobal events/commands? For clarity's sake, Maybe It is better
   %% to have one of these in each instrument file.
 
-
   \time 3/4
-  \set Score.currentBarNumber = #128
+  %%\set Score.currentBarNumber = #129
   a''16(\arco\f d,,8.)\p r4 a''16(\f e8.)\p |
   r8 e16( dis,) r4 r16 d'\pizz cis, r |
   r e'(\arco dis,) r r8 a-.\dob g''4:32\fp | % metric mistake in part
@@ -357,7 +356,7 @@ violinone = \new Voice { \relative c''{
   %% page 3.7
   r16 e'\dob e\upb r r4 <e b'\harmonic>16\dob\f q\upb\p r8 | % bar 154
   r2 b'8\pizz\f r |
-  d,16\dob d\upb r8 r4 ees'16\accent\pizz d, r8 |
+  d,16\dob d\upb r8 r4 ees'16->\pizz d, r8 |
   r4 <fis, ais>16\dob\ff q\upb r8 r4 |
   r8 g'16( aes') r2 |
   <a, e\harmonic>8\f r r2 |
@@ -446,7 +445,7 @@ violinone = \new Voice { \relative c''{
   \time 3/4 r2 c'8\pizz\f r \bar "||" |
 
   %% g-- and a-- are accented with > in the part instead of tenuto.
-  \tempo "Tempo 1°" r4 \tuplet 3/2 { g--\arco\f bes'4.\accent a,,8-- } % bar 215
+  \tempo "Tempo 1°" r4 \tuplet 3/2 { g--\arco\f bes'4.-> a,,8-- } % bar 215
   \tuplet 5/4 { f':32\sulpont fis': gis,: d: b,: } r4 |
   \mark \default R2. |          % reharsal mark 14
   \time 2/4 r4 \tuplet 5/4 { b8:32\pp ais,: cis'16: % bar 218
