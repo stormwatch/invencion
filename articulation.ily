@@ -3,13 +3,13 @@ arco = ^\markup { \italic arco }
 arcobrac = ^\markup { \italic "[arco]" }
 spont = ^\markup { \italic "s. pont." }
 sulpont = ^\markup { \italic "sul pont." }
-arcosulpont = ^\markup \left-column { \italic "arco"
-      			\line { \italic "sul pont." }}
+arcosulpont = ^\markup { \override #'(baseline-skip . 2.5)
+                         { \column { \italic arco \italic "sul pont." } } }
 nat = ^\markup { \italic nat. }
-accel = ^\markup { \italic "accel." }
-acel = ^\markup { \italic "acelerando" }
-atempo = ^\markup { \italic "a tempo" }
-atpo = ^\markup { \italic "a tpo." } 
+accel = ^\markup { "accel." }
+acel = ^\markup { "acelerando" }
+atempo = ^\markup { "a tempo" }
+atpo = ^\markup { "a tpo." } 
 piup = _\markup { \italic "più" \dynamic p }
 piuf = _\markup { \italic "più" \dynamic f }
 
