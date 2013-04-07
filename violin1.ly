@@ -455,25 +455,50 @@ violinone = \new Voice { \relative c''{
 
   %% page 4.6
   \time 3/4 cis: g8: f':] } r8 <e\harmonic a,> r4 | % bar 219
-  r \tuplet 5/4 { a8:32 bes': g: cis: dis: } |
+  r \tuplet 5/4 { a,8:32 bes': g: cis: dis: } |
   r <e,\harmonic a,>\p r4 \tuplet 5/4 { fis8:32\pp f,!: gis'16: |
   gis: d,8: b'': } r <f,\harmonic c>\p r4 |
   r \tuplet 5/4 { fis''8:32\pp f,,!: gis': d': b,: } |
 
-  \set Score.skipTypesetting = ##f
-
   %% page 4.7
   r <c f\harmonic>\p r2 |       % bar 224
-  \tuplet 5/4 { dis8:32\pp e': cis,: gis': fis': } r8 <d,!\harmonic a>\p
-  r4 \tuplet 5/4 { e'8:32\pp f': g,: cis: ais': } |
+  \tuplet 5/4 { dis8:32\pp e': cis,: gis': fis': } r8 <d,!\harmonic a>\p |
+  r4 \tuplet 5/4 { e8:32\pp f': g,: cis: ais': } |
   r8 <e, b'\harmonic>\p r2 |
   \mark \default                % reharsal mark 15
-  \tuplet 5/4 { ees8:32\pp d,: cis': fis: a,: } r <cis\harmonic gis>\p |
-  r2 \tuplet 5/4 { gis'8:32\pp a': fis16: |
+  \tuplet 5/4 { ees,8:32\pp d,: cis': fis: a,: } r <cis'\harmonic gis>\p |
+  r2 \tuplet 5/4 { gis'8:32\pp a': fis,16: |
 
   %% page 4.8
-  fis: c'8: d,: } r8 <gis\harmonic dis>\p r4 | % bar 230
+  fis: c'8: d,: } r8 <gis,\harmonic dis>\p r4 | % bar 230
   r \tuplet 5/4 { e''8:32\pp dis,: cis': g?: bes,: } |
+  r <a d!\harmonic>\p r4 \tuplet 5/4 { a'8:32\pp gis,: fis'16: |
+  fis: d'8: c,: } r <ees, aes\harmonic>\p r4 |
+  r \tuplet 5/4 { d'8:32\pp ees': c,: bes: b'!: } |
+  r8 <fis,\harmonic cis>\p r2 |
+
+  \set Score.skipTypesetting = ##f
+
+  %% page 4.9
+  \mark \default                % reharsal mark 16
+  \tuplet 5/4 { b8:32\pp ais': cis: e,,: f': } r8 <c!\harmonic g>\p | % bar 236
+  r2 \tuplet 5/4 { f8:32\pp fis': gis,,16: |
+  gis: b'8: c,: } r8 <g!\harmonic d>\p r4 | % r4 missing from part.
+  r4 \tuplet 5/4 { a'8:32\pp bes': g,: cis: dis,: }|
+  r8 <a e'\harmonic>\p r2 |
+  \tuplet 5/4 { e'8:32\pp dis': cis,: g': bes,: } r8
+     <<
+       { \once \override Stem #'transparent = ##t
+         \once \override Flag #'transparent = ##t
+         \override ParenthesesItem #'padding = #0.1
+         \override ParenthesesItem #'font-size = #1
+         \parenthesize \tweak #'font-size #-3 a'8 }
+       \\
+       { <a,\harmonic d,>\p }
+     >> |
+
+  %% page 4.10
+  r4 \tuplet 5/4 { f8':32\pp fis': gis,: d': c,: } | % bar 242 
 
   \set Score.skipTypesetting = ##t
 }}
