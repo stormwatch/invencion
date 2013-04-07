@@ -7,7 +7,7 @@ violintwo = \new Voice { \relative c'{
     <a a>:32\fp <gis fis'>8[-.\downbow r16 <gis fis'>]-.\downbow r4 |
     R2. |
 
-    %% system 2
+    %% page 1.2
     %% bar 7
     r8 <d' c'>^"pizz."\f b,4.^"arco" r8 |
     <dis' cis'>\downbow\f r8 r2 |
@@ -25,7 +25,7 @@ violintwo = \new Voice { \relative c'{
     r |
     a''2.:32\flageolet^"sul pont."\p |
 
-    %% system 3
+    %% page 1.3
     %% bar 15
     f,16(^"nat."\ff gis,) r8 r2 |
     r2
@@ -38,7 +38,7 @@ violintwo = \new Voice { \relative c'{
     r4 a16^"pizz."\p bes' r8 r16 f, fis' r |
     ees^"arco"-. d,-. r8 r4 r16 bes' a, r |
     
-    %% system 4
+    %% page 1.4
     %% bar 22
     gis'8^"pizz." r r4 r8 f'16(^"arco" e,) |
     d'( cis,) r8 r dis' r8. <d, a'\harmonic>16-.\f |
@@ -64,7 +64,7 @@ violintwo = \new Voice { \relative c'{
     g2.:32^"arco"^"sul pont"\fp |
     dis'8^"nat." r  r4 b8 r |
   
-    %% system 5
+    %% page 1.5
     %% bar 28
     \times 3/5 { b,4--\f ais'-- cis,-- g'-- f'-- } |
     e,-- r \times 4/5 { e8:32[^"sul pont."\p f':32 g,16:32 |
@@ -73,8 +73,8 @@ violintwo = \new Voice { \relative c'{
     %% no esta claro si es r8 o r16
     r e,16( f') r4 r8 b,16( ais,) |
     r  cis'( d') r b,2:32\fp |
-  
-    %% system 6
+    
+    %% page 1.6
     %% bar 34
     \time 2/4 <c ees>:32\fp |
     \time 3/4 <b' d>16(^"nat."\downbow\f f,?) r8 r <b g'>16\downbow\f <b g'>\upbow\p r4 |
@@ -83,10 +83,93 @@ violintwo = \new Voice { \relative c'{
     \time 3/4 r8 <d? c'>16\downbow\f <d c'>\upbow r8 <d c'>16\downbow fis\upbow r4 |
     gis16( c,) r8 r g16( <ais b,>) r4 |
     <dis cis'>16\downbow <dis cis'>\upbow r8 <g, bes>4\downbow\fp r8 f?-.\upbow |
-    <c' b'>16\downbow\f <c b>\upbow r8 r2 | % bar 40
+    <c' b'>16\downbow\f q\upbow r8 r2 | % bar 40
+    ais16(\p b') r8 r8. f,16 <gis fis'>8.-- q16-- \bar "||" |
+    r dis'(\upb g, a) r f'\dob gis,\upb r b,4:32 |
+    \tuplet 3/2 { dis'-- g,,-- a'-- } % Last tenuto missing in part.
+      r16 f?\dob gis'\upb r |
 
-    %% placeholder untill I fill these bars -- EB
-    s4*73
+    %% page 1.7
+    r8 c,\upb r16 fis\dob f? r a,\dob gis'8.\upb | % bar 44
+    gis,,16\upb( dis' c!) r r gis!\upb( dis'' c,?) gis''\dob cis,,8.\upb~ |
+    \time 1/4 cis8 cis16\f-> r |
+
+    %staff #8, measure 41, circle 3
+  r8\mark #3  a'16(\p\upbow g es)[ r8 f16]( gis[ b) r16 d,]( |
+  
+  % 42
+  g[ a) r a,]( g'[ dis) b'( gis] 
+  
+  % page 1 system 9 continue measure 42
+f16[) r8  gis16]( |
+
+%43
+c d) r8 r16 gis fis, r r4 |
+
+%44 
+r8 dis16-. e'-.   \times 2/3 { f?4--\mf d,!-- a'-- }
+\time 2/4
+
+%45
+\times 2/3 { dis4-- gis-- r4 } |
+\time 3/4
+
+%46
+\times 3/5 {  gis,-- fis'-- f,!-- a'-- bes,,--~ } |
+
+%47
+\times 4/5 {
+  bes8
+  \repeat tremolo 4 {g'32}
+  \repeat tremolo 4 {cis32}
+  \repeat tremolo 4 {d,32}
+  \repeat tremolo 4 {e'32}
+}
+\stemUp
+r8 fis,16(\upbow c'!) |
+%page 1 system 10
+%48 
+dis,16( e') gis,( a') r8 des,16\upbow( c,) r16 es'([ dis,)] r |
+
+%49
+d([ es') r d,(]  es')[ e,!( f')] r16 r4 |
+  %50
+r4 r16 g,(\upbow b) r r8 g16(\upbow b)
+\mark #4
+%51
+r8. bes16(\upbow g[ e]) r gis(\upbow  fis d c8) |
+\stemNeutral
+%52
+cis16( a' ais fis)
+
+%page 1 system 11 middle of mm52
+r16 cis( a' bes, fis'8) d16( e |
+
+%53
+b'[ cis,) r gis']( fis cis' ais) r f( cis'! b ais!) |
+\time 2/4
+%54
+r gis( e b' g8) bes16( c) |
+
+%55
+R2*1 |
+
+\time 3/4
+%56
+\times 2/3 { a4--\f es'-- d,-- } r8\p d'16\upbow( cis |
+
+%page 2 system 1
+%57
+gis'16)r  a,,\upbow( g') r dis'\upbow( cis gis) r8 b,16\upbow( d! |
+
+%58
+e) r16 gis'\upbow( cis, fis)[ r b,8]-^^"pizz" r4 |
+
+%59
+R2. |
+
+%60
+r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 
 %%	page 2
 %%	system 1
@@ -929,7 +1012,9 @@ violintwo = \new Voice { \relative c'{
 	<g' e>4.\f\arco\dob r8 <c d,>\pizz r8
 % bar 286
 	\stemNeutral
-	\set subdivideBeams = ##t	\set baseMoment = #(ly:make-moment 1 8)	\override TupletBracket #'bracket-visibility = ##f
+	\set subdivideBeams = ##t
+	\set baseMoment = #(ly:make-moment 1 8)
+	\override TupletBracket #'bracket-visibility = ##f
 	r4 \times 2/3 { f,,?16\upb_.\arco_\( f_. f_. } f16_.\) r16 r4
 % bar 287
 	r8 <cis'' dis,> <ees,, c>8\f\dob[ r16 <ees c>16\dob] r4
