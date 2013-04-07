@@ -41,4 +41,3 @@ harmonicPitch = #(define-music-function (parser location note)
     \once \override Voice.NoteHead #'font-size = #-4
     \parenthesize $note
   #})
-
