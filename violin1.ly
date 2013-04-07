@@ -426,6 +426,8 @@ violinone = \new Voice { \relative c''{
   R2. |
   r4 cis'8-.\sulpont\p cis-.\f r4 |
 
+  \set Score.skipTypesetting = ##f
+
   %% page 4.3
   \repeat unfold 3 { \tuplet 5/4 { r16 d-.\f c,-. fis-. r } r2 } | % bars 199 to 201
   cis'8\p r r4 r8 fis' |
@@ -446,11 +448,28 @@ violinone = \new Voice { \relative c''{
 
   %% g-- and a-- are accented with > in the part instead of tenuto.
   \tempo "Tempo 1°" r4 \tuplet 3/2 { g--\arco\f bes'4.-> a,,8-- } % bar 215
-  \tuplet 5/4 { f':32\sulpont fis': gis,: d: b,: } r4 |
+  \tuplet 5/4 { f':32\sulpont fis': gis,: d': b,: } r4 |
   \mark \default R2. |          % reharsal mark 14
-  \time 2/4 r4 \tuplet 5/4 { b8:32\pp ais,: cis'16: % bar 218
+  \set subdivideBeams = ##f
+  \time 2/4 r4 \tuplet 5/4 { b8:32[\pp ais,: cis'16: % bar 218
 
   %% page 4.6
-  \time 3/4 cis: g8: f': } r8 <e\harmonic a,> r4 | % bar 219
+  \time 3/4 cis: g8: f':] } r8 <e\harmonic a,> r4 | % bar 219
   r \tuplet 5/4 { a8:32 bes': g: cis: dis: } |
+  r <e,\harmonic a,>\p r4 \tuplet 5/4 { fis8:32\pp f,!: gis'16: |
+  gis: d,8: b'': } r <f,\harmonic c>\p r4 |
+  r \tuplet 5/4 { fis''8:32\pp f,,!: gis': d': b,: } |
+
+  %% page 4.7
+  r <c f\harmonic>\p r2 |       % bar 224
+  \tuplet 5/4 { dis8:32\pp e': cis,: gis': fis': } r8 <d,!\harmonic a>\p
+  r4 \tuplet 5/4 { e'8:32\pp f': g,: cis: ais': } |
+  r8 <e, b'\harmonic>\p r2 |
+  \mark \default                % reharsal mark 15
+  \tuplet 5/4 { ees8:32\pp d,: cis': fis: a,: } r <cis\harmonic gis>\p |
+  r2 \tuplet 5/4 { gis'8:32\pp a': fis16: |
+
+  %% page 4.8
+  fis: c'8: d,: } r8 <gis\harmonic dis>\p r4 | % bar 230
+  r \tuplet 5/4 { e''8:32\pp dis,: cis': g?: bes,: } |  
 }}
