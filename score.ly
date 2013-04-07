@@ -2,8 +2,6 @@
 \include "compound.ily"
 
 \header {
-
-
   title = \markup \center-column {"invención"}
   %% subtitle = "subtitle"
   instrument = "para cuarteto de cuerda"
