@@ -460,6 +460,8 @@ violinone = \new Voice { \relative c''{
   gis: d,8: b'': } r <f,\harmonic c>\p r4 |
   r \tuplet 5/4 { fis''8:32\pp f,,!: gis': d': b,: } |
 
+  \set Score.skipTypesetting = ##f
+
   %% page 4.7
   r <c f\harmonic>\p r2 |       % bar 224
   \tuplet 5/4 { dis8:32\pp e': cis,: gis': fis': } r8 <d,!\harmonic a>\p
@@ -471,5 +473,7 @@ violinone = \new Voice { \relative c''{
 
   %% page 4.8
   fis: c'8: d,: } r8 <gis\harmonic dis>\p r4 | % bar 230
-  r \tuplet 5/4 { e''8:32\pp dis,: cis': g?: bes,: } |  
+  r \tuplet 5/4 { e''8:32\pp dis,: cis': g?: bes,: } |
+
+  \set Score.skipTypesetting = ##t
 }}
