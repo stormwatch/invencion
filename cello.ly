@@ -1,5 +1,5 @@
 cello = \new Voice { \relative c {
-  \set Staff.instrumentName = #"Cello "
+  \set Staff.instrumentName = #"Violoncello "
   \clef bass
 
   r16\p cis16^. g'^. r r2 |           % bar  1
@@ -301,7 +301,7 @@ cello = \new Voice { \relative c {
         ais'16\f\upb( b'16) r8 cis,8\tenuto\p\upb cis8\tenuto\f r4
 %%%%% | % bar 173
         \times 4/5 {r16 c,16\staccato\sulpont cis'16 gis'16 r16} r2
-        \mark \default
+        \mark \default          % reharsal mark 11
         \times 4/5 {r16 c,,16 cis'16 gis'16 r16} r4 c,8\p c8\f
         r2 r8 ees16\staccato\f a16\staccato
         r2 r8 cis,,8\p\pizz
