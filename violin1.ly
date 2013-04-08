@@ -498,7 +498,7 @@ violinone = \new Voice { \relative c''{
      >> |
 
   %% page 4.10
-  r4 \tuplet 5/4 { f8':32\pp fis': gis,: d': c,: } | % bar 242 
+  r4 \tuplet 5/4 { f'8:32\pp fis': gis,: d': c,: } | % bar 242 
 
   \set Score.skipTypesetting = ##t
 }}
