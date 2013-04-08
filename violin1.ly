@@ -426,8 +426,6 @@ violinone = \new Voice { \relative c''{
   R2. |
   r4 cis'8-.\sulpont\p cis-.\f r4 |
 
-  \set Score.skipTypesetting = ##f
-
   %% page 4.3
   \repeat unfold 3 { \tuplet 5/4 { r16 d-.\f c,-. fis-. r } r2 } | % bars 199 to 201
   cis'8\p r r4 r8 fis' |
@@ -477,8 +475,6 @@ violinone = \new Voice { \relative c''{
   r \tuplet 5/4 { d'8:32\pp ees': c,: bes: b'!: } |
   r8 <fis,\harmonic cis>\p r2 |
 
-  \set Score.skipTypesetting = ##f
-
   %% page 4.9
   \mark \default                % reharsal mark 16
   \tuplet 5/4 { b8:32\pp ais': cis: e,,: f': } r8 <c!\harmonic g>\p | % bar 236
@@ -498,5 +494,5 @@ violinone = \new Voice { \relative c''{
      >> |
 
   %% page 4.10
-  r4 \tuplet 5/4 { f8':32\pp fis': gis,: d': c,: } | % bar 242 
+  r4 \tuplet 5/4 { f'8:32\pp fis': gis,: d': c,: } | % bar 242
 }}
