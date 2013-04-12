@@ -37,7 +37,29 @@ upb = \upbow
 harmonicPitch = #(define-music-function (parser location note)
   (ly:music?)
   #{
+    \once \override Stem #'transparent = ##t
+    \once \override Flag #'transparent = ##t
+    %%\override ParenthesesItem #'padding = #0.1
+    %%\override ParenthesesItem #'font-size = #1
     \once \override Voice.Stem #'stencil = ##f
     \once \override Voice.NoteHead #'font-size = #-4
     \parenthesize $note
   #})
+
+ritAtempoText =
+{
+  \override TextSpanner #'(bound-details left text) = \markup { \bold "rit. " }
+  \override TextSpanner #'(bound-details right text) = \markup { \bold "A tempo" }
+  \override TextSpanner #'(bound-details right-broken text) = ##f
+  \override TextSpanner #'(bound-details left-broken text) = ##f
+  \override TextSpanner #'(bound-details right padding) = #0.5
+}
+
+acelAtempoText =
+{
+  \override TextSpanner #'(bound-details left text) = \markup { \bold "acelerando " }
+  \override TextSpanner #'(bound-details right text) = \markup { \bold "A tempo" }
+  \override TextSpanner #'(bound-details right-broken text) = ##f
+  \override TextSpanner #'(bound-details left-broken text) = ##f
+  \override TextSpanner #'(bound-details right padding) = #0.5
+}
