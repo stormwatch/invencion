@@ -493,11 +493,7 @@ violinone = \new Voice { \relative c''{
        { <a,\harmonic d,>\p }
      >> |
 
-  %% page 4.10
-  r4 \tuplet 5/4 { f'8:32\pp fis': gis,: d': c,: } | % bar 242 
-
 %% page 4.10
-r4 \tuplet 5/4 { f'8:32\pp fis': gis,: d': c,: } | % bar 242 
 r4 \tuplet 5/4 { f'8:32\pp fis': gis,: d': c,: } | % bar 242
 r8
 <<
@@ -507,7 +503,7 @@ r8
     \override ParenthesesItem #'font-size = #1
     \parenthesize \tweak #'font-size #-3 b'8 }
   \\
-  { <e,,\harmonic g,>\p }
+  { <e,,\harmonic g,>8\p }
 >>
 r2 |
 r4 \tuplet 5/4 { gis8:32\pp a': fis: c: d': } |
@@ -557,7 +553,7 @@ r e'\dob\ff r16 e':32\( a,,: gis,:\) r4 | % 268
 \mark #18
 R2. |
 r2 <g' a bes'>4\f\pizz-^ |
-r16 fis-.\arco g'-. r16 r4 r16 g-. dis,-. r |
+r16 fis-.\arco g'-. r r4 r16 g-. dis,-. r |
 r8 e''16\dob\piuf e\upb r8 a,,\p\pizz r4 |
 \time 2/4 \tuplet 3/2 { cis,\f-> dis'-> e'-> } |
 
@@ -622,13 +618,13 @@ r4 \tuplet 5/4 { ees,8 d, c' fis' a,, } |
 %% page 5.8
 r8 e'\pizz\f r4 \tuplet 3/2 { e,,--\p\arco f'8[--~ | % bar 299
 %% Tenuto only in the first f'-- in both reduction and part.
-fis] g'4 } r2 |
+f] g'4 } r2 |
 r8 b,\pizz\f cis,,4.\arco\dob r8 |
 r4 \tuplet 3/2 { r4. dis'8\p-- e'4-- } | % piano missing from reduction
 f,,4.\dob r8 r4 |                        % \dob missing from part
 \mark #21
 gis,2.:\fp\dob\sulpont |
-r2.:\fp |
+gis:\fp |
 
 %% page 5.9
 \ritAtempoText
@@ -668,7 +664,7 @@ r8 \ottava #1 c'' r4 c16-> c-> \ottava #0 r8 |
 
 %% page 5.12
 r8 <ais,, cis>4:32\sulpont\fp <c ees>4.:\fp | % bar 328
-<fis a>:\fp q |
+<fis a>:32\fp q |
 q8\f r ees16\nat-^( d,) r8 r4 |
 bes''16\dob\ff a, r8 r16 e'' dis, r r4 |
 a''8 r8 r4 <a,,\harmonic d,>8\p r |
