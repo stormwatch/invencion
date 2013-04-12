@@ -1218,6 +1218,5 @@ r8 <gis\harmonic dis>8\arco\p_.
 \override TupletBracket #'direction = #DOWN
 r2 \times 4/5 { r16 fis16\pp\sulpont cis' ais' r16 }
 % bar 334-336
-R1*3/4*3 \bar "|."
-
+R1*3/4*2 \bar "|."
 }}
