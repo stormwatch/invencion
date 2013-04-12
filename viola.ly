@@ -12,7 +12,7 @@ viola = \new Voice { \relative c {
   r2 r8 f16-.\p fis'-. |									%1
   r2 r8 c-.\pizz |												%2
   f,4.\arco\f r8 r dis'-.\pizz | %?? rest: mistake in original							%3
-  r4 \tuplet 3/2 { <fis gis,>16-.[\sulpont\arco <fis gis,>-. <fis gis,>-. } <fis gis,>16-. r] r4 |	%4
+  r4 \tuplet 3/2 { <fis gis,>16-.\sulpont\arco <fis gis,>-. <fis gis,>-. } <fis gis,>16-. r r4 |	%4
   
   %%\autoBeamOff
   r8\nat <dis cis'>8\upb <dis gis>8-.\dob[ r16 <dis gis>16-.\dob] r4 |						%5
