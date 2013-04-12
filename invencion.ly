@@ -18,7 +18,7 @@
 \version "2.17.14"
 
 %% useful when editing to reduce compilation time
-%% showLastLength = R4*21
+%% showLastLength = R4*111
 %% showFirstLength = R4*21
 
 \include "score.ly"
