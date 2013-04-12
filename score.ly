@@ -21,8 +21,6 @@ global= {
 
   \override TextSpanner.dash-fraction = #0.4
   \override TextSpanner.dash-period = #1.0
-
-  \set Score.skipTypesetting = ##t
 }
 
 \include "violin1.ly"
