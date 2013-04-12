@@ -493,6 +493,198 @@ violinone = \new Voice { \relative c''{
        { <a,\harmonic d,>\p }
      >> |
 
-  %% page 4.10
-  r4 \tuplet 5/4 { f'8:32\pp fis': gis,: d': c,: } | % bar 242
+%% page 4.10
+r4 \tuplet 5/4 { f'8:32\pp fis': gis,: d': c,: } | % bar 242
+r8
+<<
+  { \once \override Stem #'transparent = ##t
+    \once \override Flag #'transparent = ##t
+    \override ParenthesesItem #'padding = #0.1
+    \override ParenthesesItem #'font-size = #1
+    \parenthesize \tweak #'font-size #-3 b'8 }
+  \\
+  { <e,,\harmonic g,>8\p }
+>>
+r2 |
+r4 \tuplet 5/4 { gis8:32\pp a': fis: c: d': } |
+\time 2/4 r8 <gis,\harmonic dis>\p r4 \bar "||" |
+\time 3/4 r16 d-.\f ees'-. r r4 <bes a, g>\pizz\sf |
+R2.*3 |                       % bars 247 to 249.
+
+%% In bar 249 there are cue notes showing vla an vc chords. These
+%% shoud appear when extracting the part only.
+
+%% page 4.11
+%% Bar 249 included in the previous multimeasure rest
+r2 q4\f |                     % bar 250
+<dis, cis'>16-.\dob\arco q-.\upb r8 r4 r8 q\dob |
+\tuplet 3/2 { <gis,, cis\harmonic>\p <d'\harmonic a> r }
+\tuplet 3/2 { r b'\pizz ais,} r4 |
+e'16\f\dob\arco e\p\upb r8 r4 r16 a-.\pizz\f b'-. g,,-. |
+R2. |
+
+%% page 4.12
+r16 e''-.\arco\upb\p( dis,-. cis'-.) r2 | % bar 255
+d'8\pizz\f r r4
+r16 bes:32\upb\arcosulpont\p-\staccTwo #2 \(
+a,:-\staccTwo #2 g,:-\staccTwo #2 \) | % bar 256
+%% "Vta. rápida" in manuscript part
+
+%% page 5.1
+R2. |                         % bar 257
+\mark #17
+r8 ais'16\pizz\p b' r4 e,16\arco\dob\mf e\upb r8 |
+r4 c'8\dob\f r r4 |
+r8 bes16\f\dob bes\upb r4 r16 c:\p\upb-\staccTwo #2 \(
+b,:-\staccTwo #2 d,:-\staccTwo #2 \) |
+r8. aes''16-^\pizz\ff r4
+<bes,, ees\harmonic>16-.\p\arco~ <bes ees>-. r8 |
+
+%% page 5.2
+r d'16-.\p gis-. r4 r16 a,\f\upb( gis'') r | % bar 262
+<e, a\harmonic>16 <e a\harmonic> r8 r b'16\ff b r4 |
+r16 d,\p\sulpont( ees') r r2 |
+R2. |
+<fis,,: a:>4.\fp <g: bes:>\fp |
+e8\nat\dob\f-. r r4 r8 e-.\dob |
+ 
+%% page 5.3
+r e'\dob\ff r16 e':32\( a,,: gis,:\) r4 | % 268
+\mark #18
+R2. |
+r2 <g' a bes'>4\f\pizz-^ |
+r16 fis-.\arco g'-. r r4 r16 g-. dis,-. r |
+r8 e''16\dob\piuf e\upb r8 a,,\p\pizz r4 |
+\time 2/4 \tuplet 3/2 { cis,\f-> dis'-> e'-> } |
+
+%% page 5.4
+\time 3/4 R2. |               % bar 274
+\tuplet 3/2 { d,,8:32\sulpont\fp-\staccTwo #2 \(
+  c':-\staccTwo #2 b':-\staccTwo #2 \) } a' r r4 |
+\tuplet 3/2 { d,,,8:\sulpont\fp-\staccTwo #2 \(
+  c':-\staccTwo #2 b':-\staccTwo #2 \) } a'8 r
+  \tuplet 3/2 { r b,,-^\ff\nat c'-^ } | % bar 276
+r2 e8\pizz\p r |
+r4 r16 b-.\p f,-. r r4 |
+e'16-.\dob\f e-. e-. r \tuplet 3/2 {
+  d,8:\p-\staccTwo #2 \( c':-\staccTwo #2 b':-\staccTwo #2 \) }
+  \tuplet 3/2 { r8 dis,-^\ff e'-^ }
+
+%% page 5.5
+R2. |                         % bar 280
+\mark #19
+\tuplet 3/2 { r8 a-.\p\acel dis,,-. } r4 r8
+\once \set doubleSlurs = ##f \slurDashed \slurUp \tieDown
+<e~ a\harmonic>\f( |           % bar 281
+\tuplet 3/2 { <e a\harmonic>)\p \slurSolid \slurNeutral \tieNeutral
+a'-. dis,-. } \tuplet 3/2 { r4 a, gis''8( b,,) } | % bar 282
+r2 \tuplet 3/2 { r8 a'\f gis,, } |
+r4 r16 ees''-.\upb r8 aes,16\dob aes\upb r8 \bar "||"
+R2.\atpo |
+
+%% page 5.6
+r4 r8 c'\pizz\p r4 | f,4.\dob\arco\f  r8 ees'\pizz r |
+r4 \tuplet 3/2 { <fis, gis,>16\arco\p-.( q-. q-. } q-.) r r4 |
+r8
+<<
+  { 
+    \ottava #1
+    \harmonicPitch { e'' }
+    \ottava #0
+  }
+  \\
+  { <a,, c\harmonic> }
+>>
+d,\dob\f[ r16 d\dob] \tuplet 3/2 { b4--\p ais'8[~ | % bar 289
+ais] cis,4 } r2 |
+\mark #20
+\time 4/4 r2 r4 \tuplet 5/4 { e''8\f[ dis, cis16 |
+
+%% page 5.7
+\time 3/4 cis g,8 bes'] } r2 | % bar 292
+r4 \tuplet 5/4 { ees,8 d, c' fis' a,, } |
+\time 2/4 gis'4 r |
+\time 3/4 <e\harmonic a,>8\f r r2 |
+<<
+  {
+    \harmonicPitch { fis' }  % FIXME: should be a black notehead
+  }
+  \\
+  { <b,,\harmonic fis>2.\fp }
+>> |                          % bar 296
+  r8 a'' r2 |
+  r8. b,16\pizz\f r4 <d, b>4:32\fp\arco\sulpont |
+
+%% page 5.8
+r8 e'\pizz\f r4 \tuplet 3/2 { e,,--\p\arco f'8[--~ | % bar 299
+%% Tenuto only in the first f'-- in both reduction and part.
+f] g'4 } r2 |
+r8 b,\pizz\f cis,,4.\arco\dob r8 |
+r4 \tuplet 3/2 { r4. dis'8\p-- e'4-- } | % piano missing from reduction
+f,,4.\dob r8 r4 |                        % \dob missing from part
+\mark #21
+gis,2.:\fp\dob\sulpont |
+gis:\fp |
+
+%% page 5.9
+\ritAtempoText
+b16 r8. \tuplet 3/2 { dis''2--\startTextSpan e4-- } | % bar 306
+r8\stopTextSpan \acelAtempoText d\startTextSpan
+%% The acellerando starts in the second quaver (previous note d) in
+%% the reduction.
+r4 r8. ais16 |
+R2. |
+ees'16\ff( g,,) r8 r2 |
+r2\stopTextSpan r8 ees'->(\sf | % ees notated dis in reduction. Missing accent in part.
+<g, e>)\p                       % \p missing in part.
+q-- r \ottava #1 a''4.->\fp~ |
+\ritAtempoText a2.\startTextSpan \ottava #0 \breathe \bar "||" |
+%% last breathe mark missing in part.
+
+%% page 5.10
+ees,2.\p\stopTextSpan( |       % bar 313
+aes'2.) \breathe |
+R2. |
+\tuplet 5/4 { e,,8:\pp\sulpont f': g,,: cis': ais': } b,4 |
+R2. |
+r8. e16\f f' r8. r16 ais, b' r |
+R2. |
+ees,,2.~\fp-> |                % Accent missing from part.
+
+%% page 5.11
+ees2. \breathe |              % bar 321
+\mark #22
+cis2.:32\fp\sulpont |
+<cis bes'>16\nat\f\dob q\upb r8 r2 |
+r8 e'16\dob e\upb r2 |
+\once \set doubleSlurs = ##f \slurDashed \slurUp \tieDown
+r2 r8 <ees,\harmonic bes~>(\p |                              % bar 325
+<ees\harmonic bes>2.) \slurSolid \slurNeutral \tieNeutral |
+r8 \ottava #1 c'' r4 c16-> c-> \ottava #0 r8 |
+
+%% page 5.12
+r8 <ais,, cis>4:32\sulpont\fp <c ees>4.:\fp | % bar 328
+<fis a>:32\fp q |
+q8\f r ees16\nat-^( d,) r8 r4 |
+bes''16\dob\ff a, r8 r16 e'' dis, r r4 |
+a''8 r8 r4 <a,,\harmonic d,>8\p r |
+
+%% page 6.1
+r4 \tuplet 5/4 { r16 dis(\pp\sulpont c' e) r } % bar 333
+r <<
+  {
+    \harmonicPitch { \ottava #1 a8 \ottava #0 }
+  }
+  \\
+  { <f,\harmonic d!>8 }
+>> r16 |                      % bar 333
+\tuplet 5/4 { r c( b' d) r } r4 \tuplet 5/4 { r16 f,( gis fis') r } |
+r4 \tuplet 5/4 { r16 e( bes a,) r } r4 |
+e''16\pizz\f dis, r8 r4 r8 <e a\harmonic>\arco\p |
+
+%% page 6.2
+  \tuplet 5/4 { r16 c'\pp( d, b) r } r4 \tuplet 5/4 { r16 c'( d, b) r } |
+  r4 \tuplet 5/4 { r16 e'( dis, a) r } r4 |
+  R2. |
+  r4 \tuplet 3/2 { b,--\p\nat cis''-- d,,-- } \bar "|."
 }}

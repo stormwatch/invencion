@@ -15,8 +15,10 @@ global= {
   \time 3/4
   \key c \major
   \set Score.markFormatter = #format-mark-circle-numbers
+
   \set Score.subdivideBeams = ##t
   \set Score.baseMoment = #(ly:make-moment 1/8)
+
   \override TextSpanner.dash-fraction = #0.4
   \override TextSpanner.dash-period = #1.0
 }

@@ -1110,18 +1110,22 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
 	fis2.\startTextSpan \bar "||"
 % bar 311
-	\set doubleSlurs = ##f
-	<<
-	{ 
-		\slurDashed d,,2.\harmonic\stopTextSpan ^( | 
-		c2.\harmonic) \breathe \slurSolid
-	}
-	{ g2.\p~ | g2. } 	
-	>>
+  \once \set doubleSlurs = ##f
+  \slurDashed 
+  \slurUp
+  < d,,\harmonic g,~ >2.\stopTextSpan(
+
 % bar 312
-	r4 \times 4/5 { f'8:32\pp\sulpont fis': gis,: d'': b,: }
+  < c\harmonic g >2. ) \breathe
+  \slurSolid
+  \slurNeutral
+
+% bar 313
+  r4 \times 4/5 { f8:32\pp\sulpont fis': gis,: d'': b,: }
+
 % bar 313
 	c'8 r r2
+
 % bar 314
 	\times 4/5 { e,8:32 dis,: cis': g,: bes': } r4
 
@@ -1130,26 +1134,21 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	r8 dis,16\f e' r4 a,16 bes' r8
 % bar 316
 	\times 2/3 { e,4^-\p dis,_- cis'^- } r4
+
 % bar 317
-%%	This is not quite right here - the stems do not align quite correctly
-%%	but if I can work out how to do it better, I will;
-%%	bars 311-312 worked perfectly!
-	<<
-	{ 
-%		\voiceOne
-		\slurDashed 
-		d,2.\harmonic ^( | 
-		d2.\harmonic) \breathe 
-		\slurSolid
-	} 
-	\\
-	{ 	
-%		\voiceThree
-%		\shiftOff
-		\stemUp
-		g,2.\p_~ | g2. 
-	} 	
-	>>
+\once \set doubleSlurs = ##f
+\slurDashed 
+\slurUp
+< d,\harmonic g,~ >2.( 
+% bar 318
+< d\harmonic g, >2. )
+\slurSolid
+\slurNeutral
+% bar 319
+% mark 22
+\mark \default
+g2.:32\fp\spont
+
 % bar 318
 % mark 22
 	\mark \default
@@ -1219,6 +1218,5 @@ r8 <gis\harmonic dis>8\arco\p_.
 \override TupletBracket #'direction = #DOWN
 r2 \times 4/5 { r16 fis16\pp\sulpont cis' ais' r16 }
 % bar 334-336
-R1*3/4*3 \bar "|."
-
+R1*3/4*2 \bar "|."
 }}
