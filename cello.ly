@@ -341,12 +341,12 @@ ais,16( b'16) r8 b,16( c'16) r8 r8 cis16\ff\staccato cis16\staccato
         gis16\f\arco( fis'16) r8 a,8\tenuto\p a8\f\tenuto r4
 %%%%% | % bar 204
         \times 4/5 {r16 dis,16\staccato\f e'16\staccato gis16\staccato r16} r2
-        \repeat percent 2 {\times 4/5 {r16 dis,16\staccato e'16\staccato gis16\staccato r16} r2}
+        \repeat unfold 2 {\times 4/5 {r16 dis,16\staccato e'16\staccato gis16\staccato r16} r2}
         \mark \default
         r2 r8 f,8\f\pizz
         r4 r8 bes'8\p\staccato r4
         cis,16\f\arco( dis'16) r8 <c,,! f\harmonic>8\p\tenuto <c f\harmonic>8\tenuto\f r4
-        \repeat percent 2 {\times 4/5 {r16 ges'16\f\sulpont( f'16 a16) r16} r2}
+        \repeat unfold 2 {\times 4/5 {r16 ges'16\f\sulpont( f'16 a16) r16} r2}
 %%%%% | % bar 212
         R2.
         \times 4/5 {r16 gis16\f( a16 fis16) r16} r4 r8 a,8\pizz\mf
