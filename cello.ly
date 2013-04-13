@@ -469,7 +469,7 @@ cis,16-. \downbow cis-. cis-. r r4 r16\p cis -. cis -. cis -. |
   
   %270 
  cis16-. \f cis-. cis-.  r ais'8\p ^pizz r8 r4  |
- \break
+ %%\break
  
   %271  page 5 staff 5
   \repeat tremolo 12 {c'32\fp\arcosulpont}
@@ -495,7 +495,7 @@ cis,16-. \downbow cis-. cis-. r r4 r16\p cis -. cis -. cis -. |
   dis'8\downbow r8 r4 a8^"pizz." r  |
   %277  
   \repeat tremolo 24 {d32\fp\arcosulpont} |
-  \break                                                                           
+  %%\break                                                                           
   %278 page 5 staff 6
   r8 b8\f r4 r16 <fis' a>16\downbow q\upbow r |
   
@@ -651,8 +651,6 @@ cis,16-. \downbow cis-. cis-. r r4 r16\p cis -. cis -. cis -. |
   % 325
   R2. *1  |
 
-  \set Score.skipTypesetting = ##f
-  
   % 326
   r4 \times 2/3 { gis''4 -- a'-- fis,-- }  |
   
