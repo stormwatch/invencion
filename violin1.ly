@@ -276,7 +276,7 @@ violinone = \new Voice { \relative c''{
   %% to have one of these in each instrument file.
 
   \time 3/4
-  %%\set Score.currentBarNumber = #129
+  \set Score.currentBarNumber = #129
   a''16(\arco\f d,,8.)\p r4 a''16(\f e8.)\p |
   r8 e16( dis,) r4 r16 d'\pizz cis, r |
   r e'(\arco dis,) r r8 a-.\dob g''4:32\fp | % metric mistake in part
@@ -445,9 +445,10 @@ violinone = \new Voice { \relative c''{
   \time 3/4 r2 c'8\pizz\f r \bar "||" |
 
   %% g-- and a-- are accented with > in the part instead of tenuto.
-  \tempo "Tempo 1°" r4 \tuplet 3/2 { g--\arco\f bes'4.-> a,,8-- } % bar 215
+  \tempo "Tempo 1°" r4 \tuplet 3/2 { g--\arco\f bes'4.-> a,,8-- } | % bar 215
   \tuplet 5/4 { f':32\sulpont fis': gis,: d': b,: } r4 |
-  \mark \default R2. |          % reharsal mark 14
+  \mark #14
+  R2. |
   \set subdivideBeams = ##f
   \time 2/4 r4 \tuplet 5/4 { b8:32[\pp ais,: cis'16: % bar 218
 
