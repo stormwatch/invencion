@@ -274,7 +274,7 @@ viola = \new Voice { \relative c {
   %% adjust bar number to correct for this compound bar
   %% end road warning
   
-  %%\set Score.currentBarNumber = #129
+  \set Score.currentBarNumber = #129
   \time 3/4
   \slurDown cis,,16( a'8.) r16 g'\pizz fis, r r8. g16 |								%129
   aes'r8. r8 \slurUp gis,16\arco( a') r4 |									%130
@@ -433,7 +433,8 @@ viola = \new Voice { \relative c {
   %%
   %% page 4.6
   %%
-  \mark #14 \stemDown \tuplet 5/4 { a,8:32\pp\sulpont[ bes':32 g,:32 c':32 b,!:32] } r4 |			%217
+  \mark #14 \stemDown
+  \tuplet 5/4 { a,8:32\pp\sulpont[ bes':32 g,:32 c':32 b,!:32] } r4 |			%217
   \time 2/4
   R2^\markup { \bold "1." } |											%218
   \time 3/4
