@@ -239,6 +239,7 @@ cello = \new Voice { \relative c {
         r4^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } }
         c,16\ff\arco\dob des'16 r8 r16 cis,8\marcato r16 r16 gis'16\p\pizz a'16 r16 \bar "!"
         \time 1/8 r8 
+        
         \revert Staff.TimeSignature #'stencil
         \time 3/4 c,,16\arco( gis''8.) r4 r8 fis,16\pizz gis'16
 %%%%% | % bar 131
@@ -357,7 +358,7 @@ ais,16( b'16) r8 b,16( c'16) r8 r8 cis16\ff\staccato cis16\staccato
         \times 4/5 {r16 f16\p( aes16 ges'16) r16} r2
         \times 4/5 {r16 e16( g16 f'16) r16} r4 r8 c8\pizz
         \mark \default
-        r4 \times 4/5 {gis,16:32\arcosulpont a'16:32 fis,16:32 d'16:32 c'16:32}
+        r4 \times 4/5 {gis,8:32\arcosulpont a': fis,: d': c':} % bar 217 --EB
         \time 2/4 r8 <dis,, gis\harmonic>8\p \times 4/5 {e'8:32\pp[ f'8:32 g,16:32
                                                          \time 3/4
                                                          g16:32 cis8:32 ais,8:32]} r2
@@ -371,7 +372,7 @@ ais,16( b'16) r8 b,16( c'16) r8 r8 cis16\ff\staccato cis16\staccato
                        fis16:32 d8:32 ees'8:32]} r8 <c, f\harmonic>8\p r4
 %%%%% | % bar 229
         r4 \times 4/5 {f,8:32\pp fis'8:32 gis,8:32 g'!8:32 bes,8:32}
-        \mark \default
+        \mark #15
         r8 <a d\harmonic>8\p r2
         \times 4/5 {dis,8:32\pp e'8:32 cis8:32 a'8:32 bes,8:32} r8 <c,\harmonic ees\harmonic \parenthesize g''>8\p
         r2 \times 4/5 {f8:32\pp[ fis'8:32 gis,16:32
@@ -400,10 +401,43 @@ ais,16( b'16) r8 b,16( c'16) r8 r8 cis16\ff\staccato cis16\staccato
         gis4.:32 d'4.:32
         b4.:32 f4.:32
         f8\dob\f r8 r4 r8 f8\dob
-        R2.
-        \clef bass dis,16\nat\f\dob dis16\p\upb r8 r2
+        R2. 
+        \clef bass dis,16\nat\f\dob dis16\p\upb r8 r2 
 
 %%% Exeunt Ryan McClure
+%%% FIXME: Substract 2 from previous bar count
+
+%% "Vta. rápida" in part.
+%% page 5.1
+r2 b'16\pizz\p ais, cis, r |    % bar 254
+r2 r8 fis |
+r4 fis16\dob\f\arco fis\upb\p r8 r4 |
+r4 dis16\dob\f dis\upb\p r8 r4 |
+\mark #17
+gis16\pizz                      %  pizz. shifted right in the part.
+      a' r8 r4 f,16\arco\dob\mf f\upb r8 |
+c16\p-. des'-. r8 r4 r8 c,16 des' |
+
+%% page 5.2
+r8 c,16\f\dob c\upb r2 |        % bar 260
+r4 f8\ff r r4 |
+r4 a'16\p-. gis,-. c-. r  r4 |
+r8 g'16(\f fis,) r8 c16\ff f r4 |
+r4 <d' a'\harmonic>8\p\pizz r r4 |
+<g, d'\harmonic>8 r r2 |
+<d' c'>8\f r r q4\upb\arco cis,8\pizz |
+
+%% page 5.3
+R2. |                           % bar 267
+r8 <f' bes\harmonic>8\ff\arco   % arco missing in part.
+      r4 r8 ees'16\f( d,) |
+\mark #18
+r4 \tuplet 3/2 { r8 fis'8\p d, } r4 |
+\tuplet 3/2 { e,4-- f'-- g'-- } r4 |
+f,16\f r8. r8 des'\pizz r8. d,!16 |
+r8 c,16\dob\piuf c\upb r4 r16 c''\pizz\p b, r |
+
+%% FIXME: Add 10 to the following bar count
 %%% Enter Peter Wannemacher
 
 %{
@@ -412,7 +446,6 @@ Engraver notes:
 Rehearsal mark indications, page numbers and staff numbers accurately reflect the original part.
 %}
 
-  \break
   %263 page 5 staff 4 
   \time 2/4
   R2*1  |
@@ -422,54 +455,54 @@ Rehearsal mark indications, page numbers and staff numbers accurately reflect th
   R2.*1  |
   
   %265
-  r2^arco e,16\downbow e,\upbow r8 |
+  r2^arco e,16\downbow e\upbow r8 |
   
   %266   % error in numbering -- does not exist  
   
   %267
-  \times 2/3 { b,4 c' <d g\harmonic> } r4 |
+  \times 2/3 { b'4 c' <d, g\harmonic> } r4 |
   
   %268
-  d,16->\fp_( gis8._~gis4) r16\f a( gis,) r |
+  d,16->\fp_( gis'8._~gis4) r16\f a( gis,) r |
   %269
-cis,16-. \downbow cis,-. cis,-. r r4 r16\p cis, -. cis, -. cis, -. | 
+cis,16-. \downbow cis-. cis-. r r4 r16\p cis -. cis -. cis -. | 
   
   %270 
- cis,16-. \f cis, -. cis, -.  r ais,8\p ^pizz r8 r4  |
+ cis16-. \f cis-. cis-.  r ais'8\p ^pizz r8 r4  |
  \break
  
   %271  page 5 staff 5
-  \repeat tremolo 12 {c'32\fp ^"sul pont." ^arco}
-  \repeat tremolo 12 {es'32\fp}  |
+  \repeat tremolo 12 {c'32\fp\arcosulpont}
+  \repeat tremolo 12 {es32\fp}  |
   
   \clef treble
   \mark 19
   
   %272 
-  \repeat tremolo 12 {fis'32\fp}
-  \repeat tremolo 12 {fis'32\fp}  |
+  \repeat tremolo 12 {fis32\fp}
+  \repeat tremolo 12 {fis32\fp}  |
   %273 
-  \repeat tremolo 12 {g'32\fp}
-  \repeat tremolo 12 {b'32\fp}  |
+  \repeat tremolo 12 {g32 _\markup { \italic simile }}
+  \repeat tremolo 12 {b32}  |
   
   %274 
-  \repeat tremolo 12 {cis''32} r8  \times 2/3 {r8 \clef bass   es' \f d  }  |
+  \repeat tremolo 12 {cis32} r8  \times 2/3 {r8 \clef bass ees, \f d,  }  |
   %275  
-  r4 c,8-^ r8 c,16\downbow c,16\upbow r8  |
+  r4 c,8-^ r8 c16\downbow c16\upbow r8  |
   \bar "||" 
   
   %276  
-  dis8\downbow r8 r4 a,8^"pizz." r  |
-  %27 7  
-  \repeat tremolo 24 {d32\fp ^"sul pontic."  ^arco}|
+  dis'8\downbow r8 r4 a8^"pizz." r  |
+  %277  
+  \repeat tremolo 24 {d32\fp\arcosulpont} |
   \break                                                                           
   %278 page 5 staff 6
-  r8 b,8\f r4 r16 <fis a>16\downbow q\upbow r |
+  r8 b8\f r4 r16 <fis' a>16\downbow q\upbow r |
   
   %279
-  r8. c16 \downbow r4\repeat tremolo 8 {a32\fp}        |
+  r8. c,16 \downbow r4\repeat tremolo 8 {a'32\fp}        |
   %280
-  \repeat tremolo 8 {a32\fp} <gis, fis>8[ \f \downbow r16 q16] r4|
+  \repeat tremolo 8 {a32\fp} <gis, fis'>8[ \f \downbow r16 q16] r4|
   
   %281
   r4\p \times 2/3 { e4-- f'-- g,-- }
@@ -481,181 +514,188 @@ cis,16-. \downbow cis,-. cis,-. r r4 r16\p cis, -. cis, -. cis, -. |
   %283
   \time 3/4
   r4 \times 4/5 {
-    \repeat tremolo 4 {e,32\f}
-    \repeat tremolo 4 {f32}
+    \repeat tremolo 4 {e32\f}
+    \repeat tremolo 4 {f'32}
     \repeat tremolo 4 {g,32}
     \repeat tremolo 4 {cis'32}
     \repeat tremolo 4 {ais,32}
   }
-  \break
+  %%\break
   %284  page 5 staff 7
-  b4 \times 4/5 {
-    \repeat tremolo 4 {e,32}
-    \repeat tremolo 4 {dis32}
+  b'4 \times 4/5 {
+    \repeat tremolo 4 {e,,32}
+    \repeat tremolo 4 {dis'32}
     \repeat tremolo 4 {cis,32}
-    \repeat tremolo 4 {g,32}
-    \repeat tremolo 4 {bes32}
+    \repeat tremolo 4 {g'32}
+    \repeat tremolo 4 {bes'32}
   }
   |
   %285
   \time 2/4
   a,4 r   |
+
   %286
   \time 3/4
-  r2 <f bes\harmonic >8 r |
+  r2 <f' bes\harmonic >8 r |
+
   %287
-  r2 r8 gis,\downbow \f   |
+  r2 r8 gis\downbow \f   |
+
+  %% From now on, corrected bar count -- EB
   
-  %288  %289
+  %297 and 298
   R2.*2 |    
   
-  %290
-  <gis, cis\harmonic>4\p e,8[\downbow\f r16 e,16]\downbow r4| 
+  %299
+  <gis' cis\harmonic>4\p e,8[\downbow\f r16 e16]\downbow r4|
   
-  % 291
-  r4 \clef tenor \repeat tremolo 16 {fis'32\fp}  |
+  % 300
+  r4 \clef tenor \repeat tremolo 16 {fis''32\fp}  |
   
-  \break
-  % 292 page 5 staff 8
-  \repeat tremolo 16 {a'32} \clef bass r16^pizz  b, c' r |
+  %%\break
+  % 301 page 5 staff 8
+  \repeat tremolo 16 {a32} \clef bass r16^pizz b,, c' r |
   
-  % 293
-  r8^arco cis,4\upbow r8 r4 |
+  % 302
+  r8^arco cis,,4\upbow r8 r4 |
   
-  % 294
-  \times 2/3 { r8 fis fis~ } fis 16 fis-. fis-. fis-. r4 |
+  % 303
+  \times 2/3 { r8 fis' fis~ } fis 16 fis-. fis-. fis-. r4 |
   
-  % 295 circle 21
+  % 304 circle 21
   \mark #21
   fis16\downbow\fp fis \upbow r8 r4 r8.^pizz\f g,16 |
   
-  % 296
+  % 305
   R2. *1 |
   
-  % 297
-  r16^arco d,8.~ d,2 |
-  
-  % 298
-  gis,8 r r4 d8 r8  |
-  
-  \break
-  % 299 page 5 staff 9
-  \repeat tremolo 24{e,32^"s. pont." ^arco\fp} |
-  
-  % 300
-  ais,16\ff( e) r8 r8\p <d, g,\harmonic>16 <d, g,\harmonic> r4  |
-  
-  % 301
-  r2 r8 ais,\sf~ |
-  
-  % 302
-  ais,8 r8 \clef tenor \times 2/3 { c'4.--\mf <a e'\harmonic>8 es'4 } 
-  
-  % 303
-  \clef bass
-  \times 2/3 { b,4--\p ais <cis fis\harmonic>-- } r4 \breathe |
-  
-  \bar "||"
-  % 304
-  r4 r8.^pizz\p bes16 c,4~^arco
-  
-  \break
-  % 305 page 5 staff 10
-  c,2.
-  
   % 306
-  \times 4/5 { 
-    \repeat tremolo 4 {e'32[}
-    \repeat tremolo 4 {dis32}
-    \repeat tremolo 4 {cis'32}
-    \repeat tremolo 4 {g'32}
-    \repeat tremolo 4 {bes,32]}
-    
-  }
-  \times 4/5 { 
-    \repeat tremolo 4 {a32[}
-    \repeat tremolo 4 {f,32}
-    \repeat tremolo 2 {fis32}
-    
-    % 307
-    \repeat tremolo 2 {fis32}
-    \repeat tremolo 4 {gis,32}
-    \repeat tremolo 4 {d32]}
-  }
-  r2
+  r16^arco d8.~ d2 |
   
-  
-  % 308
-  R2.*1  |
-  
+  % 307
+  gis8 r r4 d'8 r8  |
+
+  %%\break
+  % 308 page 5 staff 9
+  \repeat tremolo 24{e,32^"s. pont." ^arco\fp} |
+
   % 309
-  cis,16\f d r8 r8 g,16 as r4 |
+  ais16\ff( e') r8 r8\p <d, g\harmonic>16 <d g\harmonic> r4  |
   
   % 310
-  r2 f8 _"piu "\f r8 |
+  r2 r8 ais'\sf~ |
   
   % 311
-  R2. *1   |
+  ais8 r8 \clef tenor \times 2/3 { c'4.--\mf <a e'\harmonic>8 es'4 }
   
-  \break
-  % 312 new line  page 5 staff 11
-  \clef tenor  g'8-^\f r8 r4  \clef bass r8^pizz b,8\p\breathe |
+  % 312
+  \clef bass
+  \times 2/3 { b,4--\p ais' <cis, fis\harmonic>-- } r4 \breathe |
   
-  % 313 circle 22
-  \mark #22 
+  \bar "||"
+  % 313
+  r4 r8.^pizz\p bes'16 c,,4~^arco
   
-  r4. \repeat tremolo 12{gis32^"s. pont." ^arco}   |
-  
-  % 314
-  <g, es >16\downbow ^"nat." q\upbow  r8 r2 |
+  %%\break
+  % 314 page 5 staff 10
+  c2.
   
   % 315
-  r8\f c,16\downbow c,\upbow r4 <c, g,\harmonic >4 |
-  
-  % 316
-  R2. *1  |
-  
+  \times 4/5 {
+    \repeat tremolo 4 {e''32[}
+    \repeat tremolo 4 {dis,32}
+    \repeat tremolo 4 {cis'32}
+    \repeat tremolo 4 {g,32}
+    \repeat tremolo 4 {bes32]}
+  }
+  \times 4/5 { 
+    \repeat tremolo 4 {a'32[}
+    \repeat tremolo 4 {f,32}
+    \repeat tremolo 2 {fis'32}
+    
+    % 316
+    \repeat tremolo 2 {fis32}
+    \repeat tremolo 4 {gis,32}
+    \repeat tremolo 4 {d'32]}
+  }
+  r2
+
   % 317
-  r4 \times 2/3 { gis4 -- a'-- fis-- }  |
+  R2.*1  |
   
   % 318
-  r4. \clef tenor \repeat tremolo 12 {f'32 \fp}  |
-  \break
-  % 319  page 5, 12th (last) staff
-  \repeat tremolo 12 {f'32 \fp}  \repeat tremolo 12 {f'32 \fp}  
+  cis,16\f d' r8 r8 g,16 as' r4 |
+  
+  % 319
+  r2 f8-^ \piuf r8 |
+  
   % 320
-  \repeat tremolo 12 {f'32 \fp}  \repeat tremolo 12 {b'32 \fp}  
-  % 321
-  c''8 r r4 r8^pizz ais'8->
-  \clef bass
-  % 322
-  d16 g r8 r16 bes a, r r8 <g, c\harmonic> 8 |
+  R2. *1   |
+  
+  %%\break
+  % 321 new line  page 5 staff 11
+  \clef tenor  g'8-^\f r8 r4 \clef bass r8^pizz b,,8\p\breathe |
+  %% \breathe missing in reduction.
+  
+  % 322 circle 22
+  \mark #22 
+  
+  r4. \repeat tremolo 12{gis'32\arcosulpont}   |
   
   % 323
-  \times 4/5 {r16 dis,( cis e) r  } r4 \times 4/5 { r16 dis,( cis e) r }  |
-  \break
+  <g, es' >16\downbow ^"nat." q\upbow  r8 r2 |
+  
+  % 324
+  r8\f c,16\downbow c\upbow r4 <c f\harmonic >4 |
+  
+  % 325
+  R2. *1  |
+
+  \set Score.skipTypesetting = ##f
+  
+  % 326
+  r4 \times 2/3 { gis''4 -- a'-- fis,-- }  |
+  
+  % 327
+  r4. \clef tenor \repeat tremolo 12 {f'32 \fp\sulpont}  |
+
+  %%\break
+  % 328  page 5, 12th (last) staff
+  \repeat tremolo 12 {f32 \fp}  \repeat tremolo 12 {f32 \fp}
+  % 329
+  \repeat tremolo 12 {f32 \fp}  \repeat tremolo 12 {b32 \fp}
+  % 330
+  c8\f r r4 r8^pizz ais8->
+  \clef bass
+  % 331
+  d,,16\ff\arco g r8 r16 bes a, r r8 <g c\harmonic>8\p |
+  
+  % 332
+  \times 4/5 {r16 dis( cis' e) r  } r4 \times 4/5 { r16 dis,( cis' e) r } |
+  %%\break
   
   % page 6 staff 1 rehearsal #23
-  %324
+  %333
   \mark #23
-  \times 4/5 { r16\pp dis,( cis e) r }   \times 4/5 {r16 b,( ais cis') r  }  r8 dis^pizz \f |
+  \times 4/5 { r16\pp dis,( cis' e) r }   \times 4/5 {r16 b( ais' cis) r }  r8 dis,^pizz \f |
   
-  %325
-  \times 4/5 {r16^"s. pont." ^arco b,( ais cis') r } r4 \times 4/5 {r16 fis( a  gis') r }  |
+  %334
+  \times 4/5 {r16 b,(\arcosulpont ais' cis) r } r4 \times 4/5 {r16 fis,( a  gis') r }  |
   
-  %326
+  %335
   r16^"pizz"  d'8 \f r16 r2 |
   
-  %327
-  r4^"s. pont." ^arco \times 4/5 { r16 e( g f') r } r4  |
-  \break
-  %328 page 6 staff 2
-  \times 4/5 { r16 d( c' es')r } r2  |
+  %336
+  r4 \times 4/5 { r16 e,\arcosulpont(\pp g f') r } r4 |
+  %%\break
+
+  %337 page 6 staff 2
+  \times 4/5 { r16 d,( c' es)r } r2  |
   
-  %329
-  r4\times 4/5 { r16 d( c' es')r } r4  |
+  %338
+  r4\times 4/5 { r16 d,( c' es)r } r4  |
   
-  %330,331
+  %339 and 340
   R2.*2
   \bar "|."
-}
+}}
