@@ -2,24 +2,26 @@ cello = \new Voice { \relative c {
   \set Staff.instrumentName = #"Violoncello "
   \clef bass
 
-  r16\p cis16^. g'^. r r2 |           % bar  1
-  r2 r8\pizz b,_. |                   % bar  2
-  <g' e>4.\f\arco r8 <c d,?>\pizz r | % bar  3
+%% page 1.1
+  r16\p cis16-. g'-. r r2 |           % bar 1
+  r2 r8\pizz b,-. |
+  <g' e>4.\f\arco r8 <c d,?>\pizz r |
   r4\arcosulpont\p
-  \times 2/3 { f,?16^.\upb\( f^. f^. } f^.\)
+  \times 2/3 { f,?16-.\upb( f-. f-. } f-.)
   r16 r4 | % bar  4
   r8\nat <a e'\harmonic>8\upb
-  <ees c>8^.\dob[ r16 <ees c>^.] r4		| % bar  5
+  <ees c>8-.\dob[ r16 <ees c>-.] r4		| % bar  5
   r4\sulpont \clef tenor
   f'2:32\fp								| % bar  6
-%%%%%
+
+%% page 1.2
   gis2:32\fp r16\nat e16\dob\f e\upb r 		| % bar  7
   \clef bass r8 
   \once\autoBeamOff
   <bes, g>~\upb\p <bes g> r r4			| % bar  8
   \set subdivideBeams = ##f
-  \times 2/3 {r8_\( b'^- b^-~\) }
-  b16 b^. b^. b^.
+  \times 2/3 {r8( b'-- b--)~ }
+  b16 b-. b-. b-.
   \clef treble c'4:32\sulpont				| % bar  9
   c2.:32\fp									| % bar 10
   b2.:32\fp									| % bar 11
@@ -28,25 +30,25 @@ cello = \new Voice { \relative c {
   \override TextSpanner #'(bound-details left text) = "rit."
   \override TextSpanner #'(bound-details right text) = " a tempo"
   \override TextSpanner #'(bound-details right attach-dir) = #LEFT
-  \times 2/3 { <gis,, c\harmonic>2\upb^-\p\startTextSpan(
-               <b e\harmonic>4^-\stopTextSpan) }
-  \breathe								| % bar 12
-%%%%%
+  \times 2/3 { <gis,, c\harmonic>2\upb--\p\startTextSpan(
+               <b e\harmonic>4--\stopTextSpan) }
+  \breathe |                    % bar 12. FIXME: caesura collides with note
+
+%% page 1.3
   \textSpannerUp
   \stemUp r16
   \override TextSpanner #'(bound-details left text) = "accelerando"
   \override TextSpanner #'(bound-details right text) = " a tempo"
   \override TextSpanner #'(bound-details right attach-dir) = #LEFT
-  gis,\p( a'8) 
-  r4 r8\startTextSpan c,,16( d'?)			| % bar 13
-  R1*3/4										| % bar 14
+  gis,\p( a'8)
+  r4 r8\startTextSpan c,,16( d'?) | % bar 13
+  R1*3/4 |
   \stemNeutral
   f'?16\ff( gis,) r8 
-  r8 <e\harmonic g,>16^-_.\p
-  <e\harmonic g,>_. r4				| % bar 15
-  r2\stopTextSpan 
-  r8\mf <aes, f>~							| % bar 16
-  q\p r8 
+  r8 <e\harmonic g,>16-.\p
+  <e\harmonic g,>-. r4 |        % bar 15
+  r2\stopTextSpan r8\mf <aes, f>~ |
+  q\p r8
   \clef tenor
   \revert TupletBracket #'bracket-visibility
   \times 2/3 { a'!4.\mf^- bes'8 g,4 }		| % bar 17
@@ -54,7 +56,8 @@ cello = \new Voice { \relative c {
   \override TextSpanner #'(bound-details right text) = " a tempo"
   \override TextSpanner #'(bound-details right attach-dir) = #LEFT
   \clef bass cis,,2.\startTextSpan		| % bar 18
-%%%%%
+
+%% page 1.4
   d16_>\mf\stopTextSpan ees'8.~ ees4~ 
   ees8 f16\pizz fis'						| % bar 19
   r16\p b,, c' r16 r8. \p 
@@ -66,19 +69,24 @@ cello = \new Voice { \relative c {
   r8.\arco b,16( c'16)[ r8 cis16]( g,16) r8.	| % bar 23
   \time 1/4
   R1*1/4									| % bar 24
-%%%%%
+
+%% page 1.5
   \time 3/4
   e16 f' r8 r8 cis16 d' r4				| % bar 25
-  \mark \default
+  \mark #1
   r2 r8\f dis,,8\pizz 					| % bar 26
   r16\arco\p b'16 ais' r16 r4 r8 cis,16 g'	| % bar 27
   r4 d,16 ees' r8 r16 b16 c' r16				| % bar 28
   \times 4/5 { gis,8:32\sulpont a': fis: c: d': } 
   ees,4									| % bar 29
-  b16\pizz c' r8 \clef treble 
-  <ais' fis>16_.\arco[ r8 <ais fis>16] 
-  r8 <ais fis>8							| % bar 30
-%%%%%
+  b16\pizz c' r8 \clef treble <ais' fis>16->\arco[\f
+  %% A brace in the reduction suggests this forte applies to both
+  %% staves and not onyl to the upper one; It is missing in part as
+  %% well as accents which were turned into stacatto dots.
+  r8 q16->] r8 q16[ r] | % bar 30.
+  %% The last chord and rest are truncated in the part photo.
+
+%% page 1.6
   \clef bass
   \times 2/3 { g,,4\pizz f' e' } r4			| % bar 31
   \times 3/5 { gis,,4_- a'^- fis^- c,_- 
@@ -91,10 +99,11 @@ cello = \new Voice { \relative c {
   \time 3/4
   r8 dis''16_\dob dis_\upb r4
   r16 <e, cis>^. q^. q^.					| % bar 35
-%%%%%
+
+%% page 1.7
   \time 2/4
-  \mark \default
-  R1*2/4									| % bar 36
+  \mark #2
+  R1*2/4 |                      % bar 36
   \time 3/4
   b'4^>\f f^> <d b>^>						| % bar 37
   \times 2/3 { e4 f, g'~ } g4\p~				| % bar 38
@@ -102,10 +111,11 @@ cello = \new Voice { \relative c {
   gis,16\f\dob gis\upb r8 r2					| % bar 40
   r4 fis16( g') r8 ais,16( b') r8				| % bar 41
   \clef bass
-%%%%%
-  r4 r16 dis,,\upb\( g a\) 
-  r16 f16\dob gis,\upb r16			 	| % bar 42
-  b4:32 
+
+%% page 1.8
+  r4 r16 dis,,\upb\( g a\)
+  r16 f16\dob gis,\upb r16			 	| % bar 42. Reharsal letter C in reduction.
+  b4:32
   \stemUp
   \times 2/3 { dis: g,: 
                \stemNeutral a': }					| % bar 43
@@ -115,9 +125,10 @@ cello = \new Voice { \relative c {
   r16 gis16\( d'' c,\)					| % bar 45
   \time 1/4
   r8 gis''16 r16							| % bar 46
-%%%%%
+
+%% page 1.9
+  \mark #3
   \time 3/4
-  \mark \default
   a,16\( g ees\) r16 r16 f\( gis b\) 
   f\(gis b\) r16							| % bar 47
   r16 a16\( gis f\) ees\( g a\) r16 
@@ -125,44 +136,51 @@ cello = \new Voice { \relative c {
   a8[ r16 gis16]\( c d\) r8
   \clef tenor r16 bes'\( f! e\)			| % bar 49
   r4 r8 \clef bass b,16^. c'^. r4				| % bar 50
-%%%%%
+
+%% page 1.10
   \time 2/4
   f4\accent\f r8 b,8\accent~				| % bar 51
   \time 3/4 b8 r8 r2 					| % bar 52
   r4 \times 2/3 {f4\tenuto\p fis,4\tenuto gis'4\tenuto}	| % bar 53
   d16\upb( fis16) r8 r16 a16\upb( b16) r16 b16\upb( e16) r8		| % bar 54
   r4 \times 2/3 {cis,4\tenuto c,!4\tenuto d'4\tenuto}	| % bar 55
-  r8 d,16\upb( ees16) b16( c'16) r16 ees16\upb( <f' a>16) gis,16( a'16) r16 | % bar 56
-%%%%%
-  \mark \default
+  r8 d,16\upb( ees) b( c') r ees\upb(
+
+%% page 1.11
+  f') gis,( a') r |              % bar 56
+  \mark #4
   r16 bes,16\upb( g16 e16) r16 gis16\upb( fis16 e16) r16 gis16\upb(\( fis16 d16) 	| % bar 57
   c8\) cis16( a'16 ais16[ fis16) r16 c16] a'16( bes,16 f'8) 		| % bar 58
   d16( e16 b'16 cis,16) r16 gis'16( fis16 cis'16 ais16[) r16 f16( c'16]	| % bar 59
   \time 2/4
   b16[ ais16) r16 gis16]( e16 b'16 g8~ 			| % bar 60
-%%%%%
+
+%% page 2.1
       g8) b16( e,16 gis16) r8.					| % bar 61
       \time 3/4
       r16 b,16\upb( cis'16) r16 r16 dis,,16\upb( cis'16 gis'16) r16 bes,16\upb( c'16) r16	| % bar 62
       e,16\upb( cis'16) r8 ais,16\upb( gis'16) r16 dis'16\upb[( cis16 gis'16]) r8		| % bar 63
       b,,16\upb_\markup{ "(" \dynamic "p" ")"}( d16 e16) r16 a16\upb( cis,16 fis16) r16 r4	| % bar 64
       \times 4/5 {dis8:32\sulpont b'8:32 ais'8:32 cis,8:32 g,8:32} r4			| % bar 65
-%%%%%
+
+%% page 2.2
       r2 r16\nat cis16\staccato g'16\staccato dis16\staccato				| % bar 66
-      \mark \default
+      \mark #5
       a'16\staccato r8. b,16\pizz c'16 r8 b4~\mf\arco		| % bar 67
       \times 3/5 {b4 ais,4\tenuto cis'4\tenuto g,4\tenuto f''4\tenuto} 	| % bar 68
       e,4\tenuto r2								| % bar 69
       r8 cis16\staccato d'16\staccato ais4\tenuto r4			| % bar 70
       r4 a'16( b,,16) r8 r16 c'16( g,16) r16			| % bar 71
-%%%%%
+
+%% page 2.3
       r4 \times 2/3 {c'4\tenuto\mf b,4\tenuto d'4\tenuto}	| % bar 72
       gis,,4\tenuto r2						| % bar 73
       r4 r16 d''16\pizz gis,16 r16 r4				| % bar 74
       b,16\arco( c'16) r8 \times 2/3{ cis,4\tenuto b'4\tenuto dis,4\tenuto} 	| % bar 75
       \times 2/3 {a'4\tenuto g,4\tenuto r4} r4			| % bar 76
       bes16\pizz e16 r8 r8 c'16 fis16 r4			| % bar 77
-%%%%%
+
+%% page 2.4
       R2.							| % bar 78
       r4 r8 f,8\staccato\arco c'4\fp~ 				| % bar 79
       c8 r8 f,,8\pizz r8 r4					| % bar 80
@@ -172,12 +190,13 @@ cello = \new Voice { \relative c {
       b'2:32\fp\sulpont					| % bar 83
       \time 3/4
       \clef tenor <e g>2:32\fp \clef bass r16 <b, ais'>16\nat\mf\dob <b ais'>16\upb r16	| % bar 84
-%%%%%
+
+%% page 2.5
       r8 cis8~\p\upb cis8 r8 r4				| % bar 85
       \times 2/3 {r8 fis8\tenuto fis8~\tenuto} fis16 fis16\staccato( fis16\staccato fis16\staccato) \clef treble c''4:32\sulpont	| % bar 86
       c2.:32\fp						| % bar 87
       a2.:32\fp \clef bass					| % bar 88
-      \mark \default
+      \mark #6
       \override TextSpanner #'(bound-details left text) = "rit."
       \override TextSpanner #'(bound-details right text) = " a tempo"
       \override TextSpanner #'(bound-details right attach-dir) = #LEFT	
@@ -198,18 +217,18 @@ cello = \new Voice { \relative c {
       r4 r16 c16\staccato\p fis16\staccato g,16\staccato gis'4\accent\arco				| % bar 97
       dis16\staccato\pizz a16\staccato r8 r16 d'16 cis,16 r16 r8 <dis a'>8\arco\f(			| % bar 98
       <g,~ dis'>8 <g fis'>8) r4 \override Beam #'breakable = ##t \times 4/5 {gis8:32\fp\sulpont[ fis'8:32 f,16:32  	| % bar 99
-  f16:32 cis'8:32 dis,8]} e'4 \times 4/5 {gis8:32\fp[ a,8:32 fis'16:32		| % bar 100
+  f16: cis'8: dis,8:]} e'4 \times 4/5 {gis8:32\fp[ a,8:32 fis'16:32		| % bar 100
         fis16:32 b8:32 ais'8:32]} cis,,4 r4					| % bar 101
         r2 \times 4/5 {a8:32\fp[ bes8:32 g16:32
         g16:32 d8:32 b'8:32]} c4 r4
-        r2 \times 4/5 {g'8:32\fp[ bes,8:32 a'16:32
-%%%%% | % bar 104
+        r2 \times 4/5 {g'8:32[\fp bes,8:32 a'16:32 | % bar 104
+%%%%%
         a16:32 d,8:32 b'8:32]} c,4 \times 4/5 {b'8:32\fp[ ais,8:32 cis'16:32
         cis16:32 fis,8:32 a,!8:32]} gis'4 \times 4/5 {c!8:32\fp[ b,8:32 d'16:32
         d16:32 a8:32 bes,8:32]} g'4 r4
 %%%%% | % bar 108
         R2.
-        \mark \default
+        \mark #7
         \time 2/4 R2
         \time 3/4
         \times 3/5 {e,4\f\pizz f'4 g,4 ees'4 d,4}
@@ -229,18 +248,15 @@ cello = \new Voice { \relative c {
         r4 r16 d16\staccato cis,16\staccato g16\staccato aes'16\staccato r8.
         r8 g16\f( fis,16) r16 cis16\upb( d'16) r16 r4
         r8. b16\fp( e16) d16\staccato gis16\staccato r16 r4
-        \mark \default
+        \mark #8
         r4 r8 cis8\fp( \times 2/3 { d8) a8. g16}
 %%%%% | % bar 126
         r8 b8\staccato a16( f8.) \clef tenor \times 2/3 {g'4\tenuto cis,8~\tenuto[
         cis8] e4\tenuto} a4\tenuto \clef bass r8 cis,,8\f\pizz
-        \override Staff.TimeSignature #'stencil = ##f
-        \time 4/4
-        r4^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } }
-        c,16\ff\arco\dob des'16 r8 r16 cis,8\marcato r16 r16 gis'16\p\pizz a'16 r16 \bar "!"
-        \time 1/8 r8 
+        \compoundMeter #'((4 4) (1 8))
+        r4 c,16\ff\arco\dob des'16 r8 r16 cis,8\marcato r16 r16
+        gis'16\p\pizz a'16 r16 r8
         
-        \revert Staff.TimeSignature #'stencil
         \time 3/4 c,,16\arco( gis''8.) r4 r8 fis,16\pizz gis'16
 %%%%% | % bar 131
         r4 r16 g,16( aes'16) r16 r4
@@ -249,7 +265,7 @@ cello = \new Voice { \relative c {
         r8 e8\accent cis16\fp\arco[ gis8.~] gis8.[ a'16\f]
         \time 2/4
         cis2:32\fp
-        \mark \default
+        \mark #9
         \time 3/4
         cis2.:32\fp
 %%%%% | % bar 137
@@ -263,11 +279,8 @@ cello = \new Voice { \relative c {
         r8. ges16( f,16) r8. c'16\dob c16\upb r8
 %%%%% | % bar 145
         r2 des'16\f c,16 r8
-        \time 3/4
-        \grace dis8 \clef tenor r4 <e' g>2:32\f
-        \once \override Staff.TimeSignature #'stencil = ##f
-        \time 1/8
-        <e g>8:32
+        \compoundMeter #'((3 4) (1 8))
+        \grace dis8 \clef tenor r4 <e' g>2:32\f <e g>8:32
         \time 3/4
         r4 \clef treble r8 d'8~\mf( d16 cis,8.)
         gis16\p\pizz a'16 r8 r2
@@ -287,7 +300,7 @@ cello = \new Voice { \relative c {
         ces4.:32 ees4.:32\fp
         b2.:32\fp \clef bass
         r4 <cis,,,\harmonic gis'\harmonic>4\pizz r4
-        \mark \default
+        \mark #10
         r2 <c\harmonic g'\harmonic>4
         R2.
         b'8 r8 r4 r8 ees'8
@@ -302,7 +315,7 @@ cello = \new Voice { \relative c {
         ais'16\f\upb( b'16) r8 cis,8\tenuto\p\upb cis8\tenuto\f r4
 %%%%% | % bar 173
         \times 4/5 {r16 c,16\staccato\sulpont cis'16 gis'16 r16} r2
-        \mark \default          % reharsal mark 11
+        \mark #11
         \times 4/5 {r16 c,,16 cis'16 gis'16 r16} r4 c,8\p c8\f
         r2 r8 ees16\staccato\f a16\staccato
         r2 r8 cis,,8\p\pizz
@@ -327,7 +340,7 @@ r4 r16 e'16\p\nat( f'16 g,,16 cis'4)
 ais,16( b'16) r8 b,16( c'16) r8 r8 cis16\ff\staccato cis16\staccato
         r8 a'8 r2
         \bar "||"
-        \mark \default
+        \mark #12
         \tempo "Poco meno mosso"
         <cis,,, fis\harmonic>8\p r8 r2
         r4 d'8\pizz\flageolet r8 r4
@@ -342,7 +355,7 @@ ais,16( b'16) r8 b,16( c'16) r8 r8 cis16\ff\staccato cis16\staccato
 %%%%% | % bar 204
         \times 4/5 {r16 dis,16\staccato\f e'16\staccato gis16\staccato r16} r2
         \repeat unfold 2 {\times 4/5 {r16 dis,16\staccato e'16\staccato gis16\staccato r16} r2}
-        \mark \default
+        \mark #13
         r2 r8 f,8\f\pizz
         r4 r8 bes'8\p\staccato r4
         cis,16\f\arco( dis'16) r8 <c,,! f\harmonic>8\p\tenuto <c f\harmonic>8\tenuto\f r4
@@ -357,7 +370,7 @@ ais,16( b'16) r8 b,16( c'16) r8 r8 cis16\ff\staccato cis16\staccato
         \tempo "Tpo 1*" 4=100
         \times 4/5 {r16 f16\p( aes16 ges'16) r16} r2
         \times 4/5 {r16 e16( g16 f'16) r16} r4 r8 c8\pizz
-        \mark \default
+        \mark #14
         r4 \times 4/5 {gis,8:32\arcosulpont a': fis,: d': c':} % bar 217 --EB
         \time 2/4 r8 <dis,, gis\harmonic>8\p \times 4/5 {e'8:32\pp[ f'8:32 g,16:32
                                                          \time 3/4
@@ -382,7 +395,7 @@ ais,16( b'16) r8 b,16( c'16) r8 r8 cis16\ff\staccato cis16\staccato
 %%%%% | % bar 236
         \times 4/5 {ees'8:32\pp d,8:32 c'8:32 ais8:32 b'8:32} r8 <cis, fis\harmonic>8\p
         r4 \times 4/5 {d8:32\pp b8:32 c'8:32 fis,8:32 f,8:32}
-        \mark \default
+        \mark #16
         r8 <gis cis\harmonic>8\p r4 \times 4/5 {f8:32\pp[ fis'8:32 gis,16:32
                                                 gis16:32 a'8:32 bes,8:32]} r8 <g c\harmonic>8\p r4
         \times 4/5 {dis8:32\pp e'8:32 cis,8:32 g''8:32 bes,8:32} r8 <d a'\harmonic>8\p
@@ -476,7 +489,7 @@ cis,16-. \downbow cis-. cis-. r r4 r16\p cis -. cis -. cis -. |
   \repeat tremolo 12 {es32\fp}  |
   
   \clef treble
-  \mark 19
+  \mark #19
   
   %272 
   \repeat tremolo 12 {fis32\fp}

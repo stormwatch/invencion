@@ -27,24 +27,26 @@ viola = \new Voice { \relative c {
   <b d>2.:32\fp |												%10
   <ais cis>2.:32 |												%11
   
-  \override TextSpanner.bound-details.left.text = \markup { "rit." }
-  e'16\nat\ff r8. \tuplet 3/3 { <d, g\harmonic>4--\startTextSpan _(<c' f\harmonic>--\stopTextSpan) } \breathe \clef alto |	%12
+  %%%%%%\override TextSpanner.bound-details.left.text = \markup { "rit." }
+  \ritAtempoText
+  e'16\nat\ff r8. \tuplet 3/2 { <d, g\harmonic>2--\startTextSpan _(<c' f\harmonic>4--\stopTextSpan) } \breathe \clef alto |	%12
   %%
   %% page 1.3
   %%
-  r8 fis,\p r4 r8.dis16^\accel |											%13
-  \tupletUp \tuplet 5/3 { b'4-- cis,-- g'4.-- f'8-. e,4-- } \tupletNeutral |						%14
+  \acelAtempoText
+  r8 fis,\p r4 r8.dis16^\startTextSpan |											%13
+  \tupletDown \tuplet 5/3 { b'4-- cis,-- g'4.-- f'8-. e,4-- } \tupletNeutral |						%14
   fis'16\ff (d,) r8 r <c f\harmonic>16\p <c f\harmonic> r4 |							%15  
   \override TextSpanner.bound-details.left.text = \markup { "a tpo" }
-  \tupletDown \tuplet 3/2 { e,4.-> dis''8-> \stemUp cis,4 \stemNeutral } \tupletNeutral r8 fis,8 ~ |			%16
+  \tupletDown \tuplet 3/2 { e,4.->\stopTextSpan dis''8-> \stemUp cis,4 \stemNeutral } \tupletNeutral r8 fis,8 ~ |			%16
   fis r r f'!4. ~ |												%17
-  \override TextSpanner.bound-details.left.text = \markup { "rit." }
-  \override TextSpanner #'to-barline = ##t
-  \endSpanners f2.\startTextSpan \bar "||" |									%18
+  
+  \ritAtempoText
+  f2.\startTextSpan \bar "||" |									%18
   %%
   %% page 1.4
   %%
-  r4^\markup { \italic "a tpo." } r16 a,-. des'-. r r4 |								%19
+  r4\stopTextSpan r16 a,-. des'-. r r4 |								%19
   \stemUp gis,,16-.\pizz a'-. \stemNeutral r8 r2 |									%20
   r2 r8.fis16 |													%21
   f,?16 [r8 a16] bes' r8. r4 |											%22
@@ -59,12 +61,12 @@ viola = \new Voice { \relative c {
   \mark #1 r2 r8 e,,\f\pizz |													%26
   d'--\arco r8 r4 ais8 r |											%27
   r16 d-. cis,-. r r8 b'16-. c'!-. r4 |										%28
-  R2.^"1." |													%29
+  R2.^\markup { \number 1 } |													%29
   r4 \clef treble  b'4->\f r8 b8-. |										%30
   %%
   %% page 1.6
   %%
-  \clef alto R2.^"1." |												%31
+  \clef alto R2.^\markup { \number 1 } |												%31
   r2 \slurDown dis,,,16 (e') r8 |											%32
   r8 \slurUp e16 (f') r2 |											%33
   \time 2/4  
@@ -107,7 +109,7 @@ viola = \new Voice { \relative c {
   fis4-- r8 c8-> ~ |												%51
   \time 3/4
   c r \slurDown b,16( c') r d,( ees') r8. |									%52
-  R2.^"1." |													%53
+  R2.^\markup { \number 1 } |													%53
   \clef alto gis,,16\upb( c) r8 r16 \slurUp cis\upb( f) r f\upb( cis') r8 |						%54
   r4 r8 gis,16\upb( a') dis,( d') r8 |										%55
   %%
@@ -150,7 +152,7 @@ viola = \new Voice { \relative c {
   %%
   %% page 2.2
   %%
-  R2.^"1." |													%65
+  R2.^\markup { \number 1 } |													%65
   \tuplet 5/4 { e8:32\sulpont dis':32 cis,:32 g':32 bes':32 } r4 |							%66
   \mark #5 r16 gis,16-.\nat d'-. b-. \stemDown f'-. r8. b,16-. f'-. ees-. a-. |				%67
   \stemUp gis, r8. r2 |												%68
@@ -168,7 +170,7 @@ viola = \new Voice { \relative c {
   \stemNeutral e''16-. dis,-. r8 r4 \clef treble \stemUp \autoBeamOff
   \tuplet 5/4 { e'8:32\sulpont[ dis,:32 cis'16 cis g,8 bes':32] } r16 \stemNeutral fis'\nat
   r8 \clef alto r8 \autoBeamOn \stemUp fis,16( gis,) |								%71
-  R2.^"1." |													%72
+  R2.^\markup { \number 1 } |													%72
   r16 \stemDown c-. cis'-. r \tupletDown \tuplet 3/2 { a,4-- cis'-- b,-- } |					%73
   r8. \stemUp f16-. \stemDown b'-. r8.
   \tupletUp \tuplet 5/4 { f,8:32\sulpont[ fis':32 gis,16:32 gis:32 d'8:32 b':32] } r4 r8 b16-.\nat ais,-. |		%75
@@ -197,33 +199,40 @@ viola = \new Voice { \relative c {
   <b d>2.:32 |													%87
   <g bes>:32\fp |												%88
   \mark #6
-  \override TextSpanner.bound-details.left.text = \markup { "rit." }
-  <c, f\harmonic>16 r8. \clef alto \stemUp \tuplet 3/2 { <fis, b\harmonic>2\p--\startTextSpan <bes ees\harmonic>4\stopTextSpan } |	%89	
+  \ritAtempoText
+  <c, f\harmonic>16 r8. \clef alto \stemUp \tuplet 3/2 { <fis, b\harmonic>2\p--\startTextSpan <bes ees\harmonic>4 } |	%89	
   %%
   %% page 2.7
   %%
-  r2\atempo r8. \stemNeutral cis'16 |										%90
-  \tuplet 5/3 { b,4-- c'-- fis,4.-- \clef treble a'8-- gis,4-- } |							%91
+  r2\stopTextSpan \acelAtempoText r8.\startTextSpan \stemNeutral cis'16 |										%90
+  \tupletDown \tuplet 5/3 { b,4-- c'-- fis,4.-- \clef treble a'8-- gis,4-- } \tupletNeutral |							%91
   r4 r8 <d a'\harmonic>16-.\p ~ <d a'\harmonic>16-. r4 |								%92
-  r2\atempo r8 <c ees>8\sf ~ |											%93
+  r2\stopTextSpan r8 <c ees>8\sf ~ |											%93
   <c ees>8\p r r <g' bes>4. ~ |											%94
-  \override TextSpanner #'to-barline = ##t
-  \endSpanners
+
+  \ritAtempoText
   <g bes>2.\startTextSpan \bar "||" |										%95
   %% page 2.8
-  gis,16\pizz a' r8 r2 |												%96
+  gis,16\pizz\stopTextSpan a' r8 r2 |												%96
   r4 cis,2:32\fp\sulpont |											%97
   cis16 r8. \stemDown ees'16->\pizz d, r8 ees'16-> d, r8 |								%98
   d'16-> cis, r8 r2 |												%99
-  R2.^"1." |													%100
+  R2.^\markup { \number 1 } | % bar 100
+  \clef alto                  % Clef missing in part.
+  r2 \stemUp \tuplet 5/4 {e,8:32\arcosulpont\fp[ f': g,16: | % bar 101
+
   %%
-  %% page 2.9 ~
+  %% page 2.9
   %%
-  \clef alto r2 \stemUp \tuplet 5/4 {e,8:32\arcosulpont\fp[ f':32 g,16:32 g16:32 ees'8:32 d,] } c'4 r4 |		%101 102
-  r2 \tuplet 5/4 { e8:32[ dis,:32 cis'16:32 cis:32 f,8:32 fis':32] } gis,4 r4 |					%103 104
-  \compressFullBarRests R2.*2 |											%105 106
-  r2 \tuplet 5/4 { gis8:32\fp[ fis':32 f,!16:32 f:32 cis'8:32 dis,:32] } e'4 r4 |					%107 108
+  g: ees'8:32 d,:] } c'4 r | % bar 102
+  r2 \tuplet 5/4 { e8:32[ dis,: cis'16: | % bar 103
+  cis: f,8: fis':] } gis,4 r |            % bar 104
+  %%\compressFullBarRests
+  R2.*2 |                       % bars 105 and 106
+  r2 \tuplet 5/4 { gis8:32\fp[ fis': f,!16:32 | % bar 107
+  f: cis'8: dis,:] } e'4 r |                    % bar 108
   \time 2/4
+
   %%
   %% page 2.10
   %%
@@ -248,7 +257,7 @@ viola = \new Voice { \relative c {
   %%
   %%
   %% page 3.1
-  R2.^"1." |													%118
+  R2.^\markup { \number 1 } |													%118
   r4 \slurDown a'16\f[( d,8) bes'16]( c,8[) b'!16] r |								%119
   f( d8) g16( a8.) \clef treble bes'16( e,8) f'-. |								%120
   fis,16([ c) r16 b'16]( ees,4 ~ ees16) r8. |									%121
@@ -264,17 +273,10 @@ viola = \new Voice { \relative c {
   %% page 3.3
   %%
   %% compound time signature 4/4 + 1/8
-  %% warning: dangerous curves ahead
-  \override Staff.TimeSignature #'stencil = ##f
-  \time 4/4 r4^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } }
+  \compoundMeter #'((4 4) (1 8))
+  r4
   \clef alto
-  r16 cis,,16\dob\ff[ d'] r r8  a'8\f\( dis4\p~ \bar "!" |
-  \time 1/8 dis16\) r16 | %128
-  \revert Staff.TimeSignature #'stencil
-  %% adjust bar number to correct for this compound bar
-  %% end road warning
-  
-  \set Score.currentBarNumber = #129
+  r16 cis,,16\dob\ff[ d'] r r8  a'8\f\( dis4\p~ dis16\) r16 |						%128
   \time 3/4
   \slurDown cis,,16( a'8.) r16 g'\pizz fis, r r8. g16 |								%129
   aes'r8. r8 \slurUp gis,16\arco( a') r4 |									%130
@@ -297,55 +299,60 @@ viola = \new Voice { \relative c {
   <g' bes>2.:32\fp |												%139
   <ais cis>2.:32\fp |												%140
   \stemDown <gis fis'>2.:32\fp |											%141
-  <gis fis'>16-.\f  <gis fis'>16-. r8 \clef alto \stemNeutral r16 dis,( e') r r4 |					%142
+  <gis fis'>16-.\f  <gis fis'>16-. r8 \clef alto \stemNeutral r16 dis,\p( e') r r4 |					%142
   r8 g16\f( fis,) r4 cis'16\dob cis\upb r8 |									%143
   %%
   %% page 3.6
   %%
-  r8. d'16-. cis,-.[ r8 d'16-.] cis,-. r8. |									%144
+  r8. d'16-.\p cis,-.[ r8 d'16-.\f] cis,-. r8. |									%144
   %% compound time signature 3/4 + 1/8
-  %% warning: dangerous curves ahead
-  \once \override Staff.TimeSignature #'stencil = ##f
-  \time 3/4
-  r4^\markup { \concat { \timesig #3 #4 } { "+" } { \note #"8" #1 } }
-  \clef treble
-  \stemUp f4:32\ff <f b>:32 \bar "!"
-  \once \override Staff.TimeSignature #'stencil = ##f
-  \time 1/8
-  <f b>8:32 |													%145  
-  %% end road warning
-  %% adjust bar number to correct for this compound bar
-  \set Score.currentBarNumber = #146
+  \compoundMeter #'((3 4) (1 8))
+  r4 \clef treble \stemUp f4:32\ff <f b>:32 <f b>8:32 |								%145
   \time 3/4
   r8 ais\fp( ais) ais16-. \slurDown ais( \tuplet 5/4 { ais-.) ais-. ais-. ais-. ais-. } |				%146
-  r4 \clef alto <dis,, gis\harmonic>2 |										%147
+  r4 \clef alto
+  <<
+    {
+      <dis,, gis\harmonic>2\p 
+    }
+    \\
+    {
+      \override Stem #'stencil = ##f
+      \override Flag #'stencil = ##f
+      \override ParenthesesItem.padding = #1
+      \tiny
+      \override ParenthesesItem.font-size = #4
+      \parenthesize dis''4
+    }
+  >> |														%147
   \time 2/4
-  r8. e16\ff( \stemDown f') r8.\fermata \bar "||" |								%148
+  r8. e,,16\ff( \stemDown f') r8.\fermata \bar "||" |								%148
   \time 3/4
   %%
   %% page 3.7
   %%
-  r16^"Poco meno mosso" c8\p\pizz r16 r2 |									%149
-  <bes a'>16\dob\f\arcosulpont <bes a'>\dob r8 r8. <bes a'>16\dob r4 |						%150
+  \tempo "Poco meno mosso"
+  r16 c8\p\pizz r16 r2 |									%149
+  <bes a'>16\dob\f\arcosulpont <bes a'>\dob r8 r8. <bes a'>16\dob r4 |					%150
   r2 r8 <bes a'>16\dob <bes a'>\upb |										%151
-  R2.^"1." |													%152
-  r4 r8 <c d>4.:32 |												%153
+  R2.^\markup { \number 1 } |											%152
+  r4 r8 <c d>4.:32\fp |												%153
   <c d>4.:32 <cis e>:32\fp |											%154
   dis4.:32 <a' bes>:32\fp |											%155
   %%
   %% page 3.8
   %%
-  \clef treble <gis fis'>4.:32 <b d>:32 |										%156
+  \clef treble <gis fis'>4.:32 <b d>:32\fp |									%156
   <b d>:32 \stemUp <d, c'>:32\fp |										%157
   <ais' cis>2.:32\fp |												%158
-  R2.^"1." \clef alto |												%159
+  R2.^\markup { \number 1 } \clef alto |												%159
   \mark #10 c,8\p c\f r2 |											%160
   r16 \stemDown \slurUp a'16\f( gis,) r r4 r8 c16-.\mf fis-. |							%161
-  R2.^"1." |													%162
+  R2.^\markup { \number 1 } |													%162
   %%
   %% page 3.9
   %%
-  \stemUp <c, a'\harmonic>4 r2 |											%163
+  \stemUp <c, a'\harmonic>4\p r2 |											%163
   \slurDown cis16( d') r8 r2 |											%164
   r4 <c, g'\harmonic>8--\p <c g'\harmonic>8--\f r4 |								%165
   r2 \stemDown c'8--\p\flageolet c--\f\flageolet |									%166
@@ -375,9 +382,10 @@ viola = \new Voice { \relative c {
   %%
   %% page 3.12
   %%
-  \tuplet 5/4 { r cis\f( a' b,) r } r2 |										%182
+  \acelAtempoText
+  \tuplet 5/4 { r cis\f( a' b,) r } r2\startTextSpan |										%182
   R2.^"?unresolved?" \bar "||" |											%183
-  r4 r16 \stemUp d\pizz gis, r r4 |										%184
+  r4\stopTextSpan r16 \stemUp d\pizz gis, r r4 |										%184
   R2.*2 |													%185 186
   r4 \clef treble \stemNeutral fis''8\marcato\f\pizz r r4 |							%187
   %%
@@ -395,8 +403,9 @@ viola = \new Voice { \relative c {
   %%
   %% page 4.2
   %%
-  \mark #12 r2^"Poco meno mosso" r8 b\p\pizz |								%193
-  R2.^"1." |													%194
+  \tempo "Poco meno mosso"
+  \mark #12 r2 r8 b\p\pizz |											%193
+  R2.^\markup { \number 1 } |													%194
   r16 a\f\arco( gis') r r2 |											%195
   \tuplet 5/4 { r16 ges,-.\f\sulpont f'-. a-. r } r2 |								%196
   \tuplet 5/4 { r16 ges,-. f'-. a-. r } r2 |									%197
@@ -405,7 +414,7 @@ viola = \new Voice { \relative c {
   %%
   %% page 4.3
   %%
-  R2.^"1." |													%200
+  R2.^\markup { \number 1 } |													%200
   r16 \stemUp ges,\f( f') \stemNeutral r r2 |									%201
   r4 a8--\p a--\f r4 |												%202
   < c,, g'\harmonic>4\p r dis'8--\p dis--\f |									%203
@@ -429,14 +438,13 @@ viola = \new Voice { \relative c {
   \time 3/4
   r8 \stemUp gis,16\p\dob d\upb r2 |										%214
   r4 \clef alto \slurDown \tupletUp \tuplet 3/2 { d,\f( c'4. ees8) } |						%215
-  R2.^"1." |													%216
+  R2.^\markup { \number 1 } |													%216
   %%
   %% page 4.6
   %%
-  \mark #14 \stemDown
-  \tuplet 5/4 { a,8:32\pp\sulpont[ bes':32 g,:32 c':32 b,!:32] } r4 |			%217
+  \mark #14 \stemDown \tuplet 5/4 { a,8:32\pp\sulpont[ bes':32 g,:32 c':32 b,!:32] } r4 |				%217
   \time 2/4
-  R2^\markup { \bold "1." } |											%218
+  R2^\markup { \number 1 } |											%218
   \time 3/4
   r2 \clef treble \stemUp \tuplet 5/4 { b8:32\pp[ c':32 d,16:32 d:32 gis8:32 fis':32] }
   \clef alto r8 <f,, bes\harmonic>8\p r4 |									%219 220
@@ -462,7 +470,7 @@ viola = \new Voice { \relative c {
   >> | 														%223  
   \clef alto r4 \stemUp \tuplet 5/4 { e,,8:32\pp  dis,:32 cis':32 g':32 bes,:32 } |					%224
   \clef treble r8 <d a'\harmonic>8\p r2 |										%225
-  R2.^\markup { \bold "1." } |											%226
+  R2.^\markup { \number 1 } |											%226
   \clef alto \stemDown \tuplet 5/4 {  b8:32\pp c':32 d,:32 gis:32 f,:32 } r \stemUp <fis b\harmonic>8\p |		%227
   \mark #15 r2 \stemDown \tuplet 5/4 { gis8:32[ a':32 fis16:32 fis:32 d8:32 ees':32] }
   %%
@@ -485,8 +493,23 @@ viola = \new Voice { \relative c {
   %%
   %% page 4.10
   %%
-  \tuplet 5/4 {e8:32[ d':32 g,:32 cis:32 ais':32] } r \stemDown <g, e'\harmonic>\p |				%240
-  r4 \clef treble \stemUp \tuplet 5/4 { dis'8:32\pp[ e':32 cis,:32 g:32 bes':32] } |				%241
+  \tuplet 5/4 {e8:32[ d':32 g,:32 cis:32 ais':32] } r
+  <<
+  {
+    \once \stemDown \ottava #1 <g e'\harmonic>\p \ottava #0
+  }
+  \\
+  {
+      \override Stem #'stencil = ##f
+      \override Flag #'stencil = ##f
+      \override ParenthesesItem.padding = #0
+      \tiny
+      \override ParenthesesItem.font-size = #4
+      \parenthesize b'  
+  }
+  >>
+  \stemNeutral |													%240
+  r4 \clef treble \stemUp \tuplet 5/4 { dis,,8:32\pp[ e':32 cis,:32 g:32 bes':32] } |				%241
   r8 <d, a'\harmonic>\p r4 \clef alto \tuplet 5/4 { gis,8:32\pp[ a':32 fis,16:32 fis:32 d'8:32 c,:32] }
   r  <cis gis'\harmonic>\p r4 |											%242 243
   \tuplet 5/4 { e'8:32\pp[ fis,:32 cis':32 g:32 bes':32] } r \stemDown <d, a'\harmonic> |				%244
@@ -494,7 +517,7 @@ viola = \new Voice { \relative c {
   %%
   %% page 4.11
   %%
-  R2^\markup { \bold "1." } |											%245
+  R2^\markup { \number 1 } |											%245
   \time 3/4
   cis16-.\f d'-. r8 r2 \clef treble |										%246
   \stemUp <cis, e>4.:32\fp <g' bes>:32\fp |									%247
@@ -514,7 +537,7 @@ viola = \new Voice { \relative c {
   %%
   %% page 5.1
   %%
-  \compressFullBarRests
+  %%\compressFullBarRests
   R2.*2 |													%253 254
   r4 r16 gis,\pizz a' r r4 |											%255
   r g,16\f\dob\arco g\p\upb r8 r4 |										%256
@@ -528,7 +551,7 @@ viola = \new Voice { \relative c {
   r4 \stemNeutral fis8\ff^> r r8. a'16^>\f\pizz |									%261
   gis,16 r8. r2 \clef treble |											%262
   \slurUp a''16\f\arco( gis,) r8 \clef alto r8 des,16\ff des r4 |							%263
-  R2.^\markup { \bold "1." } |											%264
+  R2.^\markup { \number 1 } |											%264
   r2 b'4:32\fp\sulpont |												%265
   %%
   %%
@@ -541,7 +564,7 @@ viola = \new Voice { \relative c {
   e16-.\f fes'-. r8 r ces->\pizz r \stemUp des16\arco c,! |							%271
   r8 ces16\dob\piuf ces\upb r2 |											%272
   \time 2/4
-  R2^\markup { \bold "1." } |											%273
+  R2^\markup { \number 1 } |											%273
   %%
   %% page 5.4
   %%
@@ -553,11 +576,13 @@ viola = \new Voice { \relative c {
   d,16-.\f\dob d-. d-. r r4 r16 d-.\p d-. d-. |									%278
   d-.\f d-. d-. r r8 \stemDown b'8:16\p-\staccTwo #2 cis'8:16-\staccTwo #2 r8 |					%279
   \stemUp <b, d>4.:32\fp <cis e>4.:32\fp \clef treble |								%280
-  \mark #19 gis'4.:32\fp gis:32\fp |										%281
+  \mark #19
+  \acelAtempoText
+  gis'4.:32\fp\startTextSpan gis:32\fp |										%281
   \stemDown <a bes>4.:32\fp <bes des>:32\fp |									%282
   ees4.:32\fp r8 \stemUp \tuplet 3/2 { r des\f\nat  c, } |								%283
   \clef alto r4 des,8^> r8 des16\dob des\upb r8 |									%284
-  \stemNeutral e'\dob r r4 bes8\pizz r |										%285
+  \stemNeutral e'\dob\stopTextSpan r r4 bes8\pizz r |										%285
   %%
   %% page 5.6
   %%
@@ -565,7 +590,7 @@ viola = \new Voice { \relative c {
   r8 <ais, cis>\f r4 r16 gis\dob gis\upb r |									%287
   r8. \stemUp <b d>16 r4 <g bes>4:32 \fp |									%288
   <g bes>:32\fp <fis a>8\f\dob[ r16 <fis a>\dob] r4 |								%289
-  R2.^\markup { \bold "1." } |											%290
+  R2.^\markup { \number 1 } |											%290
   \numericTimeSignature \time 4/4
   \mark #20 \stemDown \tuplet 3/2 { ais4--\p b'-- cis,-- } r2 |						%291
   \time 3/4
@@ -575,7 +600,7 @@ viola = \new Voice { \relative c {
   \tuplet 5/4 { f,8[ fis' gis, d'' b,] } c'4 |									%292
   \stemUp \tuplet 5/4 { gis,8 a'  fis, c d'} ees,4 |								%293
   \time 2/4
-  R2^\markup { \bold "1." } |											%294
+  R2^\markup { \number 1 } |											%294
   \time 3/4
   r16 \stemDown f'-.\p g-. r r4 r16 fis-. gis-. r |								%295
   r2 r8 \stemNeutral a,-.\f |											%296
@@ -589,15 +614,14 @@ viola = \new Voice { \relative c {
   r4 f,8\f\dob\nat[ r16 f] r4 |											%299
   r4 \stemNeutral <f' aes>2:32\fp |										%300
   <g bes>:32\fp r4 |												%301
-  R2.^\markup { \bold "1." } |											%302  
+  R2.^\markup { \number 1 } |											%302  
   \tuplet 3/2 { r8 g--\p g-- ~ }  g16 g-. -. g-. g-. r4 |								%303
   \mark #21 a2.:32\fp\sulpont |										%304
   %%
   %% page 5.9
   %%
   bes:32\fp |													%305 
-  \override TextSpanner.bound-details.left.text = \markup { "rit." }
-  \override TextSpanner.bound-details.right.text = \markup { "a tpo." } 
+  \ritAtempoText
   c16\startTextSpan r8. r2 |											%306
   a,8\f\dob\stopTextSpan r8 r4 ees'8\pizz r |									%307
   f,2.:32\fp\arcosulpont |											%308
@@ -607,21 +631,22 @@ viola = \new Voice { \relative c {
   %%
   %% page 5.10
   %%
-  gis2. \breathe \bar "||" |											%312
+  \ritAtempoText
+  gis2.\startTextSpan \breathe \bar "||" |											%312
   %% assuming treble clef until bar 319, but not convinced!
-  r8. b,16\p\pizz g, cis' r8 r4 |											%313
+  r8.\stopTextSpan b,16\p\pizz g, cis' r8 r4 |											%313
   \set subdivideBeams = ##t 
   \tupletUp \tuplet 3/2 { <dis, a'>16-.\fp_>\arco([ <dis a'>-. <dis a'>-. } <dis a'>-.)] r16 r2 |			%314
   \set subdivideBeams = ##f
-  R2.^\markup { \bold "1." } |											%315
+  R2.^\markup { \number 1 } |											%315
   r2 \stemDown \tuplet 5/4 { fis8:32\pp[ g':32 eis,16:32 eis:32 b'8:32 c,:32] } r2 |				%316 317
   r16 c des' r r8. fis,16 f'-. r8. |										%318
   %%
   %% page 5.11
   %%
   \clef alto r2 r16 fis,8.->\piuf |										%319
-  R2.^\markup { \bold "1." } \clef treble |									%320
-  r16 aes'8.\f-^ r4 r8 \stemUp c,8\p\pizz |									%321
+  R2.^\markup { \number 1 } \clef treble |									%320
+  r16 aes'8.\f-^ r4 r8 \stemUp c,8\p\pizz \breathe |             % bar 321. Caesura missing in part.
   \mark #22 r4. \clef alto \stemNeutral d,4.:32\fp\arcosulpont |						%322
   fis,16\f\dob\nat fis\upb r8 r4 g4\p\pizz_\flageolet |								%323
   r8 des16\f\dob des\upb r2 |											%324
@@ -649,9 +674,9 @@ viola = \new Voice { \relative c {
   r8 ees\f\pizz r4 \clef alto \slurUp \tupletDown \tuplet 5/4 { r16 a,,\pp\arcosulpont( g' bes) r } |		%335
   r4 \tupletUp \tuplet 5/4 { r16 ais,\pp( cis b') r } r4 |								%336
   r2 \slurDown \tuplet 5/4 { r16 e,,( g f') r } |									%337
-  R2.^\markup { \bold "1." } |											%338
+  R2.^\markup { \number 1 } |											%338
   \tuplet 5/4 { r16 fis,( a gis') r } r2 |									%339
-  R2.^\markup { \bold "1." } \bar "|." |										%340
+  R2.^\markup { \number 1 } \bar "|." |										%340
   %%
   %% end page six of manuscript
   %%
@@ -664,85 +689,73 @@ viola = \new Voice { \relative c {
   
   Viola Part Notes, Comments, Issues, TODO's, Questions, etc
   ==========================================================
-  
-  --
-  -- This list is expected to go down to only a few editorial comments as the work is polished to completion.
-  --
-  (Bar numbers now wrong after about 200 due to proper correction of the score. Fix later.)
-  
-  bar 50: not 1/4. other parts do not agree and measure does not add up. Should remain 3/4.
-  
-  bar 58 beaming slightly wrong. how to fix?
-  
-  bar 59 ditto
-  
-  bar 89 rit needs attention
-  
-  bar 90 a tempo needs work
-  
-  bar 90 accel needs adding
     
-  bar 101 clef change missing?
+  -- Notes with an asterisk in front of the bar number are musicological questions that should remain,
+  -- or go in a scholarly appendix to the edition. (When part is complete only asterisked notes will
+  -- be left.)
   
-  bar 106 metrically wrong. always ony six notes in the 5plets, never more. e should be 4.
+  * bar 13 Indication a tempo missing.
   
-  bar 108 ignoring mark '3'. only using 6 for 6plet.
+  * bar 14 Put tuplet  down to avoid clash with accelerando indication.
   
-  bar 146 beaming issue. ms not right? prefer what lilypond does.
+  * bar 50: Not 1/4 as indicated. The other parts do not agree and measure does not add up. Should remain 3/4.
   
-  bar 147 add harmonic note in brackets above staff
-  
-  bar 149 time change to 3/4 missing in ms
-  
-  bar 153 strange blob at end of bar looks like a note but must be a spot on the paper
-  
-  bar 182 must be 5plet - missing in ms
-  
-  bar 183 metrically wrong. whatever does Paz mean?
-  
-  bar 194 missing Paz's usual 1. above one bar rest. added in for consistency.
-  
-  bar 213 I have out 5plet slur below not above
-  
-  bar 214 revisit ; add tpo 10. (4 = 100)
-  
-  bar 218 added "1." above full bar rest for consistency
-  
-  bar 222 what is Paz's accidental convention in the bar. Is the last d d# or d? Suddenly not sure any more.
-  bar 222 tweak parenthesized note more nicely later. lilypond does not parenthesize notes with sharps nicely.
-  
-  bar 239 revisit: complet 8va and (note)
+  * bar 59 Beaming altered to contemporary style.
     
-  bar 269 add parenthesized note
+  * bar 89 Where does rit. actually start?
   
-  bar 273 piu f does not look good
+  * bar 91 Made tuplet down to avoisd clash with accelerando indication.
   
-  bar 275 should alto clef change come before this somewhere?
+  * bar 101 Clef change missing? Added change to alto clef.
   
-  bar 277 dubious. 8:16 or 16? this pattern has not occurred before. On the other hand bar 280 introduces this 8:16 pattern.
+  * bar 108 Metrically wrong. always ony six notes in thid type of 5plets pattern, never more. e should be 4, snd by
+  analogy with the two closely preceding patterns.
   
-  bar 280 time does not add up. made r4 to r8. but needs checking carefully.
+  * bar 109 Ignoring mark '3'. Only using 6 for 6plet.
   
-  bar 282 add accel and a tempo
+  * bar 149 Time change to 3/4 missing in ms. Added to score, commensurate with other parts.
   
-  bar 295 added the usual "1." over the full bar rest, missing in the ms.
+  * bar 153 Strange blob at end of bar looks like a note but must be a spot on the paper in the ms.
   
-  bar 298 I am not sure that \textLengthOn is a good idea or not, due to spacing issues it produces.
+  * bar 182 Must be 5plet - missing in ms. Added to score.
   
-  bar 311 a tpo with no previous rit or accel.
+  * bar 183 metrically wrong. whatever does Paz mean?
   
-  bar 315 I have placed the accent underneath not above as it clashes less.
+  * bar 184 A tempo indication in ms more than just plain a tempo. Reduced to simple a tempo.
   
-  bar 317-318 some metrical error here. The only consisten way I can think to address it is to add r2 after the 5plet. Need to see if this relates properly to the oher parts and the reduction.
+  * bar 194 missing Paz's usual 1. above one bar rest. Added in for consistency.
   
-  bar 319 is last note two notes or one with staccato? f# or f?
+  * bar 213 I have put 5plet slur below not above to avoid clashes with slur and arco sul pont.
   
-  bar 325 mark in bar looks like dust or just some blob, not notation.
+  * bar 215 A tempo marking wiht no previous rit. or accel. Add tpo 10. (4 = 100)?
   
-  bar 333 not sure about where Paz means to change back to alto clef. is it before this bar?
+  * bar 216 Added "1" above full bar rest for consistency.
   
-  bar 336 is this a one bar rest after this bar in the ms or not? leaving out for now.
+  * bar 223 What is Paz's accidental convention in the bar? Is the last d d# or d? Suddenly not sure any more.
   
-  bar 341 added the usual "1." pver the full bar rest.
+  * bar 240 revisit: odd warning about too many clashing note columns. why is this? Also, ottava
+  text need padding away from parenthesised note.
+  
+  * bar 274 Should alto clef change come before this somewhere?
+    
+  * bar 295 added the usual "1." over the full bar rest, missing in the ms.
+    
+  * bar 310 A tpo indication with no previous rit or accel.
+  
+  * bar 314 I have placed the accent underneath not above as it clashes less.
+  
+  * bar 316-317 Some metrical error here. The only consistent way I can think to address it is to add r2 after the 5plet.
+  Need to see if this relates properly to the oher parts and the reduction.
+  
+  * bar 319 Is last note f# or f? Are we actually in the treble clef in this vicinity or not? Paz seems to forget clef
+  changes quite often. Needs checking.
+  
+  * bar 324 Mark in bar looks like dust or just some blob, not notation.
+  
+  * bar 332 Not sure about where Paz means to change back to alto clef. is it before this bar?
+  
+  * bar 335 Is the next bar in the ms a one bar rest or not? Leaving out.
+  
+  * bar 338 added the usual "1" pver the full bar rest.
   
 %}

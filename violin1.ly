@@ -116,7 +116,7 @@ violinone = \new Voice { \relative c''{
   g,?16(\upb e' cis) r r g(\upb e'' cis,) a'' d,,8.( | % bar 45
   \time 1/4 d8) d16\dob\f r |
   %% correct slurs: more pronounced and longer
-  \mark \default                                          % reharsal mark 3
+  \mark #3
   \time 3/4 r8 bes16(\upb c' e,) r8 fis16( d[ c!) r e]( | % starts beaming across silences
   cis'[ bes,) r bes]( cis' e,) c( d' fis,)[ r8 a16]( |
   fis' dis,) r8 r16 a''( c,,) r r4 |
@@ -131,7 +131,8 @@ violinone = \new Voice { \relative c''{
   %% page 1.11
   gis,)[ r a'(\upb gis,)] r4 r8. gis,16( | % bar 55
   a') b,( c') r r cis,(\upb d') r r8 cis,16(\upb d') |
-  \mark \default r8. b,?16(\upb cis' f,) r[ a,](\upb c dis gis8) | % reharsal mark 4
+  \mark #4
+  r8. b,?16(\upb cis' f,) r[ a,](\upb c dis gis8) |
   d16( ees b' c,) r d( ees b c8) gis16( f'! |
   
   %% page 2.1
@@ -149,7 +150,8 @@ violinone = \new Voice { \relative c''{
   %% not writing a slur seems right
   fis:32 c'8:32 d,,:32] } r4 r8 d''16\nat\upb cis,\dob |
   r4 r8 a'16\dob\f gis,\upb r c'8.\sf |
-  \mark \default r16 fis( c d, gis)[ r8 fis'16]( ais,,[) r8 cis'16(] | % reharsal mark 5
+  \mark #5
+  r16 fis( c d, gis)[ r8 fis'16]( ais,,[) r8 cis'16(] |
   
   %% page 2.3
   e,[) r a8(]\dob c,16) fis( f, b) c,8 % mistake: It is "c,8" not "c,8." r16
@@ -184,7 +186,7 @@ violinone = \new Voice { \relative c''{
   r4 \times 2/3 {cis,4.-^\f dis''8-^ e,,4-^} |
   
   %% page 2.7
-  \mark \default                               % reharsal mark 6
+  \mark #6
   r16 gis''8.~\sf gis2\p\startTextSpan \breathe | % bar 89
   g,8\dob\stopTextSpan r r4
   \override TextSpanner #'(bound-details left text) = "accelerando"
@@ -213,8 +215,8 @@ violinone = \new Voice { \relative c''{
 
   %% page 2.10
   \tuplet 5/4 { gis'8:32\fp fis':32 f,:32 cis':32 dis,,:32 } e'4 | % bar 107
-  \tuplet 5/3 { e--\nat\f f'-- g,-- fis'-- d,-- } |
-  \mark \default                % reharsal mark 7
+  \tuplet 5/3 { e4--\nat\f f'-- g,-- fis'-- d,-- } |               % bar check fails during compilation
+  \mark #7
   \time 2/4 c' r |
   \time 3/4 \tuplet 5/3 { gis' a, fis' b, ais' } |
   cis,4 r2 |
@@ -258,25 +260,17 @@ violinone = \new Voice { \relative c''{
   %% page 3.1
   a16(\f gis,) r8 r4 e'16(\upb f') r8 | % bar 123
   r8. d16(\dob\fp a)\p r8. r4 |
-  \mark \default                % reharsal mark 8
+  \mark #8
   r8 d(->\f \tuplet 3/2 { ees,8\p bes'8. aes,16 } r8 c'-. |
   r16 bes,( fis'8) \tuplet 3/2 { gis'4-- d,-- f'!-- } |
   r2 r8 e~\f |
 
   %% page 3.2
-  \override Staff.TimeSignature #'stencil = ##f
-  \time 4/4 e16^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } }
-  cis, g, r r8. dis''16\upb\ff e' r8. r b,,16\pizz\p \bar "!" |
-  \time 1/8 c' r |       % bar 12
-  \revert Staff.TimeSignature #'stencil
-
-  %% To compensate for the dashed barline incrementing the bar measure
-  %% count. Would be neat or useful to create a special voice to hold
-  %% gobal events/commands? For clarity's sake, Maybe It is better
-  %% to have one of these in each instrument file.
+  \compoundMeter #'((4 4) (1 8))
+  e16
+  cis, g, r r8. dis''16\upb\ff e' r8. r b,,16\pizz\p c' r | % bar 128
 
   \time 3/4
-  \set Score.currentBarNumber = #129
   a''16(\arco\f d,,8.)\p r4 a''16(\f e8.)\p |
   r8 e16( dis,) r4 r16 d'\pizz cis, r |
   r e'(\arco dis,) r r8 a-.\dob g''4:32\fp | % metric mistake in part
@@ -285,7 +279,7 @@ violinone = \new Voice { \relative c''{
   g:\fp d,16-^\fp a'8.~a4~ |     % bar 132
   a16 b,8.-^\fp~ b4~ b8. g16 |
   \time 2/4 r8 <f g>\f~ q16\p q-. q-. q-.
-  \mark \default                % reharsal mark 9
+  \mark #9
   \time 3/4 a' c, r8 r c'16(\p g) r fis'\dob\f a,,\upb r16 |
   r e''? dis, r r4 r8 dis!16\dob\arco\ff e'\upb |
 
@@ -306,14 +300,9 @@ violinone = \new Voice { \relative c''{
   %% with a diamond. This seems a bug. Changing to explicit repetition.
   r16  <a, c\harmonic>-.\p dis'-. r r <a, c\harmonic>-.\f dis'-. r r8 <f,, bes\harmonic>-.\p\upb( |
 
-  \override Staff.TimeSignature #'stencil = ##f
-  \time 3/4
-  <bes ees\harmonic>)-.^\markup { \concat { \timesig #3 #4 } { "+" } { \note #"8" #1 } }
-  r r4 <c d>:32\ff \bar"!" |
-  \time 1/8 q8 |
-
-  \set Score.currentBarNumber = #146
-  \revert Staff.TimeSignature #'stencil
+  \compoundMeter #'((3 4) (1 8))
+  <bes ees\harmonic>)-.
+  r r4 <c d>:32\ff q8 |
 
   \time 3/4
   r
@@ -680,7 +669,7 @@ r <<
   { <f,\harmonic d!>8 }
 >> r16 |                      % bar 333
 \tuplet 5/4 { r c( b' d) r } r4 \tuplet 5/4 { r16 f,( gis fis') r } |
-r4 \tuplet 5/4 { r16 e( bes a,) r } r4 |
+r4 \tuplet 5/4 { r16 e\sulpont( bes a,) r } r4 |
 e''16\pizz\f dis, r8 r4 r8 <e a\harmonic>\arco\p |
 
 %% page 6.2

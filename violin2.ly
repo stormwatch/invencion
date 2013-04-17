@@ -60,7 +60,7 @@ violintwo = \new Voice { \relative c'{
     >>
     \oneVoice
     r8 r4 f,?8^"pizz." r8 |
-    \mark \default              % mark 1
+    \mark #1
     g2.:32^"arco"^"sul pont"\fp |
     dis'8^"nat." r  r4 b8 r |
   
@@ -78,7 +78,7 @@ violintwo = \new Voice { \relative c'{
     %% bar 34
     \time 2/4 <c ees>:32\fp |
     \time 3/4 <b' d>16(^"nat."\downbow\f f,?) r8 r <b g'>16\downbow\f <b g'>\upbow\p r4 |
-    \mark \default              % mark 2
+    \mark #2
     \time 2/4 R2 |
     \time 3/4 r8 <d? c'>16\downbow\f <d c'>\upbow r8 <d c'>16\downbow fis\upbow r4 |
     gis16( c,) r8 r g16( <ais b,>) r4 |
@@ -94,7 +94,7 @@ violintwo = \new Voice { \relative c'{
     gis,,16\upb( dis' c!) r r gis!\upb( dis'' c,?) gis''\dob cis,,8.\upb~ |
     \time 1/4 cis8 cis16\f-> r |
 
-    %staff #8, measure 41, circle 3
+    %staff #8, measure 41
   r8\mark #3  a'16(\p\upbow g es)[ r8 f16]( gis[ b) r16 d,]( |
   
   % 42
@@ -173,7 +173,6 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 
 %%	page 2
 %%	system 1
-%%	mark 5
 	\mark #5
 
 %% it looks like Alex got the bar count wrong. +1 to all measures. -- EB
@@ -271,7 +270,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 87
 	R1*3/4
 % bar 89 --EB
-\mark \default                  % mark 6
+\mark #6
 	\override TextSpanner #'(bound-details left text) = "rit."
     \override TextSpanner #'(bound-details right text) = " a tempo"
 	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
@@ -343,8 +342,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	\stemNeutral
 	r4 \times 4/6 { e4:32 f': \stemDown g,: 
 % bar 108
-% mark 7
-	\mark \default
+	\mark #7
 	\time 2/4
 	dis':32 d,!: c' }
 % bar 109
@@ -396,8 +394,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 123 (continued)
 	fis,16:32\sulpont\fp b e ais
 % bar 124
-% mark 8
-	\mark \default
+	\mark #8
    	\override TupletBracket #'bracket-visibility = ##f
 	r8 cis,8^>\fp\nat( 
 % trying to get the tuplet number under the notes/stem does not 
@@ -411,22 +408,14 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 125
 	r16\f bes'^^ a,^^ r16 r8\p gis'16 d, r8 dis'^^~
 % bar 128 --EB
-	\once \override Staff.TimeSignature #'stencil = ##f 
-	\time 4/4
-	dis16^\markup { \concat { \timesig #4 #4 } { "+" } { \note #"8" #1 } } r8. 
-	\stemDown
-	r8\ff d,!16\dob ees' r8 bes'8\f\( ees,4\p~ \bar "!"
-% bar 128 (second half) --EB
-	\once \override Staff.TimeSignature #'stencil = ##f
-	\time 1/8
-	ees16\) r16
+        \compoundMeter #'((4 4) (1 8))
+	dis16 r8. \stemDown
+	r8\ff d,!16\dob ees' r8 bes'8\f\( ees,4\p~ ees16\) r16
 
 %%% ------------------ PAGE 3 -------------------------	
 % page 3
 % system 1
 % bar 129 --EB
-%%	I presume that this is bar 127, and that bar 126 was in "two pieces"
-	\set Score.currentBarNumber = #129
 	\stemNeutral
 	\time 3/4
 	gis16\fp( cis,8.) r4 gis'16\fp( dis'8.)
@@ -443,8 +432,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	r8 <g, e>\fp\dob~ q16 q_. q_. q_.
 % bar 133
 	\time 3/4
-% mark 9
-	\mark \default
+	\mark #9
 	gis16\f( b) r8 r b16\p( fis') 
 		r16 \stemUp d?16\dob\f gis, r16
 % bar 134
@@ -479,17 +467,11 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % system 3
 % bar 142
 	r8 ees'16^. d,^. r8 ees'16^. d,^. r8 e!8(
-% bar 143(a)
-	\once \override Staff.TimeSignature #'stencil = ##f 
-	\time 3/4
-	a8^.)^\markup { \concat { \timesig #3 #4 } { "+" } { \note #"8" #1 } }
-		r8 r4 <d, b>4:32 \bar "!"
-% bar 143(b)
-	\once \override Staff.TimeSignature #'stencil = ##f 
-	\time 1/8
+% bar 143
+        \compoundMeter #'((3 4) (1 8))
+	a8^.) r8 r4 <d, b>4:32
 	<d b>8:32
 % bar 144
-	\set Score.currentBarNumber = #144
 	\time 3/4
    	\override TupletBracket #'bracket-visibility = ##f
 	\override TupletNumber #'stencil = ##f 
@@ -539,8 +521,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 157
 	r2 r8 b''8\pizz\p
 % bar 158
-% mark 10
-	\mark \default
+	\mark #10
 	R1*3/4
 % bar 159
 	dis16\f( a,) r8 r2
@@ -577,8 +558,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 169
 	r4 a,8_-\p a_-\f r4
 % bar 170
-% mark 11
-	\mark \default
+	\mark #11
 	<a\harmonic d,>4 r2
 % bar 171
 	r16 d16\ff( cis,) r r2
@@ -639,9 +619,8 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 190
 	r8 c'16^. b,^. r2 \bar "||"
 % bar 191
-% mark 12
-	\mark \default
-	\tempo "Poco meno"
+	\mark #12
+	\tempo "Poco meno mosso"
 	r4 <ees,\harmonic bes>4\pizz\p r4
 % bar 192
 	dis'8\arcosulpont\p dis\f r2
@@ -682,8 +661,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 202
 	r16 ais\f\arco( cis,) r16 r2
 % bar 203
-% mark 13
-	\mark \default
+	\mark #13
 	c'8\pizz r r2
 % bar 204
 	r2 <c,\harmonic g>8\p_- <c\harmonic g>\f_-
@@ -717,8 +695,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 214
 	\times 4/5 { r16 b'\piup\( ais' cis,\) r16 } r2
 % bar 215
-% mark 14
-	\mark \default
+	\mark #14
 	\set subdivideBeams = ##f
 	r2 \times 4/5 { f,8:32\sulpont\pp[ fis': gis,16:
 % bar 216
@@ -762,8 +739,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 225	
  	fis16:32 d,8: ees'':] } r8 \stemUp <f,,!\harmonic c>\p r4
 % bar 226
-% mark 15
-	\mark \default
+	\mark #15
 	\stemDown
 	r4 \times 4/5 { e8:32\pp f': g,: cis: ais': }
 % bar 227
@@ -791,8 +767,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 
 % system 8
 % bar 234
-% mark 16
-	\mark \default
+	\mark #16
 	\times 4/5 { f8:\pp g,: b': cis8: ais,: } 
 		\stemDown
 		r8 e''\p
@@ -883,8 +858,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 255
  	cis'8\f r r4 r8 b,16\p( c'!)
 % bar 256
-% mark 17
-	\mark \default
+	\mark #17
 %%% - should there be an arco marking somewhere around here? %%% 
 	r2 dis,,16\mf\dob dis\upb r8
 % bar 257
@@ -912,8 +886,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 266
 	r8 dis\dob\ff r2
 % bar 267
-% mark 18
-	\mark \default
+	\mark #18
     \override TupletBracket #'bracket-visibility = ##t
 	\times 2/3 { e8^^\f f'^^ g'^^ } r4
 		r8 gis,\f\pizz
@@ -990,8 +963,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 278
 	R1*3/4
 % bar 279
-% mark 19
-	\mark \default
+	\mark #19
 	\stemNeutral
 	f,,?4.:32\fp\acel a:\fp
 % bar 280
@@ -1023,8 +995,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 
 % system 7
 % bar 289
-% mark 20
-	\mark \default
+	\mark #20
 	\time 4/4
 	\override TupletBracket #'bracket-visibility = ##t
 	r2 \times 2/3 { gis4_-\p a'^- fis,_- }
@@ -1061,8 +1032,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 301
 	r2 <cis\harmonic gis>4:32
 % bar 302
-% mark 21
-	\mark \default
+	\mark #21
 	R1*3/4
 
 % system 9
@@ -1139,20 +1109,17 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 \once \set doubleSlurs = ##f
 \slurDashed 
 \slurUp
-< d,\harmonic g,~ >2.( 
+< d,\harmonic g,~ >2.\fp( 
 % bar 318
 < d\harmonic g, >2. )
 \slurSolid
 \slurNeutral
-% bar 319
-% mark 22
-\mark \default
+\breathe
+
+% bar 322 -- EB
+\mark #22
 g2.:32\fp\spont
 
-% bar 318
-% mark 22
-	\mark \default
-	g'2.:32\fp\spont
 % bar 319
 	<cis e,>16\dob\f\nat <cis e,>\upb r8 r2
 % bar 320
@@ -1191,8 +1158,7 @@ e''16\ff\dob( dis,) r8 r16 d'!16 gis, r16 r4
 %% is the articulation a \thumb or an \open here
 gis'8\f r8 r8 g,!\pizz\p_\thumb r4
 % bar 329
-% mark 23
-\mark \default
+\mark #23
 \stemDown
 \override TupletBracket #'direction = #DOWN
 \times 4/5 { r16 b16\pp\arcosulpont\( ais' cis\) r16 }
@@ -1207,7 +1173,7 @@ r4
 % bar 331
 \override TupletBracket #'Y-offset = #4.4
 r4 
-\times 4/5 { r16 d,,16\( c' ees\) r16 }
+\times 4/5 { r16 d,,16\( c' ees\) r16 } % marked sulpont in reduction
 \times 4/5 { r16 dis,16\( cis' e!\) r16 }
 % bar 332
 \revert TupletBracket #'Y-offset
@@ -1218,5 +1184,5 @@ r8 <gis\harmonic dis>8\arco\p_.
 \override TupletBracket #'direction = #DOWN
 r2 \times 4/5 { r16 fis16\pp\sulpont cis' ais' r16 }
 % bar 334-336
-R1*3/4*2 \bar "|."
+R1*3/4*3 \bar "|."
 }}
