@@ -4,11 +4,14 @@
   Juan Carlos Paz
   1961
   
-  Typesetting by Andrew Bernard, Ezequiel Birman, Ryan McClure and Alex Voice
+  Typesetting by Andrew Bernard, Ezequiel Birman, Ryan McClure, Alex
+  Voice and Peter Wannemacher.
 
   March 2013
 
-  copyright notice?
+  There seemed to exist a printed edition by Tonos International Music
+  Edition, now unavaliable. This score was created entirely from the
+  manuscript.
 
   This file provides some defaults. You may create your own version
   with your favourite stylesheets, fonts, margins, etc.
