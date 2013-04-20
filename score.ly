@@ -2,12 +2,12 @@
 \include "compound.ily"
 
 \header {
-  title = \markup \center-column {"invención"}
-  %% subtitle = "subtitle"
-  instrument = "para cuarteto de cuerda"
-  composer =  \markup \center-column { \small "juan carlos paz" }
+  title = \markup \center-column {"Invención"}
+  subtitle = "para cuarteto de cuerda"
+  instrument = "cuarteto de cuerda"
+  composer =  \markup \center-column { \small "Juan Carlos Paz" }
   %% poet =  \markup \center-column { "poet-template" \small "poet-template" }
-  copyright = "Copyright by Tonos International Music Edition"
+  %% copyright = "Copyright by Tonos International Music Edition"
 }
 
 global= {
