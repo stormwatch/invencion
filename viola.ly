@@ -383,9 +383,9 @@ viola = \new Voice { \relative c {
   %% page 3.12
   %%
   \acelAtempoText
-  \tuplet 5/4 { r cis\f( a' b,) r } r2\startTextSpan |										%182
-  R2.^"?unresolved?" \bar "||" |											%183
-  r4\stopTextSpan r16 \stemUp d\pizz gis, r r4 |										%184
+  \tuplet 5/4 { r cis\f( a' b,) r } r2\startTextSpan |							%182
+  r8. c16\p\nat( \stemUp ees, d') r gis,( \stemDown g' bes,) \stemNeutral r8 \breathe \bar "||" | % bar 183
+  r4\stopTextSpan r16 \stemUp d\pizz gis, r r4 |								%184
   R2.*2 |													%185 186
   r4 \clef treble \stemNeutral fis''8\marcato\f\pizz r r4 |							%187
   %%
@@ -719,7 +719,9 @@ viola = \new Voice { \relative c {
   
   * bar 182 Must be 5plet - missing in ms. Added to score.
   
-  * bar 183 metrically wrong. whatever does Paz mean?
+  * bar 183 The ms part is metrically completely wrong. whatever does Paz mean? Corrected part with reference
+  to the reduction. The only remaining issue in this bar is that the last note in the reduction is f sharp but in
+  the part it is b flat. Have used b flat from the part.
   
   * bar 184 A tempo indication in ms more than just plain a tempo. Reduced to simple a tempo.
   
