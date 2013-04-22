@@ -4,10 +4,10 @@
 \header {
   title = \markup \center-column {"Invención"}
   subtitle = "para cuarteto de cuerda"
-  instrument = "cuarteto de cuerda"
+  %%instrument = "cuarteto de cuerda"
   composer =  \markup \center-column { \small "Juan Carlos Paz" }
   %% poet =  \markup \center-column { "poet-template" \small "poet-template" }
-  %% copyright = "Copyright by Tonos International Music Edition"
+  %% copyright = "Copyleft by us"
 }
 
 global= {
