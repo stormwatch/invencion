@@ -1,11 +1,11 @@
-pizz = ^\markup { \italic pizz. }
-arco = ^\markup { \italic arco }
-arcobrac = ^\markup { \italic "[arco]" }
-spont = ^\markup { \italic "s. pont." }
-sulpont = ^\markup { \italic "sul pont." }
+pizz = ^\markup { pizz. }
+arco = ^\markup { arco }
+arcobrac = ^\markup { "[arco]" }
+spont = ^\markup { "s. pont." }
+sulpont = ^\markup { "sul pont." }
 arcosulpont = ^\markup { \override #'(baseline-skip . 2.5)
-                         { \column { \italic arco \italic "sul pont." } } }
-nat = ^\markup { \italic nat. }
+                         { \column { arco "sul pont." } } }
+nat = ^\markup { nat. }
 accel = ^\markup { "accel." }
 acel = ^\markup { "acelerando" }
 atempo = ^\markup { "a tempo" }
