@@ -384,6 +384,7 @@ violinone = \new Voice { \relative c''{
 
   \tuplet 5/4 { r a,,(\f bes' g,) r }
   %% Mistake in part. Removed an extra r16
+  \acelAtempoText
   r dis'\p(\startTextSpan e' cis,) r4 |
 
   %% page 3.12
