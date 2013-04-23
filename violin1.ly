@@ -380,7 +380,7 @@ violinone = \new Voice { \relative c''{
   %% page 3.11
   <e, f,>16\dob\f q-.\p( q-.) r r q-.\upb( q-. q-.) <bes a>\dob\f q\upb r q\upb | % bar 179
   r8 q\upb\f \tuplet 5/4 { r16 fis''( f,! gis,) r } r8 <fis b!\harmonic>16\f\dob <fis b>\upb |
-  \tuplet 5/4 { r fis''\pp( f,! gis,) r } r fis''(\nat\mf f,!) r r8. gis'16\pp |
+  \tuplet 5/4 { r fis''\pp( f,! gis,) r } r fis''(\nat\mf f,!) r r8. gis'16\pp\sulpont |
 
   \tuplet 5/4 { r a,,(\f bes' g,) r }
   %% Mistake in part. Removed an extra r16
