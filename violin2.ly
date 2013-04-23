@@ -466,11 +466,10 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
  
 % system 3
 % bar 142
-	r8 ees'16^. d,^. r8 ees'16^. d,^. r8 e!8(
+	r8 ees'16^. d,^. r8 ees'16^. d,^. r8 e!8( |
 % bar 143
         \compoundMeter #'((3 4) (1 8))
-	a8^.) r8 r4 <d, b>4:32
-	<d b>8:32
+	a8^.) r8 r4 <d, b>4:32 <d b>8:32 |
 % bar 144
 	\time 3/4
    	\override TupletBracket #'bracket-visibility = ##f

@@ -307,7 +307,7 @@ viola = \new Voice { \relative c {
   r8. d'16-.\p cis,-.[ r8 d'16-.\f] cis,-. r8. |									%144
   %% compound time signature 3/4 + 1/8
   \compoundMeter #'((3 4) (1 8))
-  r4 \clef treble \stemUp f4:32\ff <f b>:32 <f b>8:32 |								%145
+  r4 \clef treble \stemUp f4:32\ff <f b>: q8: | % bar 145
   \time 3/4
   r8 ais\fp( ais) ais16-. \slurDown ais( \tuplet 5/4 { ais-.) ais-. ais-. ais-. ais-. } |				%146
   r4 \clef alto

@@ -278,9 +278,9 @@ cello = \new Voice { \relative c {
         <a d\harmonic>16\staccato\f <a d\harmonic>16\staccato r8 r2
         r8. ges16( f,16) r8. c'16\dob c16\upb r8
 %%%%% | % bar 145
-        r2 des'16\f c,16 r8
+        r2 des'16\f c,16 r8 |
         \compoundMeter #'((3 4) (1 8))
-        \grace dis8 \clef tenor r4 <e' g>2:32\f <e g>8:32
+        \clef tenor r4 <e' g>2:32\ff q8: |
         \time 3/4
         r4 \clef treble r8 d'8~\mf( d16 cis,8.)
         gis16\p\pizz a'16 r8 r2
