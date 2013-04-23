@@ -390,7 +390,7 @@ violinone = \new Voice { \relative c''{
   %% page 3.12
   %% Mistake in part. Removed another extra r16
   r16 gis( fis' f,!) r4 r16 d'( c' b,)\breathe \bar "||" | % bar 183
-  \once \override TextSpanner #'(bound-details right text) = "tpo. 1°"
+  \once \override TextSpanner #'(bound-details right text) = "Tempo 1º"
   r8\stopTextSpan <a d\harmonic>\f r4 r16 des'\upb(\p c,) r |
   bes'( a,) r8 r d'16( cis,) r d'( c,) r |
   r a''( gis,) r r aes,( g,!) r r8 dis''16( f') |
@@ -435,7 +435,7 @@ violinone = \new Voice { \relative c''{
   \time 3/4 r2 c'8\pizz\f r \bar "||" |
 
   %% g-- and a-- are accented with > in the part instead of tenuto.
-  \tempo "Tempo 1°" r4 \tuplet 3/2 { g--\arco\f bes'4.-> a,,8-- } | % bar 215
+  \tempo "Tempo 1º" r4 \tuplet 3/2 { g--\arco\f bes'4.-> a,,8-- } | % bar 215
   \tuplet 5/4 { f':32\sulpont fis': gis,: d': b,: } r4 |
   \mark #14
   R2. |
