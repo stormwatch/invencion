@@ -1,11 +1,11 @@
-pizz = ^\markup { \italic pizz. }
-arco = ^\markup { \italic arco }
-arcobrac = ^\markup { \italic "[arco]" }
-spont = ^\markup { \italic "s. pont." }
-sulpont = ^\markup { \italic "sul pont." }
+pizz = ^\markup { pizz. }
+arco = ^\markup { arco }
+arcobrac = ^\markup { "[arco]" }
+spont = ^\markup { "s. pont." }
+sulpont = ^\markup { "sul pont." }
 arcosulpont = ^\markup { \override #'(baseline-skip . 2.5)
-                         { \column { \italic arco \italic "sul pont." } } }
-nat = ^\markup { \italic nat. }
+                         { \column { arco "sul pont." } } }
+nat = ^\markup { nat. }
 accel = ^\markup { "accel." }
 acel = ^\markup { "acelerando" }
 atempo = ^\markup { "a tempo" }
@@ -49,16 +49,16 @@ harmonicPitch = #(define-music-function (parser location note)
 ritAtempoText =
 {
   \override TextSpanner #'(bound-details left text) = \markup { \bold "rit. " }
-  \override TextSpanner #'(bound-details right text) = \markup { \bold "a tempo" }
+  \override TextSpanner #'(bound-details right text) = \markup { \bold " a tempo" }
   \override TextSpanner #'(bound-details right-broken text) = ##f
   \override TextSpanner #'(bound-details left-broken text) = ##f
   \override TextSpanner #'(bound-details right padding) = #0.5
 }
 
-acelAtempoText =
+accelAtempoText =
 {
-  \override TextSpanner #'(bound-details left text) = \markup { \bold "acelerando " }
-  \override TextSpanner #'(bound-details right text) = \markup { \bold "a tempo" }
+  \override TextSpanner #'(bound-details left text) = \markup { \bold "accelerando " }
+  \override TextSpanner #'(bound-details right text) = \markup { \bold " a tempo" }
   \override TextSpanner #'(bound-details right-broken text) = ##f
   \override TextSpanner #'(bound-details left-broken text) = ##f
   \override TextSpanner #'(bound-details right padding) = #0.5

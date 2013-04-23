@@ -380,16 +380,17 @@ violinone = \new Voice { \relative c''{
   %% page 3.11
   <e, f,>16\dob\f q-.\p( q-.) r r q-.\upb( q-. q-.) <bes a>\dob\f q\upb r q\upb | % bar 179
   r8 q\upb\f \tuplet 5/4 { r16 fis''( f,! gis,) r } r8 <fis b!\harmonic>16\f\dob <fis b>\upb |
-  \tuplet 5/4 { r fis''\pp( f,! gis,) r } r fis''(\nat\mf f,!) r r8. gis'16\pp |
+  \tuplet 5/4 { r fis''\pp( f,! gis,) r } r fis''(\nat\mf f,!) r r8. gis'16\pp\sulpont |
 
   \tuplet 5/4 { r a,,(\f bes' g,) r }
   %% Mistake in part. Removed an extra r16
+  \accelAtempoText
+  \once \override TextSpanner #'(bound-details right text) = "Tempo 1º"
   r dis'\p(\startTextSpan e' cis,) r4 |
 
   %% page 3.12
   %% Mistake in part. Removed another extra r16
   r16 gis( fis' f,!) r4 r16 d'( c' b,)\breathe \bar "||" | % bar 183
-  \once \override TextSpanner #'(bound-details right text) = "tpo. 1°"
   r8\stopTextSpan <a d\harmonic>\f r4 r16 des'\upb(\p c,) r |
   bes'( a,) r8 r d'16( cis,) r d'( c,) r |
   r a''( gis,) r r aes,( g,!) r r8 dis''16( f') |
@@ -434,7 +435,7 @@ violinone = \new Voice { \relative c''{
   \time 3/4 r2 c'8\pizz\f r \bar "||" |
 
   %% g-- and a-- are accented with > in the part instead of tenuto.
-  \tempo "Tempo 1°" r4 \tuplet 3/2 { g--\arco\f bes'4.-> a,,8-- } | % bar 215
+  \tempo "Tempo 1º" r4 \tuplet 3/2 { g--\arco\f bes'4.-> a,,8-- } | % bar 215
   \tuplet 5/4 { f':32\sulpont fis': gis,: d': b,: } r4 |
   \mark #14
   R2. |
@@ -619,7 +620,7 @@ gis:\fp |
 %% page 5.9
 \ritAtempoText
 b16 r8. \tuplet 3/2 { dis''2--\startTextSpan e4-- } | % bar 306
-r8\stopTextSpan \acelAtempoText d\startTextSpan
+r8\stopTextSpan \accelAtempoText d\startTextSpan
 %% The acellerando starts in the second quaver (previous note d) in
 %% the reduction.
 r4 r8. ais16 |

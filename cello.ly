@@ -278,9 +278,9 @@ cello = \new Voice { \relative c {
         <a d\harmonic>16\staccato\f <a d\harmonic>16\staccato r8 r2
         r8. ges16( f,16) r8. c'16\dob c16\upb r8
 %%%%% | % bar 145
-        r2 des'16\f c,16 r8
+        r2 des'16\f c,16 r8 |
         \compoundMeter #'((3 4) (1 8))
-        \grace dis8 \clef tenor r4 <e' g>2:32\f <e g>8:32
+        \clef tenor r4 <e' g>2:32\ff q8: |
         \time 3/4
         r4 \clef treble r8 d'8~\mf( d16 cis,8.)
         gis16\p\pizz a'16 r8 r2
@@ -330,7 +330,7 @@ cello = \new Voice { \relative c {
 %%%%% | % bar 184
         \times 4/5 {r16 g,16\f( b16 cis,16) r16} r8. f16\p\nat^\markup{ "ACCELERANDO"}( g,16 e'16) r16 cis'16(
         b,16 ais'16) r8 r2 \breathe \bar "||"
-        \tempo "Tpo 1*" 4=100 R2.*2
+        \tempo "Tempo 1º" 4=100 R2.*2
         r2 cis,16\p( d'16) r8
         r4 f8\marcato\f\pizz r8 r4
         r4 fis16\arcosulpont\ff\accent fis16\accent r8 r4
@@ -367,7 +367,7 @@ ais,16( b'16) r8 b,16( c'16) r8 r8 cis16\ff\staccato cis16\staccato
         \time 2/4 \times 4/5 {r16 g,16\p( bes'16 a,16) r16} r16 f''16\nat <fis, b\harmonic>16 r16
         \time 3/4 r4 r8 <g, e'\harmonic \parenthesize g'>8 r4
 %%%%% | % bar 216
-        \tempo "Tpo 1*" 4=100
+        \tempo "Tempo 1º" 4=100
         \times 4/5 {r16 f16\p( aes16 ges'16) r16} r2
         \times 4/5 {r16 e16( g16 f'16) r16} r4 r8 c8\pizz
         \mark #14

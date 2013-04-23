@@ -1,0 +1,47 @@
+#+TITLE:     Invención
+#+AUTHOR:    Andrew Bernard, Ezequiel Birman, Ryan McClure, Alex Voice and Peter Wannemacher
+#+EMAIL:     Ezequiel Birman <stormwatch@espiga4.com.ar>
+#+DATE:      2013-04-23 mar
+
+* Pending Tasks
+** TODO Tempi modifiers
+*** TODO Sistematic use of \ritAtempoText and \acellAtem
+*** TODO 
+** TODO Normalize tuplets
+*** TODO Always use brackets
+*** TODO correct straddling tuplets
+    Apply the solution provided by Alex, where the barline is erased near the tuplet.
+** TODO Typography
+   Discuss on rational use of typography. ie: italics for techniques, bold for tempi.
+*** TODO Use Mint Spirit from [[http://arkandis.tuxfamily.org/][Arkandis]]
+** TODO Harmonic pitches
+   Compare all the solutions for harmonic pitches (parenthezised) and
+   decide which one to keep.
+** TODO remove numbers over whole measure rests
+** TODO Rewrite wrong measure count in comments.
+** TODO Collate parts with reduction
+*** TODO Check for double barlines in parts and reduction.
+*** TODO Prepare a version with Lettered reharsal marks (from the reduction) and include sections like "CODA" and such.
+** TODO Rewrite measure counts in comments                        :Ezequiel:
+Normalize and correct measure and system (staff) counts.
+** TODO Keep up to date with latest [[http://www.lilypond.org/development.html][stable devel]]
+*** TODO Provide some script to convert between \times and \tuplet back and forth for those not wishing to upgrade
+** TODO Proofread parts                                      :Alex:Ezequiel:
+
+* Org                                                              :noexport:
+#+DESCRIPTION: Readme first, TODO list and text notes.
+#+KEYWORDS: music,string,quartet,serial
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:t todo:t pri:nil tags:t
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+#+STARTUP: indent
+#+TAGS: violin1(1) violin2(2) viola(3) cello(4) Alex(a) Andrew(n) Ezequiel(e) Peter(p) Ryan(r)
+#+TYP_TODO: TODO MAYBE WAITING DONE
+#+COLUMNS: %25ITEM %TAGS %PRIORITY %TODO %Effort{:} %CLOCKSUM

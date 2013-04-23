@@ -33,7 +33,7 @@ viola = \new Voice { \relative c {
   %%
   %% page 1.3
   %%
-  \acelAtempoText
+  \accelAtempoText
   r8 fis,\p r4 r8.dis16^\startTextSpan |											%13
   \tupletDown \tuplet 5/3 { b'4-- cis,-- g'4.-- f'8-. e,4-- } \tupletNeutral |						%14
   fis'16\ff (d,) r8 r <c f\harmonic>16\p <c f\harmonic> r4 |							%15  
@@ -204,7 +204,7 @@ viola = \new Voice { \relative c {
   %%
   %% page 2.7
   %%
-  r2\stopTextSpan \acelAtempoText r8.\startTextSpan \stemNeutral cis'16 |										%90
+  r2\stopTextSpan \accelAtempoText r8.\startTextSpan \stemNeutral cis'16 |										%90
   \tupletDown \tuplet 5/3 { b,4-- c'-- fis,4.-- \clef treble a'8-- gis,4-- } \tupletNeutral |							%91
   r4 r8 <d a'\harmonic>16-.\p ~ <d a'\harmonic>16-. r4 |								%92
   r2\stopTextSpan r8 <c ees>8\sf ~ |											%93
@@ -307,7 +307,7 @@ viola = \new Voice { \relative c {
   r8. d'16-.\p cis,-.[ r8 d'16-.\f] cis,-. r8. |									%144
   %% compound time signature 3/4 + 1/8
   \compoundMeter #'((3 4) (1 8))
-  r4 \clef treble \stemUp f4:32\ff <f b>:32 <f b>8:32 |								%145
+  r4 \clef treble \stemUp f4:32\ff <f b>: q8: | % bar 145
   \time 3/4
   r8 ais\fp( ais) ais16-. \slurDown ais( \tuplet 5/4 { ais-.) ais-. ais-. ais-. ais-. } |				%146
   r4 \clef alto
@@ -382,7 +382,7 @@ viola = \new Voice { \relative c {
   %%
   %% page 3.12
   %%
-  \acelAtempoText
+  \accelAtempoText
   \tuplet 5/4 { r cis\f( a' b,) r } r2\startTextSpan |							%182
   r8. c16\p\nat( \stemUp ees, d') r gis,( \stemDown g' bes,) \stemNeutral r8 \breathe \bar "||" | % bar 183
   r4\stopTextSpan r16 \stemUp d\pizz gis, r r4 |								%184
@@ -577,7 +577,7 @@ viola = \new Voice { \relative c {
   d-.\f d-. d-. r r8 \stemDown b'8:16\p-\staccTwo #2 cis'8:16-\staccTwo #2 r8 |					%279
   \stemUp <b, d>4.:32\fp <cis e>4.:32\fp \clef treble |								%280
   \mark #19
-  \acelAtempoText
+  \accelAtempoText
   gis'4.:32\fp\startTextSpan gis:32\fp |										%281
   \stemDown <a bes>4.:32\fp <bes des>:32\fp |									%282
   ees4.:32\fp r8 \stemUp \tuplet 3/2 { r des\f\nat  c, } |								%283
