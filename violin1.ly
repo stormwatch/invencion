@@ -384,13 +384,13 @@ violinone = \new Voice { \relative c''{
 
   \tuplet 5/4 { r a,,(\f bes' g,) r }
   %% Mistake in part. Removed an extra r16
-  \acelAtempoText
+  \accelAtempoText
+  \once \override TextSpanner #'(bound-details right text) = "Tempo 1º"
   r dis'\p(\startTextSpan e' cis,) r4 |
 
   %% page 3.12
   %% Mistake in part. Removed another extra r16
   r16 gis( fis' f,!) r4 r16 d'( c' b,)\breathe \bar "||" | % bar 183
-  \once \override TextSpanner #'(bound-details right text) = "Tempo 1º"
   r8\stopTextSpan <a d\harmonic>\f r4 r16 des'\upb(\p c,) r |
   bes'( a,) r8 r d'16( cis,) r d'( c,) r |
   r a''( gis,) r r aes,( g,!) r r8 dis''16( f') |
@@ -620,7 +620,7 @@ gis:\fp |
 %% page 5.9
 \ritAtempoText
 b16 r8. \tuplet 3/2 { dis''2--\startTextSpan e4-- } | % bar 306
-r8\stopTextSpan \acelAtempoText d\startTextSpan
+r8\stopTextSpan \accelAtempoText d\startTextSpan
 %% The acellerando starts in the second quaver (previous note d) in
 %% the reduction.
 r4 r8. ais16 |

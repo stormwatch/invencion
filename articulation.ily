@@ -49,16 +49,16 @@ harmonicPitch = #(define-music-function (parser location note)
 ritAtempoText =
 {
   \override TextSpanner #'(bound-details left text) = \markup { \bold "rit. " }
-  \override TextSpanner #'(bound-details right text) = \markup { \bold "a tempo" }
+  \override TextSpanner #'(bound-details right text) = \markup { \bold " a tempo" }
   \override TextSpanner #'(bound-details right-broken text) = ##f
   \override TextSpanner #'(bound-details left-broken text) = ##f
   \override TextSpanner #'(bound-details right padding) = #0.5
 }
 
-acelAtempoText =
+accelAtempoText =
 {
-  \override TextSpanner #'(bound-details left text) = \markup { \bold "acelerando " }
-  \override TextSpanner #'(bound-details right text) = \markup { \bold "a tempo" }
+  \override TextSpanner #'(bound-details left text) = \markup { \bold "accelerando " }
+  \override TextSpanner #'(bound-details right text) = \markup { \bold " a tempo" }
   \override TextSpanner #'(bound-details right-broken text) = ##f
   \override TextSpanner #'(bound-details left-broken text) = ##f
   \override TextSpanner #'(bound-details right padding) = #0.5
