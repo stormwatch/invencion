@@ -1,12 +1,10 @@
-%% Defaults provided by Andrew Bernard
-
 \paper {
-  #(set-paper-size "a4")
+  #(set-paper-size "a3")
 
-  top-margin = 20\mm
-  bottom-margin = 15\mm
-  left-margin = 12\mm
-  right-margin = 12\mm
+  top-margin = 32\mm
+  bottom-margin = 32\mm
+  left-margin = 25\mm
+  right-margin = 25\mm
 
   % Fonts.
   % myStaffSize = #20
@@ -16,4 +14,6 @@
   %     "Nimbus Sans"
   %     "Luxi Mono"
   %     (/ myStaffSize 20)))
+  
+  systems-per-page = #3
 }
