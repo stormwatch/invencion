@@ -1,5 +1,5 @@
 \include "score.ly"
-\include "style.ily"
+\include "style-parts.ily"
 
 \score {
   \keepWithTag #'vc \music
