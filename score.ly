@@ -7,7 +7,8 @@
   %%instrument = "cuarteto de cuerda"
   composer =  \markup \center-column { \small "Juan Carlos Paz" }
   %% poet =  \markup \center-column { "poet-template" \small "poet-template" }
-  %% copyright = "Copyleft by us"
+  %% copyright = "Copy/left/middle/right by us"
+  tagline = \markup { Version at #(strftime "%c" (localtime (current-time))) }
 }
 
 global= {
