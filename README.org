@@ -3,30 +3,31 @@
 #+EMAIL:     Ezequiel Birman <stormwatch@espiga4.com.ar>
 #+DATE:      2013-04-23 mar
 
-* Pending Tasks
-** TODO Tempi modifiers
-*** TODO Sistematic use of \ritAtempoText and \acellAtem
-*** TODO 
-** TODO Normalize tuplets
-*** TODO Always use brackets
-*** TODO correct straddling tuplets
-    Apply the solution provided by Alex, where the barline is erased near the tuplet.
-** TODO Typography
-   Discuss on rational use of typography. ie: italics for techniques, bold for tempi.
-*** TODO Use Mint Spirit from [[http://arkandis.tuxfamily.org/][Arkandis]]
-** TODO Harmonic pitches
-   Compare all the solutions for harmonic pitches (parenthezised) and
-   decide which one to keep.
-** TODO remove numbers over whole measure rests
-** TODO Rewrite wrong measure count in comments.
-** TODO Collate parts with reduction
-*** TODO Check for double barlines in parts and reduction.
-*** TODO Prepare a version with Lettered reharsal marks (from the reduction) and include sections like "CODA" and such.
-** TODO Rewrite measure counts in comments                        :Ezequiel:
+* Invención
+** Pending Tasks
+*** TODO Tempi modifiers
+**** TODO Sistematic use of \ritAtempoText and \acellAtempoTex
+*** TODO Normalize tuplets
+**** TODO Always use brackets
+**** TODO correct straddling tuplets
+Apply the solution provided by Alex, where the barline is erased near
+the tuplet.
+*** TODO Typography
+Discuss on rational use of typography. ie: italics for techniques,
+bold for tempi.
+**** TODO Use Mint Spirit from [[http://arkandis.tuxfamily.org/][Arkandis]]
+*** TODO Harmonic pitches
+Compare all the solutions for harmonic pitches (parenthezised) and
+decide which one to keep.
+*** TODO Remove numbers over whole measure rests
+*** TODO Collate parts with reduction
+**** TODO Check for double barlines in parts and reduction.
+**** TODO Prepare a version with Lettered reharsal marks (from the reduction) and include sections like "CODA" and such.
+*** TODO Rewrite measure counts in comments                      :Ezequiel:
 Normalize and correct measure and system (staff) counts.
-** TODO Keep up to date with latest [[http://www.lilypond.org/development.html][stable devel]]
-*** TODO Provide some script to convert between \times and \tuplet back and forth for those not wishing to upgrade
-** TODO Proofread parts                                      :Alex:Ezequiel:
+*** TODO Keep up to date with latest [[http://www.lilypond.org/development.html][stable devel]]
+**** MAYBE Provide some script to convert between \times and \tuplet back and forth for those not wishing to upgrade
+*** TODO Proofread parts                                    :Alex:Ezequiel:
 
 * Org                                                              :noexport:
 #+DESCRIPTION: Readme first, TODO list and text notes.
