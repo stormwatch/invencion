@@ -1,3 +1,5 @@
+%% Defaults provided by Andrew Bernard
+
 \paper {
   #(set-paper-size "a3")
 
