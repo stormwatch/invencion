@@ -50,7 +50,7 @@ violinone = \new Voice { \relative c''{
   <bes' a'>(\mf |               % bar 16
     
   %% page 1.4
-  c)\p c-- r2 |               % bar 17
+  c)\p c^- r2 |               % bar 17
   \override Staff.NoteColumn #'ignore-collision = ##t
   %% \override NoteHead #'style = #'harmonic-mixed
   
