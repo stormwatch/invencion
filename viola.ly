@@ -310,21 +310,26 @@ viola = \new Voice { \relative c {
   r4 \clef treble \stemUp f4:32\ff <f b>: q8: | % bar 145
   \time 3/4
   r8 ais\fp( ais) ais16-. \slurDown ais( \tuplet 5/4 { ais-.) ais-. ais-. ais-. ais-. } |				%146
+
+%%%%% edit for parenthesised harmonic ----------------------
+
   r4 \clef alto
-  <<
-    {
-      <dis,, gis\harmonic>2\p 
-    }
-    \\
-    {
-      \override Stem #'stencil = ##f
-      \override Flag #'stencil = ##f
-      \override ParenthesesItem.padding = #1
-      \tiny
-      \override ParenthesesItem.font-size = #4
-      \parenthesize dis''4
-    }
-  >> |														%147
+	<<
+		{
+		\stemUp
+      	<dis,, gis\harmonic>2\p    	}    \\    	{
+      	\once \override Stem #'stencil = ##f      	\once \override Flag #'stencil = ##f      	\teeny      	\once \override ParenthesesItem #'padding = #0.8      	\once \override ParenthesesItem #'font-size = #2
+		\once \override ParenthesesItem #'extra-offset = #'(-0.5 . 0)		\once \override NoteColumn #'force-hshift = #0.4
+		\once \override Accidental #'extra-offset = #'(0.5 . 0)      	\parenthesize dis''4 s4 
+		}
+	>> |
+    \revert Stem #'stencil   	\revert Flag #'stencil
+   	\revert ParenthesesItem #'font-size
+	\revert Staff.NoteColumn #'ignore-collision
+												%147
+
+%%%%% end of edit for parenthesised harmonic ----------------------
+
   \time 2/4
   r8. e,,16\ff( \stemDown f') r8.\fermata \bar "||" |								%148
   \time 3/4
@@ -453,21 +458,23 @@ viola = \new Voice { \relative c {
   %%
   %% page 4.7
   %%
-  \stemDown \tuplet 5/4 { dis'8:32\pp[ e':32 cis:32 gis8:32 a':32] } r \stemUp  
-  <<
-    {
-      <dis,, b'\harmonic>\p
-    }
-    \\
-    {
-      \override Stem #'stencil = ##f
-      \override Flag #'stencil = ##f
-      \override ParenthesesItem.padding = #1
-      \tiny
-      \override ParenthesesItem.font-size = #4
-      \parenthesize fis''
-    }
-  >> | 														%223  
+  \stemDown \tuplet 5/4 { dis'8:32\pp[ e':32 cis:32 gis8:32 a':32] } r \stemUp 
+
+%%%%% edit for parenthesised harmonic ----------------------
+ 
+	\override Staff.NoteColumn #'ignore-collision = ##t
+	<<
+		{
+		\once \override Stem #'length = #9.5      	<dis,, b'\harmonic>8\p    	}    \\    	{
+      	\once \override Stem #'stencil = ##f      	\once \override Flag #'stencil = ##f      	\teeny      	\once \override ParenthesesItem #'padding = #0.8      	\once \override ParenthesesItem #'font-size = #2
+		\once \override ParenthesesItem #'extra-offset = #'(-0.45 . 0)		\once \override NoteColumn #'force-hshift = #0.4      	\parenthesize fis''    	}
+	>>   |  %223
+   	\revert Stem #'stencil   	\revert Flag #'stencil
+   	\revert ParenthesesItem #'font-size
+	\revert Staff.NoteColumn #'ignore-collision
+
+%%%%% end of edit for parenthesised harmonic ----------------------
+
   \clef alto r4 \stemUp \tuplet 5/4 { e,,8:32\pp  dis,:32 cis':32 g':32 bes,:32 } |					%224
   \clef treble r8 <d a'\harmonic>8\p r2 |										%225
   R2.^\markup { \number 1 } |											%226
@@ -494,21 +501,29 @@ viola = \new Voice { \relative c {
   %% page 4.10
   %%
   \tuplet 5/4 {e8:32[ d':32 g,:32 cis:32 ais':32] } r
-  <<
-  {
-    \once \stemDown \ottava #1 <g e'\harmonic>\p \ottava #0
-  }
-  \\
-  {
-      \override Stem #'stencil = ##f
-      \override Flag #'stencil = ##f
-      \override ParenthesesItem.padding = #0
-      \tiny
-      \override ParenthesesItem.font-size = #4
-      \parenthesize b'  
-  }
-  >>
-  \stemNeutral |													%240
+
+%%%%% edit for parenthesised harmonic ----------------------
+
+	\once \override TupletBracket #'bracket-visibility = ##t
+	\override Staff.NoteColumn #'ignore-collision = ##t
+	<<
+		{
+      	<g, e'\harmonic>8\p    	}    \\    	{
+      	\override Stem #'stencil = ##f      	\override Flag #'stencil = ##f      	\teeny      	\once \override ParenthesesItem #'padding = #0.2      	\override ParenthesesItem #'font-size = #2
+		\once \override NoteColumn #'force-hshift = #0.4
+		\ottava #1%%		\PazOttava			% - if "8a" is preferred to "8va"
+      	\parenthesize b''  	
+		\ottava #0		
+		}
+	>>
+   	\revert Stem #'stencil   	\revert Flag #'stencil
+   	\revert ParenthesesItem #'font-size
+	\revert Staff.NoteColumn #'ignore-collision
+
+	\stemNeutral |													%240
+
+%%%%% end of edit for parenthesised harmonic ----------------------
+
   r4 \clef treble \stemUp \tuplet 5/4 { dis,,8:32\pp[ e':32 cis,:32 g:32 bes':32] } |				%241
   r8 <d, a'\harmonic>\p r4 \clef alto \tuplet 5/4 { gis,8:32\pp[ a':32 fis,16:32 fis:32 d'8:32 c,:32] }
   r  <cis gis'\harmonic>\p r4 |											%242 243
