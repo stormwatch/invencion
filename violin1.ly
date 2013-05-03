@@ -50,31 +50,32 @@ violinone = \new Voice { \relative c''{
   <bes' a'>(\mf |               % bar 16
     
   %% page 1.4
-  c)\p c-- r2 |               % bar 17
-  \override Staff.NoteColumn #'ignore-collision = ##t
-  %% \override NoteHead #'style = #'harmonic-mixed
-  
-  <<
-    {
-      \oneVoice
-      \override TextSpanner #'(bound-details left text) = "rit."
-      \override TextSpanner #'(bound-details right text) = "a tempo"
-      %%\once \override TextSpanner #'to-barline = ##t
-      \tupletDown\times 2/3 { <g, d'\harmonic>4--\p <g e'\harmonic>4--\startTextSpan <a' d\harmonic>4-- } r4
-      \bar "||"
-      fis'8-.\stopTextSpan\dob\mf
-    }
-    \\
-    {
-      \oneVoice
-      \tiny
-      \override Stem #'stencil = ##f
-      \override ParenthesesItem #'font-size = #0
-      <\parenthesize d>4*2/3 <\parenthesize d'>4*2/3 s4*2/3 s4 |
-      s8
-    }
-  >>
-  \revert Staff.NoteColumn #'ignore-collision
+
+%%%%% edit for parenthesised harmonic ----------------------
+
+  c8)\p c^- r2 | % bar 17
+	\override Staff.NoteColumn #'ignore-collision = ##t
+	<<
+		{
+		\stemUp
+      	\tupletDown 
+		\override Stem #'length = #9
+		\times 2/3 { <g, d'\harmonic>4_-\p 
+					 <g d'\harmonic>_- \stemDown
+					 <a' d\harmonic>^- }    	}    \\    	{
+      	\override Stem #'stencil = ##f      	\override Flag #'stencil = ##f      	\teeny      	\once \override ParenthesesItem #'padding = #0.2      	\override ParenthesesItem #'font-size = #2
+		\override NoteColumn #'force-hshift = #0.4      	<\parenthesize d>4*2/3 <\parenthesize d'>4*2/3 s4*2/3    	}
+	>>
+      	\revert Stem #'stencil      	\revert Flag #'stencil
+      	\revert ParenthesesItem #'font-size
+		\revert Stem #'length
+		\revert NoteColumn #'force-hshift
+		\revert Staff.NoteColumn #'ignore-collision
+	r4
+	\bar "||"
+	fis,8\mf\downbow^. 
+
+%%%%% end of edit for parenthesised harmonic ----------------------
 
   r8 r4 r8 b\dob\sf |
   r2 r8 b16(\p <c, f\harmonic>) |
@@ -234,27 +235,31 @@ violinone = \new Voice { \relative c''{
   a'(\arco\f d,8) bes'16( c,8) b'16-. r f16( d8) g16( | % bar 119
   a8.) bes'16( e,,8) f'16-. r fis,[( c) r b']( |
 
-  dis,8.)
-  \override Staff.NoteColumn #'ignore-collision = ##t
-  %% \override NoteHead #'style = #'harmonic-mixed
-  <<
-    {
-      \oneVoice
-      <a' c\harmonic>16
-    }
-    \\
-    {
-      \oneVoice
-      \tiny
-      \override Stem #'stencil = ##t
-      \override ParenthesesItem #'font-size = #0
-      \ottava #1
-      <\parenthesize e''>16
-      \ottava #0
-    }
-  >>
-  \revert Staff.NoteColumn #'ignore-collision
-  r8  d,,,16-.\p g'-. c,-. r8. |    % bar 121
+%%%%% edit for parenthesised harmonic ----------------------
+
+  	dis,8.)
+  	\override Staff.NoteColumn #'ignore-collision = ##t
+
+	<<
+		{
+		\stemDown
+      	<a' c\harmonic>16    	}    \\    	{
+      	\override Stem #'stencil = ##f      	\override Flag #'stencil = ##f      	\teeny      	\once \override ParenthesesItem #'padding = #0.2      	\override ParenthesesItem #'font-size = #2
+		\once \override NoteColumn #'force-hshift = #0.4
+		\ottava #1%%%		\PazOttava     % - this is if "8a" is preferred over "8va"
+
+      	\parenthesize e''  	
+		\ottava #0		
+		}
+	>>
+      	\revert Stem #'stencil      	\revert Flag #'stencil
+      	\revert ParenthesesItem #'font-size
+  		\revert Staff.NoteColumn #'ignore-collision
+
+	r8 d,,,16^.\p g'^. c,^. r8. |    % bar 121
+
+%%%%% end of edit for parenthesised harmonic ----------------------
+
   e?16 r8. r2 |                 % "Vta rápida"
 
   %% page 3.1
@@ -317,29 +322,31 @@ violinone = \new Voice { \relative c''{
   \tempo "Poco meno mosso"
   r8 fis16\p( d,,) r2 |
   R2. |
-  gis'16(\p a') r8 r2 |
 
-  r8
-  \override Staff.NoteColumn #'ignore-collision = ##t
-  %%\override NoteHead #'style = #'harmonic-mixed
-  <<
-    {
-      \oneVoice
-      <a,, e'\harmonic>8\upb
-    }
-    \\
-    {
-      \oneVoice
-      \tiny
-      \override Stem #'stencil = ##t
+%%%%% edit for parenthesised harmonic ----------------------
 
-      \override ParenthesesItem #'font-size = #0
-      <\parenthesize e''>16
-    }
-  >>
-  \revert Staff.NoteColumn #'ignore-collision
+	\override Staff.NoteColumn #'ignore-collision = ##t
+	gis'16\p( a') r8 r2 | % bar 151
 
-  r2 |
+	r8
+
+	<<
+		{
+		\stemDown
+		\once \override Script #'extra-offset = #'(0 . 3.4) 
+      	<a,, e'\harmonic>8^\upbow    	}    \\    	{
+      	\override Stem #'stencil = ##f      	\override Flag #'stencil = ##f      	\teeny      	\once \override ParenthesesItem #'padding = #0.2      	\override ParenthesesItem #'font-size = #2
+		\once \override NoteColumn #'force-hshift = #0.4
+      	\parenthesize e''  		
+		}
+	>>
+      	\revert Stem #'stencil      	\revert Flag #'stencil
+      	\revert ParenthesesItem #'font-size
+		\revert Staff.NoteColumn #'ignore-collision
+	r2 |
+
+%%%%% end of edit for parenthesised harmonic ----------------------
+
   fis16\dob\f fis\upb r8 r4 r8 <fis,, ais>\dob-. |
 
   %% page 3.7
@@ -472,38 +479,60 @@ violinone = \new Voice { \relative c''{
   r2 \tuplet 5/4 { f8:32\pp fis': gis,,16: |
   gis: b'8: c,: } r8 <g!\harmonic d>\p r4 | % r4 missing from part.
   r4 \tuplet 5/4 { a'8:32\pp bes': g,: cis: dis,: }|
-  r8 <a e'\harmonic>\p r2 |
-  \tuplet 5/4 { e'8:32\pp dis': cis,: g': bes,: } r8
-     <<
-       { \once \override Stem #'transparent = ##t
-         \once \override Flag #'transparent = ##t
-         \override ParenthesesItem #'padding = #0.1
-         \override ParenthesesItem #'font-size = #1
-         \parenthesize \tweak #'font-size #-3 a'8 }
-       \\
-       { <a,\harmonic d,>\p }
-     >> |
 
-%% page 4.10
-r4 \tuplet 5/4 { f'8:32\pp fis': gis,: d': c,: } | % bar 242
-r8
-<<
-  { \once \override Stem #'transparent = ##t
-    \once \override Flag #'transparent = ##t
-    \override ParenthesesItem #'padding = #0.1
-    \override ParenthesesItem #'font-size = #1
-    \parenthesize \tweak #'font-size #-3 b'8 }
-  \\
-  { <e,,\harmonic g,>8\p }
->>
-r2 |
-r4 \tuplet 5/4 { gis8:32\pp a': fis: c: d': } |
+%%%%% edit for parenthesised harmonic ----------------------
+
+	r8 < a e'\harmonic>8\p r2 | % bar 240
+
+	\override Staff.NoteColumn #'ignore-collision = ##t
+	\tupletUp
+	\stemDown
+	\once \override TupletBracket #'bracket-visibility = ##t
+	\tuplet 5/4 { e'8:32\pp dis': cis,: g': bes,: } r8
+
+	<<
+		{
+		\stemDown
+      	<d, a'\harmonic>8\p
+		}    \\    	{
+      	\override Stem #'stencil = ##f      	\override Flag #'stencil = ##f      	\teeny      	\once \override ParenthesesItem #'padding = #0.2      	\override ParenthesesItem #'font-size = #2
+		\once \override NoteColumn #'force-hshift = #0.4
+      	\parenthesize a''  		
+		}
+	>>
+      	\revert Stem #'stencil      	\revert Flag #'stencil
+      	\revert ParenthesesItem #'font-size
+
+	r4 
+		\once \override TupletBracket #'bracket-visibility = ##t
+		\tuplet 5/4 { fis8:32\pp fis': gis,: d': c,: } r8 
+
+	<<
+		{
+		\stemDown
+      	<g, e'\harmonic>8\p
+		}    \\    	{
+      	\override Stem #'stencil = ##f      	\override Flag #'stencil = ##f      	\teeny      	\once \override ParenthesesItem #'padding = #0.2      	\override ParenthesesItem #'font-size = #2
+		\once \override NoteColumn #'force-hshift = #0.4
+      	\parenthesize b''  		
+		}
+	>>
+	
+      	\revert Stem #'stencil      	\revert Flag #'stencil
+      	\revert ParenthesesItem #'font-size
+		\revert Staff.NoteColumn #'ignore-collision
+
+	r2 |
+r4 \tuplet 5/4 { gis,8:32\pp a': fis: c: d': } |
+
+%%%%% end of edit for parenthesised harmonic ----------------------
+
 \time 2/4 r8 <gis,\harmonic dis>\p r4 \bar "||" |
 \time 3/4 r16 d-.\f ees'-. r r4 <bes a, g>\pizz\sf |
 R2.*3 |                       % bars 247 to 249.
 
 %% In bar 249 there are cue notes showing vla an vc chords. These
-%% shoud appear when extracting the part only.
+%% should appear when extracting the part only.
 
 %% page 4.11
 %% Bar 249 included in the previous multimeasure rest
@@ -576,17 +605,30 @@ R2.\atpo |
 %% page 5.6
 r4 r8 c'\pizz\p r4 | f,4.\dob\arco\f  r8 ees'\pizz r |
 r4 \tuplet 3/2 { <fis, gis,>16\arco\p-.( q-. q-. } q-.) r r4 |
-r8
-<<
-  { 
-    \ottava #1
-    \harmonicPitch { e'' }
-    \ottava #0
-  }
-  \\
-  { <a,, c\harmonic> }
->>
-d,\dob\f[ r16 d\dob] \tuplet 3/2 { b4--\p ais'8[~ | % bar 289
+
+%%%%% edit for parenthesised harmonic ----------------------
+
+	r8
+	
+	<<
+		{
+		\stemDown
+      	<a c\harmonic>8    	}    \\    	{
+      	\override Stem #'stencil = ##f      	\override Flag #'stencil = ##f      	\teeny      	\once \override ParenthesesItem #'padding = #0.2      	\override ParenthesesItem #'font-size = #2
+		\once \override NoteColumn #'force-hshift = #0.4
+		\ottava #1%%%		\PazOttava     % - this is if "8a" is preferred over "8va"
+
+      	\parenthesize e''  	
+		\ottava #0		
+		}
+	>>
+      	\revert Stem #'stencil      	\revert Flag #'stencil
+      	\revert ParenthesesItem #'font-size
+
+		d,,\dob\f[ r16 d\dob] \tuplet 3/2 { b4--\p ais'8[~ | % bar 289
+
+%%%%% end of edit for parenthesised harmonic ----------------------
+
 ais] cis,4 } r2 |
 \mark #20
 \time 4/4 r2 r4 \tuplet 5/4 { e''8\f[ dis, cis16 |
@@ -595,15 +637,37 @@ ais] cis,4 } r2 |
 \time 3/4 cis g,8 bes'] } r2 | % bar 292
 r4 \tuplet 5/4 { ees,8 d, c' fis' a,, } |
 \time 2/4 gis'4 r |
-\time 3/4 <e\harmonic a,>8\f r r2 |
-<<
-  {
-    \harmonicPitch { fis' }  % FIXME: should be a black notehead
-  }
-  \\
-  { <b,,\harmonic fis>2.\fp }
->> |                          % bar 296
-  r8 a'' r2 |
+
+%%%%% edit for parenthesised harmonic ----------------------
+
+	\time 3/4
+	\override Staff.NoteColumn #'ignore-collision = ##t
+
+	<e'\harmonic a,>8\f r8 r2   | % bar 295
+
+	<<
+		{
+		\stemUp
+		\once \override Stem #'length = #7.5
+		\once \set harmonicDots = ##t
+      	<fis, b\harmonic>2.\fp    	}    \\    	{
+      	\once \override Stem #'stencil = ##f      	\once \override Flag #'stencil = ##f      	\teeny      	\once \override ParenthesesItem #'padding = #0.8      	\once \override ParenthesesItem #'font-size = #2
+		\once \override ParenthesesItem #'extra-offset = #'(-0.5 . 0)		\once \override NoteColumn #'force-hshift = #0.4
+		\once \override Accidental #'extra-offset = #'(0.5 . 0)      	\parenthesize fis''4 
+		s2
+
+%%%		NB: this top harmonic is missing from the violin 1 part 
+%%%			but is included in the reduction
+		}
+	>>
+      	\revert Stem #'stencil      	\revert Flag #'stencil
+      	\revert ParenthesesItem #'font-size
+		\revert Staff.NoteColumn #'ignore-collision
+
+	r8 a8 r2 |
+
+%%%%% end of edit for parenthesised harmonic ----------------------
+
   r8. b,16\pizz\f r4 <d, b>4:32\fp\arco\sulpont |
 
 %% page 5.8
