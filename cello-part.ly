@@ -2,6 +2,6 @@
 \include "style-parts.ily"
 
 \score {
-  \keepWithTag #'vc \music
+  \new Staff << \forEachPart \cello >>
   \layout {}
 }

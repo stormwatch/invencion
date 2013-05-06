@@ -14,14 +14,17 @@ violintwo = \new Voice { \relative c'{
     R2. |
     <fis, gis,>16\downbow\f <fis gis,>\upbow r8 r2 |
     R2. |
-    \override TextSpanner #'(bound-details left text) = "rit."
-    \override TextSpanner #'(bound-details right text) = "a tempo"
-    r16 dis'8.~\downbow\f dis2\upbow\startTextSpan \breathe |
-    dis8\stopTextSpan r r4
-    \override TextSpanner #'(bound-details left text) = "accelerando"  
+    %%\ritAtempoText
+    r16 dis'8.~\downbow\f dis2\upbow
+    %%\startTextSpan
+    \breathe |
+    dis8
+    %%\stopTextSpan
+    r r4
+    %%\override TextSpanner #'(bound-details left text) = "accelerando"  
     g,,8\mf
-    ^"accelerando"
-    %\startTextSpan
+    %%^"accelerando"
+    %%\startTextSpan
     r |
     a''2.:32\flageolet^"sul pont."\p |
 
@@ -30,10 +33,12 @@ violintwo = \new Voice { \relative c'{
     f,16(^"nat."\ff gis,) r8 r2 |
     r2
     %\stopTextSpan
-    ^"a tempo"
+    %%^"a tempo"
     r8 g'(\mf |
     <b d>)\p <b d>-- r <gis fis'>4.~\fp |
-    <gis fis'>2.^"rit." \bar "||"
+    <gis fis'>2.
+    %%^"rit."
+    \bar "||"
     f?8\downbow\mf r r4 r8 ais\downbow\sf |
     r4 a16^"pizz."\p bes' r8 r16 f, fis' r |
     ees^"arco"-. d,-. r8 r4 r16 bes' a, r |
@@ -271,32 +276,38 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	R1*3/4
 % bar 89 --EB
 \mark #6
-	\override TextSpanner #'(bound-details left text) = "rit."
-    \override TextSpanner #'(bound-details right text) = " a tempo"
-	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
-	r16 d''8.\sf~ d2\p\startTextSpan
-	\breathe
+%%\ritAtempoText
+r16 d''8.\sf~ d2\p
+%%\startTextSpan
+\breathe
 
 % system 5
 
 % bar 89
-	cis,8\dob\stopTextSpan r r4 e8^.\upb^\accel r8
+cis,8\dob
+%%\stopTextSpan
+r r4 e8^.\upb
+%%^\accel
+r8
 % bar 90
 	d'2.:32\sulpont
 % bar 91
 	d16\nat\f( fis,,) r8 r2
 % bar 92
-	r2\atempo r8 bes\sf(
+r2
+%%\atempo
+r8 bes\sf(
 % bar 93
 	<a fis>\p) <a fis>_. r8 <a' bes,>4.~
 % bar 94
-	\override TextSpanner #'(bound-details left text) = "rit."
-    \override TextSpanner #'(bound-details right text) = " a tempo"
-	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
-	<a bes,>2.\startTextSpan
-	\bar "||"
+%%\ritAtempoText
+<a bes,>2.
+%%\startTextSpan
+\bar "||"
 % bar 95
-	r8\stopTextSpan b,,16\pizz c' r4 bes'16^>\arco a,^. r8
+r8
+%%\stopTextSpan
+b,,16\pizz c' r4 bes'16^>\arco a,^. r8
 
 % system 6
 % bar 96
@@ -588,9 +599,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 		r16 ees'\mf\nat c r16 r8. fis16\pp\sulpont
 % bar 180
 %% quintuplet presumed here - missing from part
-	\override TextSpanner #'(bound-details left text) = "accelerando"
-    \override TextSpanner #'(bound-details right text) = " a tempo"
-	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
+%%\accelAtempoText
 	\times 4/5 { r16 b,,\f\( cis' ais,\) r16 } 
 		r4 r16 a'!\nat\startTextSpan\( bes' g,\)
 % bar 181
@@ -1040,22 +1049,19 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	\override TupletBracket #'direction = #DOWN
 	r4 \times 2/3 { ais4.^^\f b'8^^ cis,,4^^ }
 % bar 304
-	\override TextSpanner #'(bound-details left text) 
-		= \markup { \bold "rit" }
-    \override TextSpanner #'(bound-details right text) 
-		= \markup { \bold " a tpo." }
-	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
-	\override TupletBracket #'bracket-visibility = ##f
-	\override TupletBracket #'direction = #UP
-	r4 \times 2/3 { cis'2^-\p\startTextSpan( dis4^-) }
+\ritAtempoText
+\override TupletBracket #'bracket-visibility = ##f
+\override TupletBracket #'direction = #UP
+r4 \times 2/3 { cis'2^-\p(
+%%\startTextSpan
+dis4^-) }
 % bar 305
-	r16\stopTextSpan
-	\override TextSpanner #'(bound-details left text) 
-		= \markup { \bold "acelerando" }
-    \override TextSpanner #'(bound-details right text) 
-		= \markup { \bold " a tpo." }
-	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
-	fis,16\p( cis'8) r4 r8 b,16\startTextSpan( cis')
+	r16
+%%\stopTextSpan
+%%\accelAtempoText
+fis,16\p( cis'8) r4 r8 b,16
+%%\startTextSpan
+( cis')
 % bar 306
 	\override TupletBracket #'bracket-visibility = ##t
 	\override TupletBracket #'direction = #UP
@@ -1066,18 +1072,18 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 %%	It is not clear why their should be double phrasing slurs here:
 %%	and I am not sure that I have achieved the manuscript's intention anyway!
 	\set doubleSlurs = ##t
-	r2\stopTextSpan r8 <c' d,>\sf(
+r2
+%%\stopTextSpan
+r8 <c' d,>\sf(
 
 % system 10
 % bar 309
 	f,8) f_- r8 fis''4.^>~
 % bar 310
-	\override TextSpanner #'(bound-details left text) 
-		= \markup { \bold "rit" }
-    \override TextSpanner #'(bound-details right text) 
-		= \markup { \bold " a tpo." }
-	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
-	fis2.\startTextSpan \bar "||"
+%%\ritAtempoText
+fis2.
+%%\startTextSpan
+\bar "||"
 % bar 311
   \once \set doubleSlurs = ##f
   \slurDashed 

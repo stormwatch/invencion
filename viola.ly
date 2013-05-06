@@ -28,25 +28,36 @@ viola = \new Voice { \relative c {
   <ais cis>2.:32 |												%11
   
   %%%%%%\override TextSpanner.bound-details.left.text = \markup { "rit." }
-  \ritAtempoText
-  e'16\nat\ff r8. \tuplet 3/2 { <d, g\harmonic>2--\startTextSpan _(<c' f\harmonic>4--\stopTextSpan) } \breathe \clef alto |	%12
+  %%\ritAtempoText
+  e'16\nat\ff r8. \tuplet 3/2 { <d, g\harmonic>2--
+  %%\startTextSpan
+  _(<c' f\harmonic>4--)
+  %%\stopTextSpan
+  } \breathe \clef alto |	%12
   %%
   %% page 1.3
   %%
-  \accelAtempoText
-  r8 fis,\p r4 r8.dis16^\startTextSpan |											%13
+  %%\accelAtempoText
+  r8 fis,\p r4 r8.dis16
+  %%^\startTextSpan |											%13
   \tupletDown \tuplet 5/3 { b'4-- cis,-- g'4.-- f'8-. e,4-- } \tupletNeutral |						%14
   fis'16\ff (d,) r8 r <c f\harmonic>16\p <c f\harmonic> r4 |							%15  
   \override TextSpanner.bound-details.left.text = \markup { "a tpo" }
-  \tupletDown \tuplet 3/2 { e,4.->\stopTextSpan dis''8-> \stemUp cis,4 \stemNeutral } \tupletNeutral r8 fis,8 ~ |			%16
+  \tupletDown \tuplet 3/2 { e,4.->
+  %%\stopTextSpan
+  dis''8-> \stemUp cis,4 \stemNeutral } \tupletNeutral r8 fis,8 ~ |			%16
   fis r r f'!4. ~ |												%17
   
-  \ritAtempoText
-  f2.\startTextSpan \bar "||" |									%18
+  %%\ritAtempoText
+  f2.
+  %%\startTextSpan
+  \bar "||" |									%18
   %%
   %% page 1.4
   %%
-  r4\stopTextSpan r16 a,-. des'-. r r4 |								%19
+  r4
+  %%\stopTextSpan
+  r16 a,-. des'-. r r4 |								%19
   \stemUp gis,,16-.\pizz a'-. \stemNeutral r8 r2 |									%20
   r2 r8.fis16 |													%21
   f,?16 [r8 a16] bes' r8. r4 |											%22
@@ -199,21 +210,34 @@ viola = \new Voice { \relative c {
   <b d>2.:32 |													%87
   <g bes>:32\fp |												%88
   \mark #6
-  \ritAtempoText
-  <c, f\harmonic>16 r8. \clef alto \stemUp \tuplet 3/2 { <fis, b\harmonic>2\p--\startTextSpan <bes ees\harmonic>4 } |	%89	
+  %%\ritAtempoText
+  <c, f\harmonic>16 r8. \clef alto \stemUp \tuplet 3/2 { <fis, b\harmonic>2\p--
+  %%\startTextSpan
+  <bes ees\harmonic>4 } |	%89	
   %%
   %% page 2.7
   %%
-  r2\stopTextSpan \accelAtempoText r8.\startTextSpan \stemNeutral cis'16 |										%90
+  r2
+  %%\stopTextSpan
+  %%\accelAtempoText
+  r8.
+  %%\startTextSpan
+  \stemNeutral cis'16 |										%90
   \tupletDown \tuplet 5/3 { b,4-- c'-- fis,4.-- \clef treble a'8-- gis,4-- } \tupletNeutral |							%91
   r4 r8 <d a'\harmonic>16-.\p ~ <d a'\harmonic>16-. r4 |								%92
-  r2\stopTextSpan r8 <c ees>8\sf ~ |											%93
+  r2
+  %%\stopTextSpan
+  r8 <c ees>8\sf ~ |											%93
   <c ees>8\p r r <g' bes>4. ~ |											%94
 
-  \ritAtempoText
-  <g bes>2.\startTextSpan \bar "||" |										%95
+  %%\ritAtempoText
+  <g bes>2.
+  %%\startTextSpan
+  \bar "||" |										%95
   %% page 2.8
-  gis,16\pizz\stopTextSpan a' r8 r2 |												%96
+  gis,16\pizz
+  %%\stopTextSpan
+  a' r8 r2 |												%96
   r4 cis,2:32\fp\sulpont |											%97
   cis16 r8. \stemDown ees'16->\pizz d, r8 ees'16-> d, r8 |								%98
   d'16-> cis, r8 r2 |												%99
@@ -382,10 +406,14 @@ viola = \new Voice { \relative c {
   %%
   %% page 3.12
   %%
-  \accelAtempoText
-  \tuplet 5/4 { r cis\f( a' b,) r } r2\startTextSpan |							%182
+  %%\accelAtempoText
+  \tuplet 5/4 { r cis\f( a' b,) r } r2
+  %%\startTextSpan
+  |							%182
   r8. c16\p\nat( \stemUp ees, d') r gis,( \stemDown g' bes,) \stemNeutral r8 \breathe \bar "||" | % bar 183
-  r4\stopTextSpan r16 \stemUp d\pizz gis, r r4 |								%184
+  r4
+  %%\stopTextSpan
+  r16 \stemUp d\pizz gis, r r4 |								%184
   R2.*2 |													%185 186
   r4 \clef treble \stemNeutral fis''8\marcato\f\pizz r r4 |							%187
   %%
@@ -577,12 +605,16 @@ viola = \new Voice { \relative c {
   d-.\f d-. d-. r r8 \stemDown b'8:16\p-\staccTwo #2 cis'8:16-\staccTwo #2 r8 |					%279
   \stemUp <b, d>4.:32\fp <cis e>4.:32\fp \clef treble |								%280
   \mark #19
-  \accelAtempoText
-  gis'4.:32\fp\startTextSpan gis:32\fp |										%281
+  %%\accelAtempoText
+  gis'4.:32\fp
+  %%\startTextSpan
+  gis:32\fp |										%281
   \stemDown <a bes>4.:32\fp <bes des>:32\fp |									%282
   ees4.:32\fp r8 \stemUp \tuplet 3/2 { r des\f\nat  c, } |								%283
   \clef alto r4 des,8^> r8 des16\dob des\upb r8 |									%284
-  \stemNeutral e'\dob\stopTextSpan r r4 bes8\pizz r |										%285
+  \stemNeutral e'\dob
+  %%\stopTextSpan
+  r r4 bes8\pizz r |										%285
   %%
   %% page 5.6
   %%
@@ -621,9 +653,13 @@ viola = \new Voice { \relative c {
   %% page 5.9
   %%
   bes:32\fp |													%305 
-  \ritAtempoText
-  c16\startTextSpan r8. r2 |											%306
-  a,8\f\dob\stopTextSpan r8 r4 ees'8\pizz r |									%307
+  %%\ritAtempoText
+  c16
+  %%\startTextSpan
+  r8. r2 |											%306
+  a,8\f\dob
+  %%\stopTextSpan
+  r8 r4 ees'8\pizz r |									%307
   f,2.:32\fp\arcosulpont |											%308
   b16\ff( f) r8 r2 |												%309
   \tupletDown \tuplet 3/2 { gis4.-- a'8-- fis,4-- } r8  <cis b'>8\sf ~ |						%310
@@ -631,10 +667,14 @@ viola = \new Voice { \relative c {
   %%
   %% page 5.10
   %%
-  \ritAtempoText
-  gis2.\startTextSpan \breathe \bar "||" |											%312
+  %%\ritAtempoText
+  gis2.
+  %%\startTextSpan
+  \breathe \bar "||" |											%312
   %% assuming treble clef until bar 319, but not convinced!
-  r8.\stopTextSpan b,16\p\pizz g, cis' r8 r4 |											%313
+  r8.
+  %%\stopTextSpan
+  b,16\p\pizz g, cis' r8 r4 |											%313
   \set subdivideBeams = ##t 
   \tupletUp \tuplet 3/2 { <dis, a'>16-.\fp_>\arco([ <dis a'>-. <dis a'>-. } <dis a'>-.)] r16 r2 |			%314
   \set subdivideBeams = ##f

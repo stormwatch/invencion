@@ -2,6 +2,6 @@
 \include "style-parts.ily"
 
 \score {
-  \keepWithTag #'vl2 \music
+  \new Staff << \forEachPart \violintwo >>
   \layout {}
 }

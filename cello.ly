@@ -27,38 +27,49 @@ cello = \new Voice { \relative c {
   b2.:32\fp									| % bar 11
   \textSpannerDown
   dis16\nat\ff r8. \clef bass
-  \override TextSpanner #'(bound-details left text) = "rit."
-  \override TextSpanner #'(bound-details right text) = " a tempo"
-  \override TextSpanner #'(bound-details right attach-dir) = #LEFT
-  \times 2/3 { <gis,, c\harmonic>2\upb--\p\startTextSpan(
-               <b e\harmonic>4--\stopTextSpan) }
+  % \override TextSpanner #'(bound-details left text) = "rit."
+  % \override TextSpanner #'(bound-details right text) = " a tempo"
+  % \override TextSpanner #'(bound-details right attach-dir) = #LEFT
+  \times 2/3 { <gis,, c\harmonic>2\upb--\p(
+  %%\startTextSpan
+               <b e\harmonic>4--)
+  %%\stopTextSpan
+             }
   \breathe |                    % bar 12. FIXME: caesura collides with note
 
 %% page 1.3
   \textSpannerUp
   \stemUp r16
-  \override TextSpanner #'(bound-details left text) = "accelerando"
-  \override TextSpanner #'(bound-details right text) = " a tempo"
-  \override TextSpanner #'(bound-details right attach-dir) = #LEFT
+  % \override TextSpanner #'(bound-details left text) = "accelerando"
+  % \override TextSpanner #'(bound-details right text) = " a tempo"
+  % \override TextSpanner #'(bound-details right attach-dir) = #LEFT
   gis,\p( a'8)
-  r4 r8\startTextSpan c,,16( d'?) | % bar 13
+  r4 r8
+  %%\startTextSpan
+  c,,16( d'?) | % bar 13
   R1*3/4 |
   \stemNeutral
   f'?16\ff( gis,) r8 
   r8 <e\harmonic g,>16-.\p
   <e\harmonic g,>-. r4 |        % bar 15
-  r2\stopTextSpan r8\mf <aes, f>~ |
+  r2
+  %%\stopTextSpan
+  r8\mf <aes, f>~ |
   q\p r8
   \clef tenor
   \revert TupletBracket #'bracket-visibility
   \times 2/3 { a'!4.\mf^- bes'8 g,4 }		| % bar 17
-  \override TextSpanner #'(bound-details left text) = "rit."
-  \override TextSpanner #'(bound-details right text) = " a tempo"
-  \override TextSpanner #'(bound-details right attach-dir) = #LEFT
-  \clef bass cis,,2.\startTextSpan		| % bar 18
+  % \override TextSpanner #'(bound-details left text) = "rit."
+  % \override TextSpanner #'(bound-details right text) = " a tempo"
+  % \override TextSpanner #'(bound-details right attach-dir) = #LEFT
+  \clef bass cis,,2.
+  %%\startTextSpan
+  | % bar 18
 
 %% page 1.4
-  d16_>\mf\stopTextSpan ees'8.~ ees4~ 
+  d16_>\mf
+  %%\stopTextSpan
+  ees'8.~ ees4~ 
   ees8 f16\pizz fis'						| % bar 19
   r16\p b,, c' r16 r8. \p 
   \autoBeamOff
@@ -197,21 +208,31 @@ cello = \new Voice { \relative c {
       c2.:32\fp						| % bar 87
       a2.:32\fp \clef bass					| % bar 88
       \mark #6
-      \override TextSpanner #'(bound-details left text) = "rit."
-      \override TextSpanner #'(bound-details right text) = " a tempo"
-      \override TextSpanner #'(bound-details right attach-dir) = #LEFT	
-      <g,, e'\harmonic \parenthesize a'>16 r8. \times 2/3 {<f bes\harmonic>2\p\startTextSpan \clef tenor a''4\tenuto\flageolet}   | % bar 89
-      \clef bass r16\stopTextSpan dis,,16\upb e'16 r16 r4 r8 			
-      \override TextSpanner #'(bound-details left text) = "accelerando"
-      \override TextSpanner #'(bound-details right text) = " a tempo"
-      \override TextSpanner #'(bound-details right attach-dir) = #LEFT
-      g,,16\upb\startTextSpan bes'16
+      % \override TextSpanner #'(bound-details left text) = "rit."
+      % \override TextSpanner #'(bound-details right text) = " a tempo"
+      % \override TextSpanner #'(bound-details right attach-dir) = #LEFT	
+      <g,, e'\harmonic \parenthesize a'>16 r8. \times 2/3 {<f bes\harmonic>2\p
+      %%\startTextSpan
+      \clef tenor a''4\tenuto\flageolet}   | % bar 89
+      \clef bass r16
+      %%\stopTextSpan
+      dis,,16\upb e'16 r16 r4 r8 			
+      % \override TextSpanner #'(bound-details left text) = "accelerando"
+      % \override TextSpanner #'(bound-details right text) = " a tempo"
+      % \override TextSpanner #'(bound-details right attach-dir) = #LEFT
+      g,,16\upb
+      %%\startTextSpan
+      bes'16
 %%%%%
       R2.							| % bar 91
       r4 r8 <gis, cis\harmonic>16\staccato\upb\p( <gis cis\harmonic>16\staccato) r4 			| % bar 92
-      \times 2/3 {e4.\tenuto\stopTextSpan\mf f''8\tenuto g,,4\tenuto} r8 d'8\sf~			| % bar 93
+      \times 2/3 {e4.\tenuto
+      %%\stopTextSpan
+      \mf f''8\tenuto g,,4\tenuto} r8 d'8\sf~			| % bar 93
       d8\p r8 \times 2/3 {e'4.\mf\tenuto dis,8\tenuto cis'4\tenuto}					| % bar 94
-      f,,2\p\accent^\markup{ \italic "rit."} r8 <c' b'>8\f\pizz						| % bar 95
+      f,,2\p\accent
+      %%^\markup{ \italic "rit."}
+      r8 <c' b'>8\f\pizz						| % bar 95
       r4 r16 d'16\staccato\f r8 r8 e16 dis,16						| % bar 96
 %%%%%
       r4 r16 c16\staccato\p fis16\staccato g,16\staccato gis'4\accent\arco				| % bar 97
@@ -287,7 +308,8 @@ cello = \new Voice { \relative c {
         \clef bass \time 2/4
         r8 dis,,,16( e'16) r4\fermata \bar "||" 
         \time 3/4
-        R2. \tempo "Poco meno mosso"
+        R2.
+        %%\tempo "Poco meno mosso"
 %%%%% | % bar 152
         <g bes>16\f\dob\sulpont <g bes>16\upb r8 r8. <g bes>16 r4
         r2 r8 <g bes>16\dob <g bes>16\upb
@@ -328,9 +350,11 @@ cello = \new Voice { \relative c {
         r8 cis8\f \times 4/5 { r16 gis16\pp\sulpont a,16 c!16 r16} r4
         \times 4/5 {r16 gis'16( a,16 c16) r16} r16 c'16\nat\mf( d,16) r16 r8. ees'16\sulpont\pp
 %%%%% | % bar 184
-        \times 4/5 {r16 g,16\f( b16 cis,16) r16} r8. f16\p\nat^\markup{ "ACCELERANDO"}( g,16 e'16) r16 cis'16(
+        \times 4/5 {r16 g,16\f( b16 cis,16) r16} r8. f16\p\nat(
+        %%^\markup{ "ACCELERANDO"}
+        g,16 e'16) r16 cis'16(
         b,16 ais'16) r8 r2 \breathe \bar "||"
-        \tempo "Tempo 1º" 4=100 R2.*2
+        %%\tempo "Tempo 1º" 4=100 R2.*2
         r2 cis,16\p( d'16) r8
         r4 f8\marcato\f\pizz r8 r4
         r4 fis16\arcosulpont\ff\accent fis16\accent r8 r4
@@ -341,7 +365,7 @@ ais,16( b'16) r8 b,16( c'16) r8 r8 cis16\ff\staccato cis16\staccato
         r8 a'8 r2
         \bar "||"
         \mark #12
-        \tempo "Poco meno mosso"
+        %%\tempo "Poco meno mosso"
         <cis,,, fis\harmonic>8\p r8 r2
         r4 d'8\pizz\flageolet r8 r4
 %%%%% | % bar 196
@@ -367,7 +391,7 @@ ais,16( b'16) r8 b,16( c'16) r8 r8 cis16\ff\staccato cis16\staccato
         \time 2/4 \times 4/5 {r16 g,16\p( bes'16 a,16) r16} r16 f''16\nat <fis, b\harmonic>16 r16
         \time 3/4 r4 r8 <g, e'\harmonic \parenthesize g'>8 r4
 %%%%% | % bar 216
-        \tempo "Tempo 1º" 4=100
+        %%\tempo "Tempo 1º" 4=100
         \times 4/5 {r16 f16\p( aes16 ges'16) r16} r2
         \times 4/5 {r16 e16( g16 f'16) r16} r4 r8 c8\pizz
         \mark #14

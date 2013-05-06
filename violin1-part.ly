@@ -2,6 +2,6 @@
 \include "style-parts.ily"
 
 \score {
-  \keepWithTag #'vl1 \music
+  \new Staff << \forEachPart \violinone >>
   \layout {}
 }

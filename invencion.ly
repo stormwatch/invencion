@@ -29,7 +29,7 @@
 \include "style.ily"
 
 \score {
-  \new StaffGroup \keepWithTag #'score \music
+  \new StaffGroup \music
   \layout
   {\context {
     \Voice

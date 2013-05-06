@@ -24,10 +24,10 @@ violinone = \new Voice { \relative c''{
   r4 \times 2/3 { g,4.-^ f'''8-^ e,4-^ } | % bar 11
 
   r16 cis'8.~\dob\sf
-  \override TextSpanner #'(bound-details left text) = "rit."
-  \override TextSpanner #'(bound-details right text) = "a tempo"
+  %%\ritAtempoText
   %%\once \override TextSpanner #'to-barline = ##t
-  cis2\startTextSpan\upb \breathe | % bar 12
+  cis2\upb
+  %%\startTextSpan \breathe | % bar 12
       
   %% \override BreathingSign #'text = \markup {
   %%   \line {
@@ -42,10 +42,16 @@ violinone = \new Voice { \relative c''{
   %%    "a tempo"
   %%}
       
-  e8\stopTextSpan\f r8 r4 cis,8-.\acel\mf r8 | % bar 13
+  e8\f
+  %%\stopTextSpan
+  r8 r4 cis,8-.\mf
+  %%\acel
+  r8 | % bar 13
   <bes ees\harmonic>2.\p\sulpont |
   fis'16(\nat\ff d,) r8 r2 |
-  r2\atempo r8
+  r2
+  %%\atempo
+  r8
   \once \set doubleSlurs = ##t
   <bes' a'>(\mf |               % bar 16
     
@@ -57,12 +63,14 @@ violinone = \new Voice { \relative c''{
   <<
     {
       \oneVoice
-      \override TextSpanner #'(bound-details left text) = "rit."
-      \override TextSpanner #'(bound-details right text) = "a tempo"
+      %%\ritAtempoText
       %%\once \override TextSpanner #'to-barline = ##t
-      \tupletDown\times 2/3 { <g, d'\harmonic>4--\p <g e'\harmonic>4--\startTextSpan <a' d\harmonic>4-- } r4
+      \tupletDown\times 2/3 { <g, d'\harmonic>4--\p <g e'\harmonic>4--
+      %%\startTextSpan
+      <a' d\harmonic>4-- } r4
       \bar "||"
-      fis'8-.\stopTextSpan\dob\mf
+      fis'8-.\dob\mf
+      %%\stopTextSpan
     }
     \\
     {
@@ -187,19 +195,30 @@ violinone = \new Voice { \relative c''{
   
   %% page 2.7
   \mark #6
-  r16 gis''8.~\sf gis2\p\startTextSpan \breathe | % bar 89
-  g,8\dob\stopTextSpan r r4
-  \override TextSpanner #'(bound-details left text) = "accelerando"
-  f'8-.\upb\startTextSpan r |
+  r16 gis''8.~\sf gis2\p
+  %%\startTextSpan
+  \breathe | % bar 89
+  g,8\dob
+  %%\stopTextSpan
+  r r4
+  %%\accelAtempoText
+  f'8-.\upb
+  %%\startTextSpan r |
   <dis, gis>2.:32\sulpont |
   <dis gis\harmonic>16( c) r8 r2 |
-  r\stopTextSpan r8 <cis b'>\sf( |
+  r
+  %%\stopTextSpan
+  r8 <cis b'>\sf( |
   gis8)\p gis-. r2 |
 
   %% page 2.8
-  \override TextSpanner #'(bound-details left text) = "rit."
-  \tuplet 3/2 { fis''4\sulpont gis,\startTextSpan d, } r \bar "||" | % bar 95
-  r4\stopTextSpan r8 <ees aes\harmonic>\f r4 |
+  %%\ritAtempoText
+  \tuplet 3/2 { fis''4\sulpont gis,
+  %%\startTextSpan
+  d, } r \bar "||" | % bar 95
+  r4
+  %%\stopTextSpan
+  r8 <ees aes\harmonic>\f r4 |
   r4 d2:32\fp\sulpont |
   d16 r b'8~-^\fp\nat b4. cis8(->\f |
   fis\p a) r2 |
@@ -314,7 +333,7 @@ violinone = \new Voice { \relative c''{
   r2 r8 f\pizz\f |             % bar 147
   \time 2/4 r4 r16 fis,\arco\ff( g') r16\fermata \bar "||" |
   \time 3/4                     % missing in part
-  \tempo "Poco meno mosso"
+  %%\tempo "Poco meno mosso"
   r8 fis16\p( d,,) r2 |
   R2. |
   gis'16(\p a') r8 r2 |
@@ -351,7 +370,7 @@ violinone = \new Voice { \relative c''{
   <a, e\harmonic>8\f r r2 |
 
   %% page 3.8
-  \mark \default                % reharsal mark 10
+  \mark #10
   r4 r8 <fis, b\harmonic>\f-. r4 | % bar 160
   r <gis cis\harmonic>8--\dob\p q--\upb\f r4 |
   r <d g\harmonic>8--\p q--\f r4 |
@@ -366,7 +385,7 @@ violinone = \new Voice { \relative c''{
   \tuplet 5/4 { r16 a'-.\f dis,-. g,-. r } r2 |
   \tuplet 5/4 { r16 a'-. dis,-. g,-. r } r2 |
   \tuplet 5/4 { r16 a'-. dis,-. g,-. r } r4 r8 bes'\f |
-  \mark \default                % reharsal mark 11
+  \mark #11
   \tuplet 5/4 { r16 a-. dis,-. g,-. r } r2 |
 
   %% page 3.10
@@ -384,14 +403,18 @@ violinone = \new Voice { \relative c''{
 
   \tuplet 5/4 { r a,,(\f bes' g,) r }
   %% Mistake in part. Removed an extra r16
-  \accelAtempoText
-  \once \override TextSpanner #'(bound-details right text) = "Tempo 1º"
-  r dis'\p(\startTextSpan e' cis,) r4 |
+  %%\accelAtempoText
+  %%\once \override TextSpanner #'(bound-details right text) = "Tempo 1º"
+  r dis'\p(
+  %%\startTextSpan
+  e' cis,) r4 |
 
   %% page 3.12
   %% Mistake in part. Removed another extra r16
   r16 gis( fis' f,!) r4 r16 d'( c' b,)\breathe \bar "||" | % bar 183
-  r8\stopTextSpan <a d\harmonic>\f r4 r16 des'\upb(\p c,) r |
+  r8
+  %%\stopTextSpan
+  <a d\harmonic>\f r4 r16 des'\upb(\p c,) r |
   bes'( a,) r8 r d'16( cis,) r d'( c,) r |
   r a''( gis,) r r aes,( g,!) r r8 dis''16( f') |
 
@@ -405,8 +428,8 @@ violinone = \new Voice { \relative c''{
 
   %% page 4.2
   r8 \ottava #1 des'16-. c,-. \ottava #0 r2 | % bar 192.
-  \mark \default                            % reharsal mark 12
-  \tempo "Poco meno mosso"
+  \mark #12
+  %%\tempo "Poco meno mosso"
   R2. |
   r2 <f,,\harmonic c>4\pizz\p |
   R2. |
@@ -430,12 +453,13 @@ violinone = \new Voice { \relative c''{
   %% page 4.5
   %% f-. and fis-. are not marked stacatto in the reduction
   %% Double bar line in reduction
-  \mark \default                                                     % reharsal mark 13
+  \mark #13
   \time 2/4 \tuplet 5/4 { r16 dis''(\p b ais, ) r } r f-.\nat fis'-. r | % bar 213
   \time 3/4 r2 c'8\pizz\f r \bar "||" |
 
   %% g-- and a-- are accented with > in the part instead of tenuto.
-  \tempo "Tempo 1º" r4 \tuplet 3/2 { g--\arco\f bes'4.-> a,,8-- } | % bar 215
+  %%\tempo "Tempo 1º"
+  r4 \tuplet 3/2 { g--\arco\f bes'4.-> a,,8-- } | % bar 215
   \tuplet 5/4 { f':32\sulpont fis': gis,: d': b,: } r4 |
   \mark #14
   R2. |
@@ -564,7 +588,9 @@ e'16-.\dob\f e-. e-. r \tuplet 3/2 {
 %% page 5.5
 R2. |                         % bar 280
 \mark #19
-\tuplet 3/2 { r8 a-.\p\acel dis,,-. } r4 r8
+\tuplet 3/2 { r8 a-.\p
+%%\acel
+dis,,-. } r4 r8
 \once \set doubleSlurs = ##f \slurDashed \slurUp \tieDown
 <e~ a\harmonic>\f( |           % bar 281
 \tuplet 3/2 { <e a\harmonic>)\p \slurSolid \slurNeutral \tieNeutral
@@ -618,22 +644,34 @@ gis,2.:\fp\dob\sulpont |
 gis:\fp |
 
 %% page 5.9
-\ritAtempoText
-b16 r8. \tuplet 3/2 { dis''2--\startTextSpan e4-- } | % bar 306
-r8\stopTextSpan \accelAtempoText d\startTextSpan
+%%\ritAtempoText
+b16 r8. \tuplet 3/2 { dis''2--
+%%\startTextSpan
+e4-- } | % bar 306
+r8
+%%\stopTextSpan \accelAtempoText
+d
+%% \startTextSpan
 %% The acellerando starts in the second quaver (previous note d) in
 %% the reduction.
 r4 r8. ais16 |
 R2. |
 ees'16\ff( g,,) r8 r2 |
-r2\stopTextSpan r8 ees'->(\sf | % ees notated dis in reduction. Missing accent in part.
+r2
+%%\stopTextSpan
+r8 ees'->(\sf | % ees notated dis in reduction. Missing accent in part.
 <g, e>)\p                       % \p missing in part.
 q-- r \ottava #1 a''4.->\fp~ |
-\ritAtempoText a2.\startTextSpan \ottava #0 \breathe \bar "||" |
+%%\ritAtempoText
+a2.
+%%\startTextSpan
+\ottava #0 \breathe \bar "||" |
 %% last breathe mark missing in part.
 
 %% page 5.10
-ees,2.\p\stopTextSpan( |       % bar 313
+ees,2.\p(
+%%\stopTextSpan
+|       % bar 313
 aes'2.) \breathe |
 R2. |
 \tuplet 5/4 { e,,8:\pp\sulpont f': g,,: cis': ais': } b,4 |
