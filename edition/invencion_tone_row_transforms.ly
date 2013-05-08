@@ -13,26 +13,24 @@
 
 \version "2.17.14"
 
+%#(set-global-staff-size 14)
 
 \paper {
 
   #(set-paper-size "a3")
  
   indent = #0
-
-
-  left-margin = 32\mm
-  right-margin = 32\mm
+  left-margin = 16\mm
+  right-margin = 16\mm
 
 
   % Fonts.
-  myStaffSize = 20
   #(define fonts
      (make-pango-font-tree
       "Mint Spirit No 2"
       "Nimbus Sans"
       "Luxi Mono"
-      (/ myStaffSize 20)))
+      (/ staff-height pt 20)))
 
   ragged-right = ##f
 }
@@ -92,14 +90,15 @@ IandRI = \relative c'' {
   g f' e, \bar "||" |
 }
 
-reduction = #-2
+
+myReduction = #-2
 
 \score {
 
   \new StaffGroup \with {
     \remove "Time_signature_engraver"
-    %fontsize = \reduction
-    %\override StaffSymbol.staff-space = #(magstep reduction)
+    fontsize = \myReduction
+    \override StaffSymbol.staff-space = #(magstep myReduction)
   }
   {
     <<
@@ -119,6 +118,9 @@ reduction = #-2
   }
 
   \layout {
+    
+    %#(layout-set-staff-size 14)
+    
     \context {
       \Score
       \remove "Bar_number_engraver"
@@ -130,4 +132,4 @@ reduction = #-2
     }
   }
 }
-}
+
