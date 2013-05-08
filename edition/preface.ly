@@ -107,7 +107,7 @@
         The work is a string quartet of one single movement composed on quite
         strict twelve tone serial principles. The tone row is given by the
         composer explicitly in the manuscript, and reproduced here for
-        reference. Note that Pax explicitly marks the two hexachords.
+        reference. Note that Paz explicitly marks the two hexachords.
       }
       \line { \null }
       \line { \null }
@@ -142,7 +142,7 @@
       \line { Alex Voice (Westminster, London, UK) }
       \line { Peter Wannemacher (Lyman, Maine, USA) }
       \line { \null }
-      \line { Edition coordination and direction: }
+      \line { Edition concept, coordination, and direction: }
       \line { \null }
       \line { Ezequiel Birman }
       \line { \null }
