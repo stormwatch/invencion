@@ -1,72 +1,5 @@
-\version "2.16.2"
-
-pizz = ^\markup { \italic pizz }
-arco = ^\markup { \italic arco }
-arcobrac = ^\markup { \concat { [ \italic arco ] } }
-sulpont = ^\markup { \italic "sul pont." }
-spont = ^\markup { \italic "s. pont." }
-arcosulpont = ^\markup \left-column { \italic "arco"
-      			\line { \italic "sul pont." }}
-nat = ^\markup { \italic nat. }
-accel = ^\markup { \italic "accel." }
-acel = ^\markup { \italic "acelerando" }
-atempo = ^\markup { \bold "a tempo." }
-atpo = ^\markup { \bold "a tpo." } 
-piup = _\markup { \halign #0.5 { \concat { \italic "più " \dynamic p } } }
-piuf = _\markup { \halign #0.5 { \concat { \italic "più " \dynamic f } } }
-
-harmonicPitch = { }
-
-accelAtempoText = { }
-ritAtempoText = { }
-
-%showFirstLength = R1*30
-
-%%% double dot staccato
-%%% ( following http://lsr.dsi.unimi.it/LSR/Snippet?id=772 )
-staccTwo =
-#(define-music-function (parser location dots) (integer?)
-   (let ((script (make-music 'ArticulationEvent
-                             'articulation-type "staccato")))
-     (set! (ly:music-property script 'tweaks)
-           (acons 'stencil
-                  (lambda (grob)
-                    (let ((stil (ly:script-interface::print grob)))
-                      (let loop ((count (1- dots)) (new-stil stil))
-                        (if (> count 0)
-                            (loop (1- count)
-                                  (ly:stencil-combine-at-edge new-stil X RIGHT stil 0.2))
-                            (ly:stencil-aligned-to new-stil X CENTER)))))
-                  (ly:music-property script 'tweaks)))
-     script))
-%%% - end of script
-
-dob = \downbow
-upb = \upbow
-
-%%% to define time signature as markup [ see bar 126 ]
-%%% ( following http://lilypond.1069038.n5.nabble.com/How-to-input-a-time-signature-in-markup-td44757.html )
-
-#(define-markup-command (timesig layout props numerator denominator) 
-   (number? number?) 
-   (interpret-markup layout props 
-                     (markup 
-                      #:override '(baseline-skip . 0) 
-                      #:number 
-                      (make-center-column-markup 
-                       (map number->string (list numerator denominator)))))) 
-
-%%% definition ends
-
-
-%% ---------------- remove after amending ----------------
-
-
 violintwo = \new Voice { \relative c'{
     \set Staff.instrumentName = #"Violin 2 "
-
-\time 3/4
-
     dis8\f r8 r4 a8^"pizz." r8 |
     d'2.:32\arcosulpont\fp |
     r8 <b ais'>\pizz\f r4 r16 gis\arco\downbow gis\upbow r |
@@ -1328,5 +1261,3 @@ r2 \times 4/5 { r16 fis16\pp\sulpont cis' ais' r16 }
 R1*3/4*3 \bar "|."
 }
 }
-
-\score { \violintwo }
