@@ -1,15 +1,82 @@
+\version "2.16.2"
+
+pizz = ^\markup { \italic pizz }
+arco = ^\markup { \italic arco }
+arcobrac = ^\markup { \concat { [ \italic arco ] } }
+sulpont = ^\markup { \italic "sul pont." }
+spont = ^\markup { \italic "s. pont." }
+arcosulpont = ^\markup \left-column { \italic "arco"
+      			\line { \italic "sul pont." }}
+nat = ^\markup { \italic nat. }
+accel = ^\markup { \italic "accel." }
+acel = ^\markup { \italic "acelerando" }
+atempo = ^\markup { \bold "a tempo." }
+atpo = ^\markup { \bold "a tpo." } 
+piup = _\markup { \halign #0.5 { \concat { \italic "più " \dynamic p } } }
+piuf = _\markup { \halign #0.5 { \concat { \italic "più " \dynamic f } } }
+
+harmonicPitch = { }
+
+accelAtempoText = { }
+ritAtempoText = { }
+
+%showFirstLength = R1*30
+
+%%% double dot staccato
+%%% ( following http://lsr.dsi.unimi.it/LSR/Snippet?id=772 )
+staccTwo =
+#(define-music-function (parser location dots) (integer?)
+   (let ((script (make-music 'ArticulationEvent
+                             'articulation-type "staccato")))
+     (set! (ly:music-property script 'tweaks)
+           (acons 'stencil
+                  (lambda (grob)
+                    (let ((stil (ly:script-interface::print grob)))
+                      (let loop ((count (1- dots)) (new-stil stil))
+                        (if (> count 0)
+                            (loop (1- count)
+                                  (ly:stencil-combine-at-edge new-stil X RIGHT stil 0.2))
+                            (ly:stencil-aligned-to new-stil X CENTER)))))
+                  (ly:music-property script 'tweaks)))
+     script))
+%%% - end of script
+
+dob = \downbow
+upb = \upbow
+
+%%% to define time signature as markup [ see bar 126 ]
+%%% ( following http://lilypond.1069038.n5.nabble.com/How-to-input-a-time-signature-in-markup-td44757.html )
+
+#(define-markup-command (timesig layout props numerator denominator) 
+   (number? number?) 
+   (interpret-markup layout props 
+                     (markup 
+                      #:override '(baseline-skip . 0) 
+                      #:number 
+                      (make-center-column-markup 
+                       (map number->string (list numerator denominator)))))) 
+
+%%% definition ends
+
+
+%% ---------------- remove after amending ----------------
+
+
 violintwo = \new Voice { \relative c'{
     \set Staff.instrumentName = #"Violin 2 "
+
+\time 3/4
+
     dis8\f r8 r4 a8^"pizz." r8 |
-    d'2.:32^"arco"^"sul pont."\fp |
-    r8 <b ais'>^"pizz."\f r4 r16 gis^"arco"\downbow gis\upbow r |
+    d'2.:32\arcosulpont\fp |
+    r8 <b ais'>\pizz\f r4 r16 gis\arco\downbow gis\upbow r |
     r8. <c bes'>16-.\downbow r4 <a a>:32\fp |
     <a a>:32\fp <gis fis'>8[-.\downbow r16 <gis fis'>]-.\downbow r4 |
     R2. |
 
     %% page 1.2
     %% bar 7
-    r8 <d' c'>^"pizz."\f b,4.^"arco" r8 |
+    r8 <d' c'>^"pizz."\f b,4.\arco r8 |
     <dis' cis'>\downbow\f r8 r2 |
     R2. |
     <fis, gis,>16\downbow\f <fis gis,>\upbow r8 r2 |
@@ -23,24 +90,26 @@ violintwo = \new Voice { \relative c'{
     ^"accelerando"
     %\startTextSpan
     r |
-    a''2.:32\flageolet^"sul pont."\p |
+    a''2.:32\flageolet\sulpont\p |
 
     %% page 1.3
     %% bar 15
-    f,16(^"nat."\ff gis,) r8 r2 |
+    f,16\nat(\ff gis,) r8 r2 |
     r2
     %\stopTextSpan
     ^"a tempo"
-    r8 g'(\mf |
-    <b d>)\p <b d>-- r <gis fis'>4.~\fp |
+    r8 g'_(\mf |
+    \stemUp
+		<b d>)\p <b d>-- r <gis fis'>4.~\fp |
     <gis fis'>2.^"rit." \bar "||"
-    f?8\downbow\mf r r4 r8 ais\downbow\sf |
-    r4 a16^"pizz."\p bes' r8 r16 f, fis' r |
-    ees^"arco"-. d,-. r8 r4 r16 bes' a, r |
+	\stemNeutral
+    	f?8\downbow\mf r r4 r8 ais\downbow\sf |
+    r4 a16\pizz\p bes' r8 r16 f, fis' r |
+    ees\arco-. d,-. r8 r4 r16 bes' a, r |
     
     %% page 1.4
     %% bar 22
-    gis'8^"pizz." r r4 r8 f'16(^"arco" e,) |
+    gis'8\pizz r r4 r8 f'16(\arco e,) |
     d'( cis,) r8 r dis' r8. <d, a'\harmonic>16-.\f |
     \time 1/4 R4 |
     \time 3/4
@@ -69,23 +138,27 @@ violintwo = \new Voice { \relative c'{
     \oneVoice
     r8 r4 f,?8^"pizz." r8 |
     \mark #1
-    g2.:32^"arco"^"sul pont"\fp |
-    dis'8^"nat." r  r4 b8 r |
+    g2.:32\arcosulpont\fp |
+    dis'8\nat r  r4 b8 r |
   
     %% page 1.5
     %% bar 28
     \times 3/5 { b,4--\f ais'-- cis,-- g'-- f'-- } |
-    e,-- r \times 4/5 { e8:32[^"sul pont."\p f':32 g,16:32 |
+    e,-- r \times 4/5 { e8:32[\sulpont\p f':32 g,16:32 |
     g16:32 cis8:32 ais,:32] } gis''16-.\f gis-. gis8-. r gis-.\sf |
     r2 cis,,16(\p d') r8 |
     %% no esta claro si es r8 o r16
     r e,16( f') r4 r8 b,16( ais,) |
-    r  cis'( d') r b,2:32\fp |
+    r  cis'( d') r b,2:32\fp\sulpont |
     
     %% page 1.6
     %% bar 34
     \time 2/4 <c ees>:32\fp |
-    \time 3/4 <b' d>16(^"nat."\downbow\f f,?) r8 r <b g'>16\downbow\f <b g'>\upbow\p r4 |
+    \time 3/4 
+		\stemDown
+		<b d>16^(\nat\downbow\f f?) r8 r 
+		<b g'>16\downbow\fp <b g'>\upbow r4 |
+		\stemNeutral
     \mark #2
     \time 2/4 R2 |
     \time 3/4 r8 <d? c'>16\downbow\f <d c'>\upbow r8 <d c'>16\downbow fis\upbow r4 |
@@ -94,23 +167,28 @@ violintwo = \new Voice { \relative c'{
     <c' b'>16\downbow\f q\upbow r8 r2 | % bar 40
     ais16(\p b') r8 r8. f,16 <gis fis'>8.-- q16-- \bar "||" |
     r dis'(\upb g, a) r f'\dob gis,\upb r b,4:32 |
-    \tuplet 3/2 { dis'-- g,,-- a'-- } % Last tenuto missing in part.
+    \times 2/3 { dis'-- g,,-- a'-- } % Last tenuto missing in part.
       r16 f?\dob gis'\upb r |
 
 %% page 1.7
-    r8 c,\upb r16 fis\dob f? r a,\dob gis'8.\upb | % bar 44
-    gis,,16\upb( dis' c!) r r gis!\upb( dis'' c,?) gis''\dob cis,,8.\upb~ |
+    r8 c,\upb r16 dis\dob f? r a,\dob gis'8.\upb | % bar 44
+    gis,,16\upb( dis' c!) r r gis!\upb( dis'' c,?) 
+		\stemDown
+		gis''\dob cis,,8.\upb~ \stemNeutral|
     \time 1/4 cis8 cis16\f-> r |
 
 %staff #8, measure 47
 \mark #3  
-r8  a'16(\p\upbow g es)[ r8 f16]( gis[ b) r16 d,]( |
+	\time 3/4
+	\set subdivideBeams = ##t	\set baseMoment = #(ly:make-moment 1 8)
+	r8  a'16(\p\upbow g es)[ r8 f16]( gis[ b) r16 d,]( |
   
 % 48
-  g[ a) r a,]( g'[ dis) b'( gis] 
+  g[ a) r a]( 
+	\set subdivideBeams = ##f	g[ dis) b'( gis!] 
   
 % page 1 system 9 continue measure 48
-f16[) r8  gis16]( |
+f16[) r8  gis!16]( |
 
 %49
 c d) r8 r16 gis fis, r r4 |
@@ -142,7 +220,9 @@ r8 fis,16(\upbow c'!) |
 dis,16( e') gis,( a') r8 des,16\upbow( c,) r16 es'([ dis,)] r |
 
 %55
-d([ es') r d,(]  es')[ e,!( f')] r16 r4 |
+	\set subdivideBeams = ##t
+	d([ es') r d,(]  
+	\set subdivideBeams = ##f	es')[ e,!( f')] r16 r4 |
 
 %56
 r4 r16 g,(\upbow b) r r8 g16(\upbow b)
@@ -151,16 +231,17 @@ r4 r16 g,(\upbow b) r r8 g16(\upbow b)
 r8. bes16(\upbow g[ e]) r gis(\upbow  fis d c8) |
 \stemNeutral
 %58
-cis16( a' ais fis)
+cis16( a' ais fis)   
 
 %page 1 system 11 middle of measure 58
-r16 cis( a' bes, fis'8) d16( e |
+r16 cis( a' bes, fis'8) d16( e |		
+% is this an (a natural) as the last semiquaver of the second beat?
 
 %59
 b'[ cis,) r gis']( fis cis' ais) r f( cis'! b ais!) |
 \time 2/4
 %60
-r gis( e b' g8) bes16( c) |
+r gis[( e b'] g8) bes16( d) |
 
 %61
 R2*1 |
@@ -174,7 +255,7 @@ R2*1 |
 gis'16)r  a,,\upbow( g') r dis'\upbow( cis gis) r8 b,16\upbow( d! |
 
 %64
-e) r16 gis'\upbow( cis, fis)[ r b,8]-^^"pizz" r4 |
+e) r16 gis'\upbow( cis, fis)[ r b,8]-^\pizz r4 |
 
 %65
 R2. |
@@ -189,7 +270,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 %% it looks like Alex got the bar count wrong. +1 to all measures. -- EB
 
 % bar 67
-	r16\p f'?\( b, cis g?16\)[ r8 f'16]( a,?)[ r8 c?16](
+	r16 f'?\p\( b, cis g?16\)[ r8 f'16]( a,?)[ r8 c?16](
 
 % system 2
 % bar 68
@@ -206,7 +287,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	r16 e? f' r r16 gis,( b) r16
 	\stemDown
 	\set subdivideBeams = ##f 
-	\times 4/5 { gis8:32[ a': fis,16:~
+	\times 4/5 { gis8:32[ a': fis,16:
 % bar 72
 		fis!16: c''8: d,,:] } r16 dis'^. r8
 
@@ -214,15 +295,15 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 72 (continued)
 	\times 2/3 { gis,8:16 f'!: fis,!: }
 % bar 73
-	r16\f b16\dob r8 r4 b16\dob r8.
+	r16 b16\f\dob r8 r4 b16\dob r8.
 % bar 74
 	\stemNeutral
 	b16^^( gis) r8 r16 f!16\upb a\dob r16 
 	g16\dob dis'\upb r8
 % bar 75
-	r16 gis, d' cis, r8. 
+	r16 gis,_. d'_. cis,_. r8. 
 		\stemDown
-		gis'!16 a'^.[ dis,^.] r8
+		gis'!16^. a'^.[ dis,^.] r8
 % bar 76
 	\stemNeutral
 	\times 2/3 { cis,4_- bis'_- dis,_- } a''16( gis,) r8
@@ -235,11 +316,11 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 79
 	a2:32 r8 <cis dis,>\f\nat
 % bar 80
-	r4 r16 a,16\dob a\upb r r8. <cis dis,>16
+	r4 r16 a,16\dob\f a\upb r r8. <cis dis,>16
 % bar 81
 	r4 <d, d>2:32\fp\sulpont
 % bar 82
-	<g e>8\dob[ r16 <g e>16\dob] r2
+	<g e>8\f\dob[ r16 <g e>16\dob] r2
 	\time 2/4
 
 % system 4
@@ -283,7 +364,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 90
 	cis,8\dob\stopTextSpan r r4 e8^.\upb^\accel r8
 % bar 91
-	d'2.:32\sulpont
+	d'?2.:32\sulpont
 % bar 92
 	d16\nat\f( fis,,) r8 r2
 % bar 93
@@ -308,7 +389,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	c8\p e,_.\)
 		\override TupletBracket #'direction = #UP 
 		\stemDown
-		\times 4/5 { gis8:32\sulpont\fp[ fis': f,: cis': dis,:] }
+		\times 4/5 { gis8:32\sulpont\fp[ fis': f,!: cis': dis,:] }
 % bar 100
 	\stemNeutral
 	e'4 \times 4/5 { gis,8:32\fp a,: fis': b: ais': }
@@ -341,9 +422,10 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 108
    	\override TupletBracket #'bracket-visibility = ##t
 	\stemNeutral
-	r4 \times 4/6 { e4:32 f': \stemDown g,: 
+	r4 \times 4/6 { e4:32\f f': \stemDown g,: 
 % bar 109
 	\mark #7
+	\stemNeutral
 	\time 2/4
 	dis':32 d,!: c' }
 % bar 110
@@ -366,34 +448,35 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	e,4 r2
 	\bar "||"               % the other parts lack this double bar line
 % bar 116
-	r16\pizz\p d16 ees' r16 r4 a,,16:32\f\arcosulpont dis: g: cis:
+	r16 d16\pizz\p ees' r16 r4 a,,16:32\f\arcosulpont dis: g: cis:
 % bar 117
-	f16 r8. r16\pizz\p g16 fis, r16 b4\dob\f(
+	f16 r8. r16 g16\pizz\p fis, r16 b4\dob\f(
 % bar 118
 	d4\p) e,16:32\sulpont ais: d: gis r4
 % bar 119
-	gis,16\nat( cis8) a16( b8) f16_. r16 
+	gis,16\nat\f( cis8) a16( b8) f16_. r16 
 
 % system 9
 % bar 119 (continued)
-	e16( cis'8) fis,16_(
+	e16( cis'!8) fis,16_(
 % bar 120
 	gis'8.) a16( dis,8) e16^. r16 
+	\set subdivideBeams = ##t
 	\set baseMoment = #(ly:make-moment 1 8)
 	f,?16[( b) r ais]_(
 % bar 121
 	\set baseMoment = #(ly:make-moment 1 4)
 	d?8.) dis'16 r4 r16\p fis,,_. b_. f_.
 % bar 122
-	ees16 r8. r4 gis,16:32\fp\sulpont b: f': cis':
+	ees16_. r8. r4 gis,16:32\fp\sulpont b: f': cis':
 % bar 123
-	r16 aes16( g,) r16 r8. dis'16\upb_( e') r8.
+	r16 aes16\nat( g,) r16 r8. dis'16\upb_( e') r8.
 % bar 124
-	r8. cis16\dob^( gis'16) r8.
+	r8. cis16\fp\dob^( gis'16) r8.
 
 % system 9
 % bar 124 (continued)
-	fis,16:32\sulpont\fp b e ais
+	fis,16:32\sulpont\fp b: e: ais:
 % bar 125
 	\mark #8
    	\override TupletBracket #'bracket-visibility = ##f
@@ -405,11 +488,11 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	\override TupletBracket #'bracket-visibility = ##t
 	r16 a( f!8) \times 2/3 { g'!4^- cis,^- e^- }
 % bar 127
-	r16\f bes'^^ a,^^ r16 r8\p gis'16 d, r8 dis'^^~
+	r16 bes'\f^^ a,^^ r16 r8 gis'16\p d, r8 dis'^^~
 % bar 128 --EB
         \compoundMeter #'((4 4) (1 8))
 	dis16 r8. \stemDown
-	r8\ff d,!16\dob ees' r8 bes'8\f\( ees,4\p~ ees16\) r16
+	r8 d,!16\ff\dob ees' r8 bes'8\f\( ees,4\p~ ees16\) r16
 
 %%% ------------------ PAGE 3 -------------------------	
 % page 3
@@ -433,13 +516,13 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	\time 3/4
 	\mark #9
 	gis16\f( b) r8 r b16\p( fis') 
-		r16 \stemUp d?16\dob\f gis, r16
+		r16 \stemUp d?16\dob\f gis,! r16
 % bar 136
 	\stemDown
-	r8\pizz ees'16 d, r4 
+	r8 ees'16\pizz d, r4 
 %% 	there is probably an arco instruction missing in the part here:
 %%	I have included it
-	r8\ff d16\dob\arcobrac ees'!\upb
+	r8 d16\ff\dob\arcobrac ees'!\upb
 % bar 137	
 	\stemUp
 	r4 r8 dis,8\dob\f r16 
@@ -465,10 +548,10 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
  
 % system 3
 % bar 144
-	r8 ees'16^. d,^. r8 ees'16^. d,^. r8 e!8( |
+	r8 ees'16^. d,^. r8 ees'16^. d,^. r8 e!8\upb( |
 % bar 145
         \compoundMeter #'((3 4) (1 8))
-	a8^.) r8 r4 <d, b>4:32 <d b>8:32 |
+	a8^.) r8 r4 <d, b>4:32\ff <d b>8:32 |
 % bar 146
 	\time 3/4
    	\override TupletBracket #'bracket-visibility = ##f
@@ -509,9 +592,9 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 150
 	R1*3/4
 % bar 151
-	r4 ees,,8\pizz r8 r4
+	r4 ees,,8\p\pizz r8 r4
 % bar 152
-	r4 r8 ees'16 d, r4
+	r4 r8 ees'16\f d, r4
 % bar 153
 	<aes'' f>16\arco\dob q\upb r8 r4 r8 gis,8
 % bar 154 
@@ -546,7 +629,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 166
 	r4 r8 f''\p r4
 % bar 167
-	r16 f,\f( e,) r16 r2
+	r16 f,\f\arco( e,) r16 r2
 
 % system 8
 % bar 168
@@ -560,7 +643,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	<<
 		{
 		\stemDown
-		<g, e'\harmonic>8\p 
+		<g e'\harmonic>8\p 
 		<g e'\harmonic>\f    	}    \\    	{
       	\override Stem #'stencil = ##f      	\override Flag #'stencil = ##f      	\teeny      	\once \override ParenthesesItem #'padding = #0.2      	\override ParenthesesItem #'font-size = #2      	\parenthesize d''  	
 		}
@@ -595,7 +678,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	\times 4/5 { r16 g,\arco\( fis' e'\) r16 } r8 cis'8\pizz r4
 % bar 179
 	\set subdivideBeams = ##t
-	<cis, dis,>16\fp\dob <cis dis,>_.\upb_( <cis dis,>_.) r16
+	<cis, dis,>16\fp\dob\arcobrac <cis dis,>_.\upb_( <cis dis,>_.) r16
 		r16 <cis dis,>_.\upb\( <cis dis,>_. <cis dis,>_.\)
 		\set baseMoment = #(ly:make-moment 1 8)
 		<bes g>\dob\fp[ q\upb r q\upb]
@@ -612,7 +695,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
     \override TextSpanner #'(bound-details right text) = " a tempo"
 	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
 	\times 4/5 { r16 b,,\f\( cis' ais,\) r16 } 
-		r4 r16 a'!\nat\startTextSpan\( bes' g,\)
+		r4 r16 a'!\nat\p\startTextSpan\( bes' g,\)
 % bar 183
 	r4 r16 c\( b' d,,\) r4 \breathe \bar "||"
 % bar 184
@@ -622,7 +705,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 185
 	r16 a'16( gis,) r16 r8. \stemUp des''16_( c,) r des'( c,)
 % bar 186
-	r8. bes''16^( a,) r8. r16 \stemDown d,( ees') r16
+	r8. \stemDown bes''16^( a,) r8. r16 d,( ees') r16
 % bar 187
 	r8 aes16\f( g,) r4 r16 \stemNeutral cis,\p( d') r16
 % bar 188
@@ -705,16 +788,16 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % bar 209
 	e,,4\arco r4 <a\harmonic d,>8_-\p <a\harmonic d,>\f
 % bar 210
-	a'16\p( fis,) r8 r2
+	a'16\p( fis,\f) r8 r2
 % bar 211
-	ais8\pizz r gis_-\p gis_-\f r4
+	ais8\pizz r gis_-\p\arcobrac gis_-\f r4
 % bar 212
 	r2 d''8^-\p d^-\f
 % bar 213
 	\time 2/4
 	\override TupletBracket #'direction = #DOWN
 		\times 4/5 { r16 cis,16\p\sulpont\( g f\) r16 } 
-			r16 f16\nat fis' r
+			r16 f16\nat\f fis' r
 % bar 214
 	\time 3/4
 	R1*3/4
@@ -759,7 +842,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 
 % system 5
 % bar 221
-	\times 4/5 { gis,8:32 a': fis,: c': d,: } r8
+	\times 4/5 { gis,8:32\pp a': fis,: c': d,: } r8
 		<aes'\harmonic ees>8\p 
 % bar 222
 	r2 \times 4/5 { f8:32\pp[ fis': gis,16:
@@ -796,10 +879,19 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	\times 4/5 { fis'8:32\pp a,: gis,: c': d,: } 
 		r8 <aes'\harmonic ees>8\p
 % bar 232
+%%%% tweak to beaming/stem lengths - ALV
+	\once \override Beam #'positions = #'(5.8 . 5.8)
+%%%% end to tweak to beaming/stem lengths
+
 	\times 4/5 { c8:32\pp b,: d': gis: fis,: } 
 		r8 <bes\harmonic f>8\p
 % bar 233
-	r4 \times 4/5 { b,8:32\pp c': g,: bes'': a,: } 
+	r4 
+%%%% tweak to beaming/stem lengths - ALV
+	\once \override Beam #'positions = #'(6.8 . 6.8)
+%%%% end to tweak to beaming/stem lengths
+
+\times 4/5 { b,8:32\pp c': g,: bes'': a,: } 
 % bar 234
 	r8 <g\harmonic d>\p r4
 		\times 4/5 { gis,8:\pp[ a': fis16:	
@@ -814,6 +906,10 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 		r8 e''\p
 % bar 237
 	\stemUp
+%%%% tweak to beaming/stem lengths - ALV
+	\once \override Beam #'positions = #'(6.2 . 6.2)
+%%%% end to tweak to beaming/stem lengths
+
 	\times 4/5 { dis,8:\pp e': cis,: a''8: bes,: } r8
 		<c,\harmonic g>8\p
 % bar 238
@@ -833,6 +929,9 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 % system 8
 % bar 242
 	\stemDown	
+%%%% tweak to beaming/stem lengths - ALV
+	\once \override Beam #'positions = #'(-6 . -6)
+%%%% end to tweak to beaming/stem lengths
 	\times 4/5 { f,8:\pp fis': gis,: c,8: b': } r8
 		\stemUp
 		<g\harmonic d>8\p
@@ -976,6 +1075,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 		\repeat tremolo 2 fis'16-\staccTwo #2
 		\repeat tremolo 2 a16-\staccTwo #2 \)
 		}
+	\stemNeutral
 	gis'8^. r8 
 	\override TupletBracket #'bracket-visibility = ##t
 	\stemDown
@@ -1000,13 +1100,13 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 		}
 	\stemDown
 	\override TupletBracket #'bracket-visibility = ##t
-	\times 2/3 { r8 dis^^\ff\nat[ e'^^] }
+	\times 2/3 { r8 dis^^\ff[ e'^^] }
 % bar 280
 	R1*3/4
 % bar 281
 	\mark #19
 	\stemNeutral
-	f,,?4.:32\fp\acel a:\fp
+	f,,?4.:32\fp\acel <a a>:\fp
 % bar 282
 	<bes g>4.:32\fp <des bes>:\fp
 % bar 283
@@ -1020,7 +1120,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 	\stemDown
 	r16\atpo g'16\p^. cis^. r16 r4 r16 f,^.\upb fis'^. r16
 % bar 286
-	r4 r8 b,8^.\pizz r4
+	r4 r8 b,8^.\p\pizz r4
 % bar 287
 	<g' e>4.\f\arco\dob r8 <c d,>\pizz r8
 % bar 288
@@ -1097,11 +1197,11 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
     \override TextSpanner #'(bound-details right text) 
 		= \markup { \bold " a tpo." }
 	\override TextSpanner #'(bound-details right attach-dir) = #LEFT
-	fis,16\p( cis'8) r4 r8 b,16\startTextSpan( cis')
+	fis,16\p( c'8) r4 r8 b,16\startTextSpan( cis')
 % bar 308
 	\override TupletBracket #'bracket-visibility = ##t
 	\override TupletBracket #'direction = #UP
-	\times 3/5 { g4_>\f gis'^> a,4. fis''8^. c,4^> }
+	\times 3/5 { g4_>\f gis'^> \stemDown a,4.^> \stemNeutral fis''8^. c,4^> }
 % bar 309
 	d16\ff( cis,) r8 r2
 % bar 310
@@ -1142,7 +1242,7 @@ r16 fis'[\downbow\p eis,]\upbow r16 r4 r16 b'8.->\ff |
 
 % system 11
 % bar 318
-	r8 dis,16\f e' r4 a,16 bes' r8
+	r8 dis,16\f\nat e' r4 a,16 bes' r8
 % bar 319
 	\times 2/3 { e,4^-\p dis,_- cis'^- } r4
 
@@ -1172,7 +1272,7 @@ g2.:32\fp\spont
 % system 1
 % bar 325
 r16 d,16\p\sulpont( ees') r16 r4 r8
-\once \set doubleSlurs = ##f
+\set doubleSlurs = ##f
 \slurDashed 
 \slurUp
 < a,\harmonic d,~ >8\nat( 
@@ -1181,7 +1281,7 @@ r16 d,16\p\sulpont( ees') r16 r4 r8
 \slurSolid
 \slurNeutral
 % bar 327
-r8 b'8\f r4 b16^. b^. r8
+r8 b'8\f r4 b16^> b^> r8
 % bar 328
 \stemDown
 r8 <b, f>4:32\fp\sulpont d4.:\fp
@@ -1197,7 +1297,7 @@ a,16^^\nat( gis,) r8 r4
 e''16\ff\dob( dis,) r8 r16 d'!16 gis, r16 r4
 % bar 332
 %% is the articulation a \thumb or an \open here
-gis'8\f r8 r8 g,!\pizz\p_\thumb r4
+gis'8\f r8 r8 g,!\pizz\p_\flageolet r4
 % bar 333
 \mark #23
 \stemDown
@@ -1226,4 +1326,7 @@ r8 <gis\harmonic dis>8\arco\p_.
 r2 \times 4/5 { r16 fis16\pp\sulpont cis' ais' r16 }
 % bar 338-340
 R1*3/4*3 \bar "|."
-}}
+}
+}
+
+\score { \violintwo }
