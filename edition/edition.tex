@@ -1,0 +1,173 @@
+%%
+%% invención para cuarteta de cuerda
+%% juan carlos paz
+%% 1961
+%%
+%% Edition
+%%
+%%
+%% [acb]
+
+\setuppapersize[A3][A3]
+
+\setuplayout[
+  topspace=60mm,
+  backspace=30mm
+]
+
+\setuppagenumbering[state=stop]
+
+\usemodule[simplefonts]
+\setmainfont[cynthoproregular]
+\setupbodyfont[60pt]
+
+%% rgb scale 0 - 1 == 0 - 255
+\definecolor[acbbrown][r=.671,g=.475,b=.310]
+\definecolor[acbcrimson][r=.602,g=.137,b=.297]
+\setupcolors[state=start]
+
+% Coloured background for cover page
+\setupbackgrounds
+        [page]
+        [background=color,backgroundcolor=acbbrown]
+
+\starttext
+
+{\color[acbcrimson]{juan carlos paz}}
+\blank
+invención
+
+para cuarteto de cuerda
+\blank[160mm]
+
+\setupbodyfont[28pt]
+{\color[acbcrimson]{{\backslash qgem \{quinteto globales ediciones musicales\}}}
+
+
+% Preface in English
+
+\page 
+
+\setuplayout[
+  width=middle,
+  topspace=25mm,
+  backspace=50mm,
+  location=middle,
+]
+
+\setmainfont[mintspiritno2]
+\setupbodyfont[12pt]
+\setupwhitespace[small]
+
+% Revert to plain background after colour cover.
+
+\setupbackgrounds
+       [page]
+       [background=none]
+
+\startalignment[middle]
+{\bfc Preface}
+\blank
+{\tfb invention for string quartet
+\blank
+Juan Carlos Paz
+\blank[2mm]
+1961}
+\stopalignment
+
+\setupwhitespace[small]
+
+\blank[8mm]
+
+{\it Life}
+
+Juan Carlos Paz [1898---1972] was an Argentine composer, critic,
+essayist, and music theorist. Paz was noted for a diverse range of
+modernist musical styles, introducing many of the new European
+movements in composition into Argentina. Strongly influenced by
+Schoenberg and Webern, he was notably the first to introduce twelve
+tone techniques to Argentina, and made heavy use of dodecaphony from
+1934 until the early 1960's, when in an interesting anti-symmetry he
+was the first to reject serialism in Argentina. Although relatively
+unknown in the Anglophone world Paz was a highly influential figure in
+modern Argentine musical development.
+\blank
+
+{\it Edition}
+
+This score has been prepared directly from the composer's autograph
+manuscript. The work was composed by Paz in a very densely notated
+two-stave reduction, with fair copy parts existing in the composer's
+own hand. This edition was prepared with comparative reference to both
+the reduction and the parts, as there are quite a few discrepancies
+between them. Where doubts exist as to what Paz intended or
+differences could not be clearly resolved, notes to this effect are
+provided in the Appendix. Every effort has been made to preserve the
+exact notational details used by Paz in the original manuscript parts.
+\blank
+
+{\it Piece}
+
+The work is a string quartet of one single movement composed on quite
+strict twelve tone serial principles. The tone row is given by the
+composer explicitly in the manuscript, and reproduced here for
+reference.
+\blank
+(insert lilypond snippet of tone row from ms.)
+\blank
+According to annotations in the manuscript, the work was composed in
+1961, started on 4 June 61 and finished on 12 July 61. Hence it
+represents the late period of Paz and shows that he was still using
+serial techniques at this late stage.
+\blank
+
+{\it Acknowledgments}
+
+Music engraving by:
+\startlines
+Andrew Bernard (Melbourne, Victoria, Australia)
+Ezequiel Birman (Wilde, Buenos Aires, Argentina)
+Ryan McClure (Chambersburg, Philadelphia, USA)
+Alex Voice (Westminster, London, UK)
+Peter Wannemacher (Lyman, Maine, USA)
+\stoplines
+Edition concept, coordination, and direction:
+\blank
+Ezequiel Birman
+\blank
+
+{\it Colophon}
+
+The open source music engraving program Lilypond was used to prepare
+the score and parts, with Git used as a version control and
+collaboration tool for the globally distributed group of music
+engravers who set this score. Using a text-based toolchain and
+contemporary software development tools proves that this choice of
+technical platform allows parallel score development and a coordinated
+distributed effort that is difficult if not impossible to achieve with
+alternative software applications.
+
+The music font is Lilypond's Emmentaler, developed using Metafont, and
+text markup is set in the open source font Mint Spirit No 2 from
+Arkandis Digital Foundry. Typesetting for the edition done with \ConTeXt.
+\blank
+
+Andrew Bernard, April 2013
+
+% Preface in Spanish
+
+\page
+
+\startalignment[middle]
+{\bfc Prefacio}
+\blank
+{\tfb invención para cuarteto de cuerda
+\blank
+Juan Carlos Paz
+\blank[2mm]
+1961}
+\stopalignment
+
+
+
+\stoptext
