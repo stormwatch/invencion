@@ -33,6 +33,8 @@
 
 \starttext
 
+% Front cover
+
 {\color[acbcrimson]{juan carlos paz}}
 \blank
 invención
@@ -43,6 +45,34 @@ para cuarteto de cuerda
 \setupbodyfont[28pt]
 {\color[acbcrimson]{{\backslash qgem \{quinteto globales ediciones musicales\}}}
 
+% Frontispiece
+
+\page
+
+% Revert to plain background after colour cover.
+
+\setupbackgrounds
+       [page]
+       [background=none]
+
+\setuplayout[
+width=middle,
+topspace=0mm,
+%location=middle
+]
+
+\setuppagenumbering
+    [state=stop]
+
+\setupcaptions
+    [number=none]
+
+\useexternalfigure[portrait][paz]
+\useexternalfigure[sig][signature]
+
+
+\placefigure{}{\externalfigure[portrait][width=260mm]}
+%\placefigure{}{\externalfigure[sig][width=80mm]}
 
 % Preface in English
 
@@ -59,11 +89,6 @@ para cuarteto de cuerda
 \setupbodyfont[12pt]
 \setupwhitespace[small]
 
-% Revert to plain background after colour cover.
-
-\setupbackgrounds
-       [page]
-       [background=none]
 
 \startalignment[middle]
 {\bfc Preface}
