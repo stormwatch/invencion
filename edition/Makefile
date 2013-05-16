@@ -9,7 +9,7 @@
 
 SHELL = /bin/sh
 
-TEX=context
+TEX = context
 
 LOG = log
 
@@ -44,7 +44,10 @@ edition.pdf:	edition.tex
 .PHONY:	clean
 clean:
 	@echo removing all PDF files and temporaries
-	$(RM) $(EDITION) *.tmp *.tuc *.tui *.mp
+	$(RM) $(EDITION) *.tmp *.tuc *.tui *.mp *.log
 
 help:
-	@echo to be completed
+	@echo Run \'make\' to build the edition PDF.
+	@echo Run \'make clean\' to remove all the temporary files generated
+	@echo by ConTeXt as well as the PDF output. The log file \'$(LOG)\' \
+	is retained.
