@@ -4,7 +4,7 @@ Some notes on production and design.
 
 [acb]
 
-Typography
+* Typography
 
 The cover uses the font family Cyntho Pro. The regular and italic styles of
 this font are freely downloadble from:
@@ -15,23 +15,19 @@ or
 
 http://www.fontshop.com/fonts/downloads/mint_type/cyntho_regular_and_italic_pro/
 
-Score
+* Score
 
 The score uses Mint Spirit from Arkandis Digital Foundry.
 
 http://arkandis.tuxfamily.org/
 
 
-Size
+* Size
 
-The edition is A3. Home printers can't bleed to the edge, so the colour
-region is purposely inset by 10mm. If we print this commercially I
-would prefer to bleed the colour out to the edge.
+The edition is A3 size.
 
+* Technology
 
+The edition is produced with ConTexT.
 
-
-
-
-
-
+http://www.contextgarden.net/
