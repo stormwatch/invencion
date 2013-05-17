@@ -5,15 +5,24 @@
 %%
 %% Edition
 %%
-%%
 %% [acb]
 
 \setuppapersize[A3][A3]
 
+% global layout
 \setuplayout[
   topspace=60mm,
-  backspace=30mm
+  backspace=50mm,
+  width=middle,
+  location=middle
 ]
+
+% cover layout
+\definelayout[cover][
+  backspace=30mm,
+  width=250mm
+]
+
 
 \setuppagenumbering[state=stop]
 
@@ -35,6 +44,8 @@
 
 % Front cover
 
+\setuplayout[cover]
+
 {\color[acbcrimson]{juan carlos paz}}
 \blank
 invención
@@ -49,41 +60,29 @@ para cuarteto de cuerda
 
 \page
 
+\setuplayout[reset]
+
 % Revert to plain background after colour cover.
 
 \setupbackgrounds
-       [page]
-       [background=none]
-
-\setuplayout[
-width=middle,
-topspace=0mm,
-%location=middle
-]
-
-\setuppagenumbering
-    [state=stop]
+  [page]
+  [background=none]
 
 \setupcaptions
-    [number=none]
+  [number=none]
 
-\useexternalfigure[portrait][paz]
+\useexternalfigure[portrait][paz.jpg]
 \useexternalfigure[sig][signature]
 
+\placefigure{}{\externalfigure[portrait][width=120mm]}
 
-\placefigure{}{\externalfigure[portrait][width=260mm]}
-%\placefigure{}{\externalfigure[sig][width=80mm]}
+\placefigure{}{\externalfigure[sig][width=80mm]}
+
 
 % Preface in English
 
 \page 
 
-\setuplayout[
-  width=middle,
-  topspace=25mm,
-  backspace=50mm,
-  location=middle,
-]
 
 \setmainfont[mintspiritno2]
 \setupbodyfont[12pt]
@@ -193,6 +192,19 @@ Juan Carlos Paz
 1961}
 \stopalignment
 
+% Back cover
 
+\page
+
+\setuplayout[cover]
+
+\setupbodyfont[28pt]
+
+\setupbackgrounds
+        [page]
+        [background=color,backgroundcolor=acbbrown]
+
+%{\color[acbcrimson]{{\backslash qgem \{quinteto globales ediciones musicales\}}}
+back cover
 
 \stoptext
