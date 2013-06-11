@@ -1,17 +1,21 @@
 pizz = ^\markup { pizz. }
 arco = ^\markup { arco }
-arcobrac = ^\markup { "[arco]" }
+arcobrac = ^\markup { \concat { [ \italic arco ] } }
 spont = ^\markup { "s. pont." }
 sulpont = ^\markup { "sul pont." }
 arcosulpont = ^\markup { \override #'(baseline-skip . 2.5)
                          { \column { arco "sul pont." } } }
-nat = ^\markup { nat. }
+semprespontbrac = ^\markup { \italic "(sempre s. pont.)" }
+natbrac = ^\markup { \concat { [ \italic nat ] } }
+pbrac = _\markup { \concat { ( \dynamic p ) } }
+fbrac = _\markup { \halign #0.0 { \concat { ( \dynamic f ) } } }
+nat = ^\markup { \italic nat. }
 accel = ^\markup { "accel." }
 acel = ^\markup { "acelerando" }
 atempo = ^\markup { "a tempo" }
 atpo = ^\markup { "a tpo." } 
-piup = _\markup { \italic "più" \dynamic p }
-piuf = _\markup { \italic "più" \dynamic f }
+piup = _\markup { \halign #0.5 { \concat { \italic "più " \dynamic p } } }
+piuf = _\markup { \halign #0.5 { \concat { \italic "più " \dynamic f } } }
 
 %%% double dot staccato AKA double tongue stacatto
 %%% ( following http://lsr.dsi.unimi.it/LSR/Snippet?id=772 )
