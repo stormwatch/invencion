@@ -27,7 +27,8 @@ violinone = \new Voice { \relative c''{
   %%\ritAtempoText
   %%\once \override TextSpanner #'to-barline = ##t
   cis2\upb
-  %%\startTextSpan \breathe | % bar 12
+  %%\startTextSpan
+  \breathe | % bar 12
       
   %% \override BreathingSign #'text = \markup {
   %%   \line {
@@ -203,7 +204,8 @@ violinone = \new Voice { \relative c''{
   r r4
   %%\accelAtempoText
   f'8-.\upb
-  %%\startTextSpan r |
+  %%\startTextSpan
+  r |
   <dis, gis>2.:32\sulpont |
   <dis gis\harmonic>16( c) r8 r2 |
   r
