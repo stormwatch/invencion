@@ -6,7 +6,8 @@
 * Invención
 ** Pending Tasks
 *** TODO Tempi modifiers
-**** TODO Sistematic use of \ritAtempoText and \acellAtempoTex
+*** DONE Sistematic use of \ritAtempoText and \acellAtempoTex
+CLOSED: [2013-06-20 jue 00:42]
 *** TODO Normalize tuplets
 **** TODO Always use brackets
 **** TODO correct straddling tuplets
@@ -15,7 +16,8 @@ the tuplet.
 *** TODO Typography
 Discuss on rational use of typography. ie: italics for techniques,
 bold for tempi.
-**** TODO Use Mint Spirit from [[http://arkandis.tuxfamily.org/][Arkandis]]
+**** DONE Use Mint Spirit from [[http://arkandis.tuxfamily.org/][Arkandis]]
+CLOSED: [2013-06-20 jue 00:41]
 *** TODO Harmonic pitches
 Compare all the solutions for harmonic pitches (parenthezised) and
 decide which one to keep.
@@ -28,6 +30,75 @@ Normalize and correct measure and system (staff) counts.
 *** TODO Keep up to date with latest [[http://www.lilypond.org/development.html][stable devel]]
 **** MAYBE Provide some script to convert between \times and \tuplet back and forth for those not wishing to upgrade
 *** TODO Proofread parts                                    :Alex:Ezequiel:
+**** TODO Pitches
+Checking the latest version for correct notes against both reduction
+and parts, especially where in the parts bars are broken over two
+lines and it is unclear if accidentals pertain to the continued bar –
+and making a decision in the cases of anomalies (I am not qualified to
+do this)
+**** TODO Bowing and dynamics
+Identifying where bowing directions and dynamic markings are omitted
+from the manuscript parts – rather often! I have taken to inserting
+them when they appear clearly in the reduction even if not in the part
+**** TODO Articulations
+Sorting out confusion between articulations at places between the
+reduction and parts.
+
+*** TODO Page breaks
+    Deciding on the most practical page breaks for the parts.
+
+*** TODO Tremolos
+Looking at the unbeamed tremolando stems and choosing whether or not
+to extend them for clarity – I've been through all the beamed stems
+already and made compensations where Lilypond has not quite managed.
+
+*** TODO Reharsal Marks
+Deciding where mark [A] might be – we start with mark [B] at the moment!
+*** TODO Tempi and Spanners
+Cleaning up some of the tempo indications and text spanners – a bit more LilyPond tweaking is needed here still.
+
+*** TODO Tuplets
+Amending some of the tuplet brackets (now in accordance with Paz's
+part manuscripts) on those occasions where the music would flow
+better.
+**** Beaming
+Improving the angle of some of the tuplet brackets and some of the
+kneed beaming.
+
+*** TODO Cues
+Deciding whether additional cue lines in parts would be helpful to
+players – Paz gives a few in the parts, but it might be kind to offer
+a few more!
+
+*** TODO Harmonics
+Would the harmonic diamond note heads be easier to read if very
+slightly larger and so more open?
+
+*** TODO Positioning
+**** TODO Dynamics
+Raising some of the dynamic higher and before some notes that lie on
+low ledger lines – similarly the other way with some bowing directions
+over high notes
+
+**** TODO Padding
+Choosing or not to pad particular neighbouring bowing instructions if
+it would give it a better impression when they are vertically aligned.
+
+**** TODO Reharsal marks distance
+Deciding what to do with some of the rehearsal marks which currently
+look down from a great distance on the stave they belong to.
+
+*** TODO Rythm
+Correlating homorhythmic passges, where Paz may have notated them the
+same in the reduction, but differently in the parts.
+
+*** TODO Pitch
+Considering enharmonic equivalents, where they differ in parts and
+reduction
+
+*** TODO /Code/
+How best to present (or not) the alternative codas, and have separated
+the parts out.
 
 * Org                                                              :noexport:
 #+DESCRIPTION: Readme first, TODO list and text notes.
