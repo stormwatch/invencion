@@ -45,7 +45,7 @@ tempi = {
   s4									| % bar 24
   \time 3/4
   s2.									| % bar 25
-  \mark \default   		% mark 1
+  \mark 1
   s2.									| % bar 26
   s2.*7
   \time 2/4
@@ -53,7 +53,7 @@ tempi = {
   \time 3/4	
   s2.									| % bar 35
   \time 2/4
-  \mark \default   	% mark 2
+  \mark 2
   s2									| % bar 36
   \time 3/4
   s2.*5
@@ -63,13 +63,13 @@ tempi = {
   \time 1/4
   s4									| % bar 46
   \time 3/4
-  \mark \default   	% mark 3		| % bar 47
+  \mark 3		| % bar 47
   s2.*4
   \time 2/4
   s2									| % bar 51
   \time 3/4
   s2.*5
-  \mark \default   		% mark 4
+  \mark 4
   s2.									| % bar 57
   s2.*2
   \time 2/4
@@ -78,7 +78,7 @@ tempi = {
   \time 3/4								
   s2.									| % bar 62
   s2.*4
-  \mark \default   		% mark 5
+  \mark 5
   s2.									| % bar 67
   s2.*9									| % bar 76
   s2
@@ -90,7 +90,7 @@ tempi = {
   \time 3/4
   s2.									| % bar 84
   s2.*4									| % bar 88
-  \mark \default   		% mark 6
+  \mark 6
   s4
   \ritAtempoText
   s2\startTextSpan					| % bar 89
@@ -108,7 +108,7 @@ tempi = {
   \mark \markup{ \box \bold      E }		| % bar 95
   s4\stopTextSpan s2						| % bar 96
   s2.*12									| % bar 108
-  \mark \default   		% mark 7
+  \mark 7
   \time 2/4 
   s2									| % bar 109
   \time 3/4
@@ -117,7 +117,7 @@ tempi = {
   \bar "||"
   \mark \markup{ \box \bold      F }		| % bar 115
   s2.*9									| % bar 124
-  \mark \default   		% mark 8
+  \mark 8
   s2.									| % bar 125
   s2.*2									| % bar 127
   \compoundMeter #'((4 4) (1 8))
@@ -127,7 +127,7 @@ tempi = {
   s2.*4									| % bar 133
   \time 2/4
   s2									| % bar 134
-  \mark \default   		% mark 9
+  \mark 9
   \time 3/4 
   s2.									| % bar 135
   s2.*9									| % bar 144
@@ -144,49 +144,46 @@ tempi = {
   \tempo "Poco meno mosso"
   s2.									| % bar 149
   s2.*10									| % bar 159
-  \mark \default   		% mark 10
+  \mark 10
   s2.									| % bar 160
   s2.*11									| % bar 171
-  \mark \default   		% mark 11
+  \mark 11
   s2.									| % bar 172
   s2.*9									| % bar 181
   s4
   \accelAtempoText
+  \override TextSpanner #'(bound-details right text) = \markup { \bold " Tempo 1º \note #"4" = 100" }
   s2\startTextSpan					| % bar 182
   s2.	
   \bar "||"							
   \mark \markup{ \box \bold      H }		| % bar 183
-  \tempo "Tempo 1º" 4 = 100
-  s4\stopTextSpan s2					| % bar 184
+  %% \tempo "Tempo 1º" 4 = 100
+  s4 \stopTextSpan s2 |         % bar 184
   s2.*8
   \bar "||"							| % bar 192
-  \mark \default   		% mark 12
+  \mark 12
   \tempo "Poco meno mosso"
-  s2.									| % bar 193
-
-  s2.*11									| % bar 204
-  \mark \default   		% mark 13
-  s2.									| % bar 205
-  s2.*7									| % bar 212
-  \mark \default   		% mark 14
-  \time 2/4
-  s2									| % bar 213
-  \time 3/4
-  s2.		
+  s2.*12 |                      % bar 204
+  \mark 13 s2.*8
+  \time 2/4 s2 |                % bar 213
+  \time 3/4 s2. |               % bar 214
+  
+  s2.*4
+  \time 2/4 s2 |                % bar 218
+  \time 3/4 s2.
   \bar "||"
-  \mark \markup{ \box \bold      I }		 % bar 214
+  \mark \markup{ \box \bold      I }		 % bar 215
   \tempo "Tempo 1º" 4 = 100
-  s2.									| % bar 215
+  s2.									| % bar 216
   s2.*2									| % bar 217
   \time 2/4
   s2									| % bar 218
-  \time 3/4
-  s2.									| % bar 219
+  \time 3/4 s2.	| % bar 219
   s2.*8									| % bar 227
-  \mark \default   		% mark 15
+  \mark 15
   s2.									| % bar 228
   s2.*7									| % bar 235
-  \mark \default   		% mark 16
+  \mark 16
   s2.									| % bar 236
   s2.*8									| % bar 244
   \time 2/4

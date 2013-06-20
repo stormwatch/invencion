@@ -443,13 +443,13 @@ violinone = \new Voice { \relative c''{
 
   %% page 4.3
   \repeat unfold 3 { \tuplet 5/4 { r16 d-.\f c,-. fis-. r } r2 } | % bars 199 to 201
-  cis'8\p r r4 r8 fis' |
+  cis'8\p\pizz r r4 r8 fis' |
   R2. |
   b,16(\f\arco ais,) r8 g'--\p g--\f r4 |
 
   %% page 4.4
   \repeat unfold 5 { \tuplet 5/4 { r16 b(\f\sulpont d, gis,) r } r2 } | % bars 205 to 209
-  fis''16(\p c,)\f r8  dis'--\p dis--\f r4 |
+  fis''16(\p\sulpont c,)\f r8  dis'--\p dis--\f r4 |
   \repeat unfold 2 { \tuplet 5/4 { r16 cis(\f\arco g f,) r } r2 } | % bars 211 and 212
 
   %% page 4.5
